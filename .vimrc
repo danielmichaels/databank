@@ -1,6 +1,5 @@
-" Maintainer: danielmichaels 
-"        URL: https://github.com/danielmichaels/Setup-Tools
-"        Last Update: 10 Oct 2017
+" Maintainer: Danielmichaels 
+"        URL: https://github.com/danielmichaels
 "                                                                            "
 "                                                                            "
 " Sections:                                                                  "
@@ -35,6 +34,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'marcopaganini/termschool-vim-theme'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'KeitaNakamura/neodark.vim'
+Plugin 'junegunn/seoul256.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 " all plugins must be above this line or they will fail
 call vundle#end() "required
 
@@ -47,25 +49,17 @@ filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 " messed up pasting of HTML/CSS templates
 set pastetoggle=<F2>
 "call togglebg#map("<F5>")
-
 " In Makefiles DO NOT use spaces instead of tabs
 autocmd FileType make setlocal noexpandtab
 " In Ruby files, use 2 spaces instead of 4 for tabs
 autocmd FileType ruby setlocal sw=2 ts=2 sts=2
-
+"
 " Enable omnicompletion (to use, hold Ctrl+X then Ctrl+O while in Insert mode.
 set ofu=syntaxcomplete#Complete
 set clipboard=unnamed
-" pythonn with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this)) 
-EOF
+"
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+"
 "autocomplete
 let g:ycm_autoclose_preview_window_after_completion=1
 "
@@ -81,16 +75,8 @@ syntax enable             " enable syntax highlighting (previously syntax on).
 "colorscheme neodark
 "colorscheme solarized
 colorscheme termschool
-"colorscheme desert       " set colorscheme
-"if has('gui_running')
-  "  set background=light
- "   colorscheme solarized
-"else
-" colorscheme zenburn
-"endif
-"call togglebg#map("<F5>")
-"colors zenburn
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
+
 " Prettify JSON files
 autocmd BufRead,BufNewFile *.json set filetype=json
 autocmd Syntax json sou ~/.vim/syntax/json.vim
@@ -141,6 +127,8 @@ set smartindent           " automatically insert one extra level of indentation
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
 au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
@@ -164,10 +152,8 @@ au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
 " Use UNIX (\n) line endings.
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+au BufNewFile,BufRead *.js,*.html,*.css
+    \ setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 let mapleader = "\<Space>"
 inoremap jk <ESC>
