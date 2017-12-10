@@ -124,4 +124,4 @@ Packages:
 	
 ## 12. 
 
-Import pycharm config from GH
+This is within BB private repo, currently only for linux.
