@@ -11,4 +11,6 @@ for i in range(101):
         print(f'{i}: Fizz')
     elif i % 5 == 0:
         print(f'{i}: Buzz')
+    else:
+        print(f'{i}: ')
 
