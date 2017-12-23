@@ -1,0 +1,131 @@
+#!python3
+
+"""
+The interest due on a loan can be calculated according to the simple formula:
+
+I = P × R × T
+
+where I is the interest paid, P is the amount borrowed (principal), R is the interest rate, and T is the length of the loan.
+
+It is common for loans to be amortized which allows the lendor to collect their interest early in the loan period. We will ignore amortization
+for the purpose of this program. For bonus points, figure out how to do amortization and print an amortization schedule with the payment schedule.
+There is an excellent explanation of the amortization formula at Interest.com.
+
+Write a program that calculates the interest due on a loan and prints a payment schedule. Make sure you round the output to two decimal places.
+For bonus points, figure out how to calculate amortization and print an amortization schedule.
+It will be your responsibility to find an appropriate format for the amortization printout.
+
+Make sure you handle the dollars correctly! Floating point numbers in Python (and other programming languages) are subject to rouding errors
+when doing floating point arithmetic. For an explanation of this phenomenon, see the floating point arithmetic section of the Python tutorial.
+One of the most common strategies to solve the problem is to do all money-related calculations in pennies, converting back to dollars when the
+results are displayed. If you don't handle this issue correctly, your program won't give correct answers in all cases.
+
+Sample session
+
+Loan calculator
+
+Amount borrowed: 100
+Interest rate: 6
+Term (years): 1
+
+Amount borrowed:    $100.00
+Total interest paid:  $6.00
+
+           Amount     Remaining
+Pymt#       Paid       Balance
+-----      -------    ---------
+  0        $ 0.00      $106.00
+  1        $ 8.84      $ 97.16
+  2        $ 8.84      $ 88.32
+  3        $ 8.84      $ 79.48
+  4        $ 8.84      $ 70.64
+  5        $ 8.84      $ 61.80
+  6        $ 8.84      $ 52.96
+  7        $ 8.84      $ 44.12
+  8        $ 8.84      $ 35.28
+  9        $ 8.84      $ 26.44
+ 10        $ 8.84      $ 17.60
+ 11        $ 8.84      $  8.76
+ 12        $ 8.76      $  0.00
+
+"""
+
+
+def main():
+    p, r, t = get_info()
+    # calc = calculation(100, .06, 1)
+    printer(p, r, t)
+    calc = calculation(p, r)
+    schedule(calc, t)
+
+
+def printer(p, r, t):
+    print('#' * 40)
+    print('Simple Interest Calculator')
+    print('#' * 40)
+    print()
+    print(f'Starting Balance: {p}')
+    print(f'Interest Rate: {r}')
+    print(f'Length of contract in months: {t}')
+    print()
+    print('Pymt#\tAmount Paid\t\tBalance')
+
+
+def get_info():
+    """
+    Interrogates the user for Principal, Interest Rate and Length (time) of
+    contract
+
+    :return:
+    principal in float, interest rate in float and time (or length) as int.
+    """
+    p = float(input('What is the Principal? >> '))
+    r = float(input(
+        'What is your Interest Rate? (in percent i.e \'6.5\' for 6.5% >> '))
+    t = int(input('Total length of contract? >> '))
+
+    r = r / 100 # returns something like this: r = R/100 = 5.5%/100 = 0.055)
+
+    return p, r, t
+
+
+def calculation(p, r):
+    """
+
+    :param:
+    i = p × r × t
+    where i is the interest paid, p is the amount borrowed (principal), r is
+    the interest rate, and t is the length of the loan.
+
+    time (or length) is removed as the user enters it in get_info
+
+    :return:
+    interest percentage plus the principal
+
+    """
+    i = p * r
+
+    # print(i + p) # adds interest to the principle
+    return i + p
+
+
+def schedule(calc, length):
+    """
+    Given a interest calculation a schedule of repayment can be determined.
+    Outputs the minimum repayments for a set time.
+
+    :param calc:
+    Takes arg from calculation.
+    :param length:
+    Give a time to repay will get the minimum repayment. Calculated in Months.
+
+    :return:
+    """
+    payment = float(calc) / length
+    for i in range(length):
+        calc = calc - payment
+        print(f'\t{i}\t\t{payment:.2f}\t\t\t{calc:.2f}')
+
+
+if __name__ == '__main__':
+    main()
