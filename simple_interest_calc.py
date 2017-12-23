@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-#TODO: Amortization
+# TODO: Amortization
 """
 It is common for loans to be amortized which allows the lendor to collect their interest early in the loan period. We will ignore amortization
 for the purpose of this program. For bonus points, figure out how to do amortization and print an amortization schedule with the payment schedule.
@@ -96,7 +96,6 @@ def get_info():
 
 def calculation(p, r):
     """
-
     :param:
     i = p × r × t
     where i is the interest paid, p is the amount borrowed (principal), r is
