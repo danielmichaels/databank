@@ -1,5 +1,6 @@
-#!python3
+#!/usr/bin/env python3
 
+#TODO: Amortization
 """
 It is common for loans to be amortized which allows the lendor to collect their interest early in the loan period. We will ignore amortization
 for the purpose of this program. For bonus points, figure out how to do amortization and print an amortization schedule with the payment schedule.
@@ -17,11 +18,6 @@ n = number of payments or periods
 Write a program that calculates the interest due on a loan and prints a payment schedule. Make sure you round the output to two decimal places.
 For bonus points, figure out how to calculate amortization and print an amortization schedule.
 It will be your responsibility to find an appropriate format for the amortization printout.
-
-Make sure you handle the dollars correctly! Floating point numbers in Python (and other programming languages) are subject to rouding errors
-when doing floating point arithmetic. For an explanation of this phenomenon, see the floating point arithmetic section of the Python tutorial.
-One of the most common strategies to solve the problem is to do all money-related calculations in pennies, converting back to dollars when the
-results are displayed. If you don't handle this issue correctly, your program won't give correct answers in all cases.
 
 Sample session
 
@@ -73,10 +69,14 @@ def printer(p, r, t):
 def get_info():
     """
     Interrogates the user for Principal, Interest Rate and Length (time) of
-    contract
+    contract.
+
+    p: Principal, r: Interest Rate, t: Time in Months
 
     :return:
     principal in float, interest rate in float and time (or length) as int.
+    r (interest rate) is divided by 100 for better further processing in
+    calculation func.
     """
 
     print()
@@ -89,7 +89,7 @@ def get_info():
         'What is your Interest Rate? (in percent i.e \'6.5\' for 6.5% >> '))
     t = int(input('Total length of contract? >> '))
 
-    r = r / 100 # returns something like this: r = R/100 = 5.5%/100 = 0.055)
+    r = r / 100  # returns something like this: r = R/100 = 5.5%/100 = 0.055)
 
     return p, r, t
 
@@ -102,15 +102,15 @@ def calculation(p, r):
     where i is the interest paid, p is the amount borrowed (principal), r is
     the interest rate, and t is the length of the loan.
 
-    time (or length) is removed as the user enters it in get_info
+    t (time) is removed as the user enters it in get_info.
 
     :return:
-    interest percentage plus the principal
+    interest percentage plus the principal in cents.
 
     """
     i = p * r
 
-    return (i + p) * 100 # put into cents to defeat rounding errors
+    return (i + p) * 100  # put into cents to defeat rounding errors
 
 
 def schedule(calc, length):
@@ -123,7 +123,6 @@ def schedule(calc, length):
     :param length:
     Give a time to repay will get the minimum repayment. Calculated in Months.
 
-    :return:
     """
     payment = float(calc) / length
     for i in range(length):
