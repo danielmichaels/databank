@@ -1,15 +1,18 @@
 #!python3
 
 """
-The interest due on a loan can be calculated according to the simple formula:
-
-I = P × R × T
-
-where I is the interest paid, P is the amount borrowed (principal), R is the interest rate, and T is the length of the loan.
-
 It is common for loans to be amortized which allows the lendor to collect their interest early in the loan period. We will ignore amortization
 for the purpose of this program. For bonus points, figure out how to do amortization and print an amortization schedule with the payment schedule.
 There is an excellent explanation of the amortization formula at Interest.com.
+
+Amortization forumla:
+
+A = p(1 + r)n / (1 + r)n - 1
+
+A = amount per period
+p = initial principal
+r = interest rate
+n = number of payments or periods
 
 Write a program that calculates the interest due on a loan and prints a payment schedule. Make sure you round the output to two decimal places.
 For bonus points, figure out how to calculate amortization and print an amortization schedule.
@@ -53,19 +56,15 @@ Pymt#       Paid       Balance
 
 def main():
     p, r, t = get_info()
-    # calc = calculation(100, .06, 1)
     printer(p, r, t)
     calc = calculation(p, r)
     schedule(calc, t)
 
 
 def printer(p, r, t):
-    print('#' * 40)
-    print('Simple Interest Calculator')
-    print('#' * 40)
     print()
     print(f'Starting Balance: {p}')
-    print(f'Interest Rate: {r}')
+    print(f'Interest Rate: {r * 100}%')
     print(f'Length of contract in months: {t}')
     print()
     print('Pymt#\tAmount Paid\t\tBalance')
@@ -79,6 +78,12 @@ def get_info():
     :return:
     principal in float, interest rate in float and time (or length) as int.
     """
+
+    print()
+    print('#' * 40)
+    print('Simple Interest Calculator')
+    print('#' * 40)
+    print()
     p = float(input('What is the Principal? >> '))
     r = float(input(
         'What is your Interest Rate? (in percent i.e \'6.5\' for 6.5% >> '))
@@ -105,8 +110,7 @@ def calculation(p, r):
     """
     i = p * r
 
-    # print(i + p) # adds interest to the principle
-    return i + p
+    return (i + p) * 100 # put into cents to defeat rounding errors
 
 
 def schedule(calc, length):
@@ -123,8 +127,8 @@ def schedule(calc, length):
     """
     payment = float(calc) / length
     for i in range(length):
-        calc = calc - payment
-        print(f'\t{i}\t\t{payment:.2f}\t\t\t{calc:.2f}')
+        print(f'\t{i}\t\t{payment / 100:.2f}\t\t{calc / 100:.2f}')
+        calc = float(calc) - payment
 
 
 if __name__ == '__main__':
