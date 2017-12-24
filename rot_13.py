@@ -6,11 +6,12 @@ functions = cleartext, ciphertext, display_message
 
 key = 'abcdefghijklmnopqrstuvwxyz'
 
+
 def main():
     cleartxt = cleartext()
     cipher = encrypt(cleartxt)
     plain = decrypt(cipher)
-    printer(cipher, plain)
+    printer(cipher, plain, cleartxt)
 
 
 def cleartext():
@@ -29,26 +30,33 @@ def encrypt(cleartext):
 
     result = ''
 
-    for i in cleartext.lower():
-        indx = (key.index(i) + 13) % 26
-        result += key[indx]
+    for letter in cleartext.lower():
+        try:
+            i = (key.index(letter) + 13) % 26
+            result += key[i]
+        except ValueError:
+            result += ' '
 
     return result.lower()
 
 
 def decrypt(cipher):
-
     result = ''
 
-    for i in cipher.lower():
-        indx = (key.index(i) - 13) % 26
-        result += key[indx]
+    for letter in cipher.lower():
+        try:
+            i = (key.index(letter) - 13) % 26
+            result += key[i]
+        except ValueError:
+            result += ' '
 
-    return result.lower()
+    return result
 
-def printer(cipher, plain):
-    print(cipher)
-    print(plain)
+
+def printer(cipher, plain, cleartext):
+    print(f'Message: {cleartext}')
+    print(f'Cipher: {cipher}')
+    print(f'Plaintext: {plain}')
 
 
 def display_message():
