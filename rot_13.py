@@ -15,6 +15,11 @@ def main():
 
 
 def cleartext():
+    """
+    Asks user for message to encrypt.
+
+    :return: Plaintext message for encryption.
+    """
     message = input('Enter the message: ')
 
     return message
@@ -22,10 +27,10 @@ def cleartext():
 
 def encrypt(cleartext):
     """
-    take the message, split into individual char, rotate, put back
+    Encrypts the message using ROT13.
 
-    :param cleartext:
-    :return:
+    :param cleartext: Takes message arg.
+    :return: encrypted message in lowercase.
     """
 
     result = ''
@@ -41,6 +46,12 @@ def encrypt(cleartext):
 
 
 def decrypt(cipher):
+    """
+    Decrypts the message
+
+    :param cipher: Takes cipher text
+    :return: decrypted plaintext message.
+    """
     result = ''
 
     for letter in cipher.lower():
@@ -57,10 +68,6 @@ def printer(cipher, plain, cleartext):
     print(f'Message: {cleartext}')
     print(f'Cipher: {cipher}')
     print(f'Plaintext: {plain}')
-
-
-def display_message():
-    pass
 
 
 if __name__ == '__main__':
