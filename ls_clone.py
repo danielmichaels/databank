@@ -3,13 +3,7 @@ import datetime
 import os
 import pwd
 
-""" What does 'ls' do?
-A very basic implementation of the unix 'ls' tool.
-
-BASIC: lists directory --> it needs a start point --> prints file names
-ADV: prints, rwx, size, last edited, owner, group
-
-"""
+""" This is a replication of unix List Structure tool. """
 
 
 def main():
@@ -37,15 +31,18 @@ def printer(command, list_directory):
         list_directory.ls_l()
 
     elif command == 'ls -la':
-        print(list_directory.ls_la())
+        list_directory.ls_la()
 
     else:
         print('Command not recognised, did you mean \'ls\'?')
 
 
 class ListStructure():
+    """ Class that creates the ls, ls -l and ls -la methods. """
 
     def __init__(self):
+        """ The args search through the current directory for files. """
+
         self.list_l = [i for i in os.listdir() if not i.startswith('.')]
         self.list_la = [i for i in os.listdir()]
 
@@ -70,11 +67,25 @@ class ListStructure():
             print(f"{info['permissions']}\t{info['uid']} {info['gid']}\t"
                   f"{info['size']}B\t{info['time']}\t {i}")
 
-            # return info
+        # return info
 
     def ls_la(self):
-        info = self.ls_l()
-        return info
+        info = dict()
+        ls = self.list_la
+
+        for i in ls:
+            info['permissions'] = (oct(os.lstat(i).st_mode))[-4:]
+            info['size'] = os.path.getsize(i)
+            info['time'] = ListStructure.convert_time(i)
+            info['uid'] = pwd.getpwuid(os.stat(i).st_uid).pw_name
+            info['gid'] = os.getgid()  # find the gid name rather than number.
+            info['file'] = i
+            print(f"{info['permissions']}\t{info['uid']} {info['gid']}\t"
+                  f"{info['size']}B\t{info['time']}\t {i}")
+
+
+
+        # return info
 
         # print(info)
 
