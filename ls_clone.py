@@ -22,14 +22,13 @@ def main():
 def cli():
     """ Where user inputs ls commands """
     command = input('>> ')
+    # command = 'ls -l' # testing
+    # command = 'ls -la' # testing
     return command
 
 
 def printer(command, list_directory):
     """ Return the ls command"""
-    # ls = 'ls'
-    # ls_l = 'ls -l'
-    # ls_la = 'ls -la'
 
     if command == 'ls':
         print(list_directory.ls())
@@ -38,7 +37,7 @@ def printer(command, list_directory):
         list_directory.ls_l()
 
     elif command == 'ls -la':
-        list_directory.ls_la()
+        print(list_directory.ls_la())
 
     else:
         print('Command not recognised, did you mean \'ls\'?')
@@ -46,34 +45,38 @@ def printer(command, list_directory):
 
 class ListStructure():
 
+    def __init__(self):
+        self.list_l = [i for i in os.listdir() if not i.startswith('.')]
+        self.list_la = [i for i in os.listdir()]
+
     def ls(self):
         """ Unix most basic implementation of the 'ls' command. """
-        list_directory = [i for i in os.listdir() if
-                          not i.startswith('.')]
-        # print(list_directory)
 
-        return list_directory
+        return self.list_l
 
     def ls_l(self):
         """ Outputs 'ls -l' unix tool. """
         info = dict()
 
-        ls = self.ls()
+        ls = self.list_l
 
         for i in ls:
             info['permissions'] = (oct(os.lstat(i).st_mode))[-4:]
-            info['size'] =  os.path.getsize(i)
-            info['time'] = ListStructure.convert_time(i) # This doesn't look very pythonic...
-            # info['uid'] = os.getuid()
+            info['size'] = os.path.getsize(i)
+            info['time'] = ListStructure.convert_time(i)
             info['uid'] = pwd.getpwuid(os.stat(i).st_uid).pw_name
-            # pwd.getpwuid(os.stat(i).st_uid).pw_name
-            # this will return user name rather than number.
-            info['gid'] = os.getgid()
+            info['gid'] = os.getgid()  # find the gid name rather than number.
+            info['file'] = i
             print(f"{info['permissions']}\t{info['uid']} {info['gid']}\t"
                   f"{info['size']}B\t{info['time']}\t {i}")
 
+            # return info
+
     def ls_la(self):
-        pass
+        info = self.ls_l()
+        return info
+
+        # print(info)
 
     def convert_time(file):
         """ Helper function for time conversion. """
