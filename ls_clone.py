@@ -17,7 +17,7 @@ def cli():
     """ Where user inputs ls commands """
     command = input('>> ')
     # command = 'ls -l' # testing
-    # command = 'ls -la' # testing
+    # command = 'ls -la'  # testing
     return command
 
 
@@ -82,12 +82,6 @@ class ListStructure():
             info['file'] = i
             print(f"{info['permissions']}\t{info['uid']} {info['gid']}\t"
                   f"{info['size']}B\t{info['time']}\t {i}")
-
-
-
-        # return info
-
-        # print(info)
 
     def convert_time(file):
         """ Helper function for time conversion. """
