@@ -15,9 +15,9 @@ def main():
 
 def cli():
     """ Where user inputs ls commands """
-    command = input('>> ')
+    # command = input('>> ')
     # command = 'ls -l' # testing
-    # command = 'ls -la'  # testing
+    command = 'ls -la'  # testing
     return command
 
 
@@ -42,19 +42,16 @@ class ListStructure():
 
     def __init__(self):
         """ The args search through the current directory for files. """
-
         self.list_l = [i for i in os.listdir() if not i.startswith('.')]
         self.list_la = [i for i in os.listdir()]
 
     def ls(self):
         """ Unix most basic implementation of the 'ls' command. """
-
         return self.list_l
 
     def ls_l(self):
         """ Outputs 'ls -l' unix tool. """
         info = dict()
-
         ls = self.list_l
 
         for i in ls:
@@ -83,9 +80,9 @@ class ListStructure():
             print(f"{info['permissions']}\t{info['uid']} {info['gid']}\t"
                   f"{info['size']}B\t{info['time']}\t {i}")
 
+    @staticmethod
     def convert_time(file):
         """ Helper function for time conversion. """
-
         t = os.path.getmtime(file)
         utcts = datetime.datetime.utcfromtimestamp(t)
         fmt = '%-d %b %H:%M'
