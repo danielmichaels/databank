@@ -4,7 +4,7 @@
 class Employee:
     """Base class for Employee object."""
 
-    raise_percentage = 1.04  # Class Attribute - it will remain constant across the whole class
+    raise_percentage = 1.04  # Class Attribute
 
     def __init__(self, first, last, pay, hours_worked):
         self.first = first
@@ -20,42 +20,46 @@ class Employee:
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_percentage)
 
+    def __repr__(self):
+        return 'Employee: {} {}, ${}p.a. , {}'.format(
+            self.first, self.last, self.pay, self.email)
+
+    def __str__(self):
+        return 'this is the __str__ representation'
+
 
 class Developer(Employee):
     """Developer class."""
 
     def __init__(self, first, last, pay, hours_worked, language='Python'):
         super().__init__(first, last, pay, hours_worked)
-        # super takes the parents
+        # super allows MRO to change dynamically with parent. Delegates method
+        # calls to parent/ sibling type. By not naming parent explicitly code
+        # is more maintainable.
         self.language = language
 
 
 class Executive(Employee):
     """Executive class."""
-    def __init__(self, first, last, pay, hours_worked, bonus=None):
+
+    bonus = 1.07
+
+    def __init__(self, first, last, pay, hours_worked):
         super().__init__(first, last, pay, hours_worked)
-        self.bonus = bonus
 
     def apply_bonus(self):
-        self.bonus = int(self.pay * self.bonus)
+        self.pay = int(self.pay * self.bonus)
 
 
 test1 = Employee('Roger', 'Ramjet', 50000, 35)
 dev1 = Developer('Alan', 'Turing', 33000, 65)
-exec1 = Executive('David', 'Thorn', 100000, 70, 1.3)
-print(test1.email)
-print(dev1.fullname())
-print(test1.pay)
-print(test1.hours_worked)
-print(test1.fullname())
+exec1 = Executive('David', 'Thorn', 100000, 70)
+
+print(f'test: {test1.pay}\ndev: {dev1.pay}\nexec: {exec1.pay}')
+print('applying raises and bonuses.')
 test1.apply_raise()
 dev1.apply_raise()
-
-print(test1.pay)
-print(dev1.pay)
-dev1.language = 'Scala'
-print(dev1.language)
-print(f'exec without bonus {exec1.pay}')
-print(exec1.bonus)
 exec1.apply_bonus()
-print(f'wtih bonus: {exec1.pay}')
+print(f'test: {test1.pay}\ndev: {dev1.pay}\nexec: {exec1.pay}')
+
+print(exec1)
