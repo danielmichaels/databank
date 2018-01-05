@@ -15,9 +15,10 @@ def main():
 
 def cli():
     """ Where user inputs ls commands """
-    # command = input('>> ')
+    command = input('>> ')
+    # command = 'ls' # testing
     # command = 'ls -l' # testing
-    command = 'ls -la'  # testing
+    # command = 'ls -la'  # testing
     return command
 
 
@@ -25,13 +26,13 @@ def printer(command, list_directory):
     """ Return the ls command"""
 
     if command == 'ls':
-        print(list_directory.ls())
+        print(list_directory.ls)
 
     elif command == 'ls -l':
-        list_directory.ls_l()
+        list_directory.ls_l
 
     elif command == 'ls -la':
-        list_directory.ls_la()
+        list_directory.ls_la
 
     else:
         print('Command not recognised, did you mean \'ls\'?')
@@ -45,10 +46,12 @@ class ListStructure():
         self.list_l = [i for i in os.listdir() if not i.startswith('.')]
         self.list_la = [i for i in os.listdir()]
 
+    @property
     def ls(self):
         """ Unix most basic implementation of the 'ls' command. """
         return self.list_l
 
+    @property
     def ls_l(self):
         """ Outputs 'ls -l' unix tool. """
         info = dict()
@@ -66,6 +69,7 @@ class ListStructure():
 
         # return info
 
+    @property
     def ls_la(self):
         info = dict()
         ls = self.list_la

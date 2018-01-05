@@ -79,7 +79,7 @@ class Executive(Employee):
 
 
 test1 = Employee('Roger', 'Ramjet', 50000, 35)
-dev1 = Developer('Alan', 'Turing', 33000, 65)
+dev1 = Developer('Alan', 'Turing', 33000, 65, 'Python')
 exec1 = Executive('David', 'Thorn', 100000, 70)
 
 print(f'\ntest: {test1.pay}\ndev: {dev1.pay}\nexec: {exec1.pay}')
