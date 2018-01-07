@@ -1,13 +1,26 @@
 #!/usr/bin/env python3
 
 """This is a basic class tutorial script taken almost verbatim from the
-    excellent video from Corey Schafer's youtube channel."""
+    excellent video from Corey Schafer's youtube channel.
+
+Property Decorators:
+
+property() is a built-in function that creates and returns a property object.
+
+property(fget=None, fset=None, fdel=None, fdoc=None) #default kwargs
+
+thereby we could call the property by using the keywords, as well as setting
+the syntactic sugar of @property.getter for instance.
+
+see: https://www.programiz.com/python-programming/property
+"""
 
 
 class Employee:
     """Base class for Employee object."""
 
     raise_percentage = 1.04  # Class Attribute:
+
     # meaning it is accessible across the entire class - can be overwritten.
 
     def __init__(self, first, last, pay, hours_worked):
@@ -39,7 +52,6 @@ class Employee:
         print(f'{self.fullname} deleted!!')
         self.first = None
         self.last = None
-
 
     def apply_raise(self):
         # makes the raise_percentage accessible.
@@ -102,4 +114,4 @@ dev1.fullname = 'John Cooper'
 print(dev1.fullname)
 print()
 print('deleter in action...')
-del dev1.fullname # first and last are now None...
+del dev1.fullname  # first and last are now None...
