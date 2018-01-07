@@ -32,7 +32,10 @@ class Employee:
 
     @property
     def email(self):
-        # allows this method to be called as if it were an attribute.
+        """Example of @property.
+
+        Allows the method to be called as an attribute.
+        """
         return '{}.{}@email.com'.format(self.first, self.last)
 
     @property
@@ -70,12 +73,37 @@ class Employee:
 class Developer(Employee):
     """Developer class."""
 
+    _langs = [
+        'Python', 'Java', 'COBOL', 'Elixir'
+    ]
+
     def __init__(self, first, last, pay, hours_worked, language='Python'):
         super().__init__(first, last, pay, hours_worked)
         # super allows MRO to change dynamically with parent. Delegates method
         # calls to parent/ sibling type. By not naming parent explicitly code
         # is more maintainable.
         self.language = language
+
+
+    @classmethod
+    def langs(cls):
+        """Example of a ClassMethod - it does not need to instantiated
+        and can call Class Attributes such as the _langs list.
+
+        This can cause issues if for instance, you want to add to the _langs
+        list via
+
+        dev = Developer._langs = [ 'JavaScript', 'Erlang' ]
+
+        when calling dev.langs() it will return the original list, rather than
+        the updated one. Why? Because @classmethod will call the class not
+        the instance. Meaning, it will not return the newly instantiated list
+        but the class attribute.
+
+        In this example, if the _langs needed updating dynamically then just
+        call the method, and it will work as expected.
+        """
+        return cls._langs
 
 
 class Executive(Employee):
@@ -93,6 +121,8 @@ class Executive(Employee):
 test1 = Employee('Roger', 'Ramjet', 50000, 35)
 dev1 = Developer('Alan', 'Turing', 33000, 65, 'Python')
 exec1 = Executive('David', 'Thorn', 100000, 70)
+
+print(Developer.langs()) # example of calling class attribute.
 
 print(f'\ntest: {test1.pay}\ndev: {dev1.pay}\nexec: {exec1.pay}')
 print('applying raises and bonuses.')
@@ -112,6 +142,7 @@ print(dev1.fullname)
 print('changing the fullname...\n')
 dev1.fullname = 'John Cooper'
 print(dev1.fullname)
+print(dev1.email)
 print()
 print('deleter in action...')
 del dev1.fullname  # first and last are now None...
