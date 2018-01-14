@@ -120,7 +120,9 @@ Packages:
 
 	ActualVim requires NeoVim to be installed on the system. On macOS use Homebrew.
 	Creation of ~/.config/nvim/init.vim is necessary.
-	add init.vim to GH
+  Also, the neovim path needs to be set inside ST3's ActualVim settings.
+	~~(add init.vim to GH)~~
+
 	
 ## 12. 
 
