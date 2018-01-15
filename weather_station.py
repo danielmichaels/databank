@@ -32,7 +32,7 @@ def cli_display(weather):
     """
     location = weather['name']
     temp = weather['main']['temp']
-    utcdt = weather['dt'] # returns epoch TODO return localtime of location
+    utcdt = weather['dt']  # returns epoch TODO return localtime of location
     condition = [item['main'] for item in weather['weather']]
 
     print()
