@@ -13,6 +13,7 @@ class Employee(object):
 
 
 def insert_emp(emp):
+    """Using context manager, inserts and closes."""
     with conn:
         cur.execute("INSERT INTO employees VALUES (:first, :last, :pay)",
                     {'first': emp.first, 'last': emp.last, 'pay': emp.pay})
@@ -29,7 +30,6 @@ def update_pay(emp, pay):
         cur.execute("""UPDATE employees SET pay = :pay WHERE first = :first
                       AND last = :last""",
                     {'first': emp.first, 'last': emp.last, 'pay': pay})
-    pass
 
 
 def remove_emp(emp):
@@ -53,7 +53,6 @@ conn.execute("""CREATE TABLE employees(
 emp_1 = Employee('Rebecca', 'Rabbit', 84500)
 emp_2 = Employee('Mrs', 'Rabbit', 94500)
 
-
 insert_emp(emp_1)
 insert_emp(emp_2)
 
@@ -65,23 +64,6 @@ remove_emp((emp_1))
 
 emps = get_emp_by_name('Rabbit')
 print(emps)
-
-# two different ways to insert into:
-# below is the traditional method but not very explicit.
-#cur.execute("INSERT  INTO employees VALUES (?,?,?)",
-#            (emp_1.first, emp_1.last, emp_1.pay))
-## this is a very explicit insert and readable.
-#cur.execute("INSERT  INTO employees VALUES (:first, :last, :pay)",
-#            {'first': emp_2.first, 'last': emp_2.last, 'pay': emp_2.pay})
-#
-## selecting when using the ? placeholder.
-#cur.execute("SELECT * FROM employees WHERE last=?", ('Rabbit',))  # tuple
-## selecting with the dictionary; very easy to read.
-#cur.execute("SELECT * FROM employees WHERE last=:last", {'last': 'Rabbit'})
-#
-## print(cur.fetchone()) # rtn next row.
-# print(cur.fetchall())  # rtn remaining, or all rows in list.
-# print(cur.fetchmany(5)) # takes arg int, rtns int as list.
 
 conn.commit()
 
