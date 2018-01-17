@@ -15,6 +15,7 @@ def main():
     timestamp = datetime_helper(weather)
     create_db()
     insert_data(weather, timestamp)
+    get_data()
 
 
 def api_call():
@@ -93,7 +94,10 @@ def insert_data(api_call, timestamp):
 
 
 def get_data():
-    pass
+    """Read the data in the database."""
+    with contextlib.closing(sqlite3.connect('weather_test.db')) as cursor:
+        data = cursor.execute("SELECT * FROM weather")
+        return data.fetchone()
 
 
 if __name__ == '__main__':
