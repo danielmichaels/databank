@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 
 from pprint import pprint
-from datetime import timezone
 
-import logging
+import contextlib
+import datetime
+import pytz
 import requests
 import sqlite3
-import datetime
-import time
-import pytz
 
 
 def main():
     weather = api_call()
     cli_display(weather)
-    datetime_helper(weather)
+    timestamp = datetime_helper(weather)
+    create_db()
+    insert_data(weather, timestamp)
 
 
 def api_call():
@@ -26,7 +26,6 @@ def api_call():
         print('error somewhere')
     weather = resp.json()
     pprint(weather)
-    # pprint(weather['main']['temp'])
     return weather
 
 
@@ -37,10 +36,8 @@ def cli_display(weather):
     """
     location = weather['name']
     temp = weather['main']['temp']
-    utcdt = weather['dt']  # returns epoch TODO return localtime of location
+    utcdt = weather['dt']  # returns epoch
     condition = [item['main'] for item in weather['weather']]
-
-    # converter = datetime_helper(utcdt)
 
     print()
     print(f'{location} Weather:')
@@ -51,25 +48,52 @@ def cli_display(weather):
     print(f'Local Time: {datetime_helper(weather)}')
 
 
-def store_output(data):
-    pass
-
 def datetime_helper(timestamp):
     """Get UTC timestamp from API, convert it to local for storage."""
     utcdt = timestamp['dt']  # returns epoch integer
-    fmt = '%H:%M %d/%m/%Y'  # how the new string will be presented.
-
-    # convert api epoch to datetime string using time
-    new = time.strftime(fmt, time.localtime(utcdt))
     # convert api epoch to datetime string using datetime.datetime
-    # new_v2 = datetime.datetime.fromtimestamp(utcdt).strftime(fmt)
-
-    datetime_object = datetime.datetime.strptime(new, fmt)
+    new = datetime.datetime.fromtimestamp(utcdt).strftime('%H:%M %d/%m/%Y')
+    datetime_object = datetime.datetime.strptime(new, '%H:%M %d/%m/%Y')
 
     local_tz = pytz.timezone('Australia/Perth')
     local_time = datetime_object.replace(tzinfo=pytz.utc).astimezone(local_tz)
     return local_time
-    # return local_tz.normalize(local_time)
+
+
+def create_db():
+    """Create the database."""
+    try:
+        # conn = sqlite3.connect(':memory:')
+        conn = sqlite3.connect('weather_test.db')
+        cursor = conn.cursor()
+        cursor.execute(
+            "CREATE TABLE IF NOT EXISTS weather("
+            "location TEXT, temp TEXT, conditons TEXT, utc_epoch INTEGER,"
+            "local TEXT)")
+    finally:
+        if conn:
+            print('DB CREATED!')
+            conn.close()
+
+
+def insert_data(api_call, timestamp):
+    """Insert each api call into database."""
+    # TODO do not add duplicates. distinct items only.
+    location = api_call['name']
+    temp = api_call['main']['temp']
+    utcdt = api_call['dt']
+    condition = [item['main'] for item in api_call['weather']]
+
+    with contextlib.closing(sqlite3.connect('weather_test.db')) as cursor:
+        cursor.execute("INSERT INTO weather VALUES ("
+                       ":location, :temp, :conditions, :utc_epoch, :local)",
+                       {'location': location, 'temp': temp, 'conditions': condition[0],
+                        'utc_epoch': utcdt, 'local': timestamp})
+        cursor.commit()
+
+
+def get_data():
+    pass
 
 
 if __name__ == '__main__':
