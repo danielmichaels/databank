@@ -15,7 +15,8 @@ def main():
     timestamp = datetime_helper(weather)
     create_db()
     insert_data(weather, timestamp)
-    get_data()
+    recent_weather = get_data()
+    print(recent_weather)
 
 
 def api_call():
@@ -49,9 +50,9 @@ def cli_display(weather):
     print(f'Local Time: {datetime_helper(weather)}')
 
 
-def datetime_helper(timestamp):
+def datetime_helper(weather_json):
     """Get UTC timestamp from API, convert it to local for storage."""
-    utcdt = timestamp['dt']  # returns epoch integer
+    utcdt = weather_json['dt']  # returns epoch integer
     # convert api epoch to datetime string using datetime.datetime
     new = datetime.datetime.fromtimestamp(utcdt).strftime('%H:%M %d/%m/%Y')
     datetime_object = datetime.datetime.strptime(new, '%H:%M %d/%m/%Y')
@@ -88,16 +89,23 @@ def insert_data(api_call, timestamp):
     with contextlib.closing(sqlite3.connect('weather_test.db')) as cursor:
         cursor.execute("INSERT INTO weather VALUES ("
                        ":location, :temp, :conditions, :utc_epoch, :local)",
-                       {'location': location, 'temp': temp, 'conditions': condition[0],
+                       {'location': location, 'temp': temp,
+                        'conditions': condition[0],
                         'utc_epoch': utcdt, 'local': timestamp})
         cursor.commit()
+
+def remove_duplicates():
+    "Incase of duplicate entries in the database, remove them."
+    with contextlib.closing(sqlite3.connect('weather_test.db')) as cursor:
+        pass
 
 
 def get_data():
     """Read the data in the database."""
     with contextlib.closing(sqlite3.connect('weather_test.db')) as cursor:
         data = cursor.execute("SELECT * FROM weather")
-        return data.fetchone()
+        return data.fetchmany(5)
+
 
 
 if __name__ == '__main__':
