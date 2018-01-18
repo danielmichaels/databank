@@ -42,12 +42,11 @@ def cli_display(weather):
     condition = [item['main'] for item in weather['weather']]
 
     print()
-    print(f'{location} Weather:')
-    print(f'Current Temp: {temp} Degrees Celsius')
-    print(f'Conditions: {condition[0]}')
-    print(f'UTC Epoch: {utcdt}')
-    # print(f'As At: {converter}')
-    print(f'Local Time: {datetime_helper(weather)}')
+    print('{location} Weather:'.format(location=location))
+    print('Current Temp: {temp} Degrees Celsius'.format(temp=temp))
+    print('Conditions: {condition[0]}'.format(condition=condition))
+    print('UTC Epoch: {utcdt}'.format(utcdt=utcdt))
+    print('Local Time: {}'.format(datetime_helper(weather)))
 
 
 def datetime_helper(weather_json):
