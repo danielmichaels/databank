@@ -16,7 +16,7 @@ def main():
     create_db()
     insert_data(weather, timestamp)
     recent_weather = get_data()
-    print(recent_weather)
+    pprint(recent_weather)
 
 
 def api_call():
@@ -49,7 +49,7 @@ def cli_display(weather):
     print('Local Time: {}'.format(datetime_helper(weather)))
 
 
-def datetime_helper(weather_json):
+def datetime_helper(weather_json): #TODO insert as epoch and do this on get
     """Get UTC timestamp from API, convert it to local for storage."""
     utcdt = weather_json['dt']  # returns epoch integer
     # convert api epoch to datetime string using datetime.datetime
@@ -64,7 +64,6 @@ def datetime_helper(weather_json):
 def create_db():
     """Create the database."""
     try:
-        # conn = sqlite3.connect(':memory:')
         conn = sqlite3.connect('weather_test.db')
         cursor = conn.cursor()
         cursor.execute(
@@ -73,11 +72,11 @@ def create_db():
             "local TEXT)")
     finally:
         if conn:
-            print('DB CREATED!')
             conn.close()
 
 
 def insert_data(api_call, timestamp):
+    #TODO insert epoch not local
     """Insert each api call into database."""
     # TODO do not add duplicates. distinct items only.
     location = api_call['name']
@@ -101,11 +100,15 @@ def remove_duplicates():
 
 def get_data():
     """Read the data in the database."""
+    #TODO get epoch and now make local.
     with contextlib.closing(sqlite3.connect('weather_test.db')) as cursor:
         data = cursor.execute("SELECT * FROM weather")
         return data.fetchmany(5)
 
 
+def join_tables():
+    """Practice a join here."""
+    pass
 
 if __name__ == '__main__':
     main()
