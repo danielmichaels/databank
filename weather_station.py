@@ -49,7 +49,7 @@ def cli_display(weather):
     print('Local Time: {}'.format(datetime_helper(weather)))
 
 
-def datetime_helper(weather_json): #TODO insert as epoch and do this on get
+def datetime_helper(weather_json):
     """Get UTC timestamp from API, convert it to local for storage."""
     utcdt = weather_json['dt']  # returns epoch integer
     # convert api epoch to datetime string using datetime.datetime
@@ -64,51 +64,46 @@ def datetime_helper(weather_json): #TODO insert as epoch and do this on get
 def create_db():
     """Create the database."""
     try:
-        conn = sqlite3.connect('weather_test.db')
+        conn = sqlite3.connect('weather_test1.db')
         cursor = conn.cursor()
         cursor.execute(
             "CREATE TABLE IF NOT EXISTS weather("
-            "location TEXT, temp TEXT, conditons TEXT, utc_epoch INTEGER,"
-            "local TEXT)")
+            "location TEXT, temp TEXT, conditons TEXT, "
+            "utc_epoch INTEGER PRIMARY KEY, local TEXT)")
     finally:
         if conn:
             conn.close()
 
 
 def insert_data(api_call, timestamp):
-    #TODO insert epoch not local
     """Insert each api call into database."""
-    # TODO do not add duplicates. distinct items only.
     location = api_call['name']
     temp = api_call['main']['temp']
     utcdt = api_call['dt']
     condition = [item['main'] for item in api_call['weather']]
 
-    with contextlib.closing(sqlite3.connect('weather_test.db')) as cursor:
-        cursor.execute("INSERT INTO weather VALUES ("
+    with contextlib.closing(sqlite3.connect('weather_test1.db')) as cursor:
+        # cursor.execute("INSERT INTO weather VALUES ("
+        cursor.execute("INSERT OR IGNORE INTO weather VALUES ("
                        ":location, :temp, :conditions, :utc_epoch, :local)",
                        {'location': location, 'temp': temp,
                         'conditions': condition[0],
                         'utc_epoch': utcdt, 'local': timestamp})
         cursor.commit()
 
-def remove_duplicates():
-    "Incase of duplicate entries in the database, remove them."
-    with contextlib.closing(sqlite3.connect('weather_test.db')) as cursor:
-        pass
-
 
 def get_data():
     """Read the data in the database."""
-    #TODO get epoch and now make local.
-    with contextlib.closing(sqlite3.connect('weather_test.db')) as cursor:
+    # TODO get epoch and now make local.
+    with contextlib.closing(sqlite3.connect('weather_test1.db')) as cursor:
         data = cursor.execute("SELECT * FROM weather")
-        return data.fetchmany(5)
+        return data.fetchall()
 
 
 def join_tables():
     """Practice a join here."""
     pass
+
 
 if __name__ == '__main__':
     main()
