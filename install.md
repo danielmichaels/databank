@@ -5,7 +5,6 @@ This document details the rough outline of things that are required when buildin
 ## 1. Homebrew
 
 This very first thing install on a new macOS is homebrew.
-Brew list file can be found on github:danielmichaels
 
 ## 2. Python3
 
@@ -124,6 +123,54 @@ Packages:
 	~~(add init.vim to GH)~~
 
 	
-## 12. 
+## 12. Arch Linux
 
-This is within BB private repo, currently only for linux.
+Arch Linux is my daily driver. Several articles below can articulate how to setup the LVM LUKS better than I can.
+
+- http://suddenkernelpanic.blogspot.com.au/2013/03/arch-linux-lvm-on-top-of-luks-2013-style.html?m=1
+- https://pavornoc.wordpress.com/2016/01/23/gpt-luks-lvm-arch-install-guide-2016/comment-page-1/
+
+I currently am dual-booting Win10 which requires a few tweaks:
+
+- resizing windows partitions,
+- disabling secure-boot (UEFI),
+- disabling fast-startup
+
+This is a temporary solution. 
+
+## 13. Arch Linux packages
+
+Install Yaourt for accessing the AUR.
+
+a general list of packages considered must have:
+
+- git
+- cinnamon
+- ntfs-3g
+- neovim
+- vim
+- qutebrowser
+- sublime-text
+- pycharm-professional
+- transmission
+- turtl
+- uget
+- zsh
+- vlc
+- wireshark
+- nmap
+- xf86-input-synaptics
+- ufw
+- rsync
+- ssh, netcat, whois, dig, nslookup, powertop, net-tools, traceroute, bind-tools, httpie, htop, dmidecode, cmake, wget, tcpdump
+- nemo-fileroller
+- libreoffice
+- gnome-terminal
+- unrar, p7zip, 
+- zathura-pdf-mupdf
+
+To get most of the user installed packages in a neat file the following command is useful.
+``` bash
+comm -23 <(pacman -Qqett) <(pacman -Qqg base -g base-devel | sort | uniq) >> arch_extras.txt
+```
+
