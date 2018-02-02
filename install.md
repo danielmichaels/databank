@@ -174,3 +174,10 @@ To get most of the user installed packages in a neat file the following command 
 comm -23 <(pacman -Qqett) <(pacman -Qqg base -g base-devel | sort | uniq) >> arch_extras.txt
 ```
 
+## 14. VS Code 2018
+
+TODO: 
+
+- extensions
+- vim setup
+- intellisense and class completion setup
