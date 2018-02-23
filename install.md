@@ -54,8 +54,10 @@ systems and if so, can be commented out.
 
 The shell defaults the emacs bindings. To switch to Vim bindings two lines are
 amended to the .zshrc file:
+```BASH
   bindkey -v # this replaces emacs with vi
   bindkey -M viins 'jk' vi-cmd-mode # makes 'jk' the escape to cmd mode keys
+```
 
 ## 5. Zsh-Syntax-Highlighting
 
