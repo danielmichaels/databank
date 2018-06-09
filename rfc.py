@@ -11,9 +11,20 @@ from random import choice
 logging.basicConfig(level=logging.INFO)
 
 def main():
-    # iterate_over_rfcs()
-    create_files()
     check_folder_exists()
+
+    try:
+        folder = os.path.join(pathlib.Path.home(), 'code/test/RFC')
+        os.chdir(folder)
+        logging.info(f'changed dir to: {folder}')
+        iterate_over_rfcs()
+
+    except OSError:
+        raise
+
+    finally:
+        cur_dir = pathlib.Path(__file__).parent
+        logging.info(f'changed dir to: {cur_dir}')
 
 def random_header():
     desktop_agents = ['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
@@ -29,20 +40,30 @@ def random_header():
     return {'User-Agent': choice(desktop_agents), 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'}
 
 def iterate_over_rfcs():
-    for num in range(0000,1000):
+    for num in range(4000,4002):
         url = f"https://www.rfc-editor.org/rfc/rfc{num}.txt"
         resp = requests.get(url, headers=random_header())
         if resp.status_code == 200:
             print(f"RFC {num:04d} exists")
+            text = resp.text
+            create_files(num, text)
         else:
             print(f"RFC {num:04d} DOES NOT EXIST")
 
 
 
-def create_files():
-    pass
+def create_files(num, text):
+    """Function that creates text files from the RFC website.
 
-def check_exits():
+    :argument num: takes the RFC number as part of the filename
+    :argument text: writes the response text from the webpage into the file.
+
+    """
+    filename = f'RFC-{num}.txt'
+    with open(filename, 'w') as fout:
+        fout.write(text)
+
+def check_exists():
     pass
 
 
