@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from time import time
 
+from requests_futures.sessions import FuturesSession
 import logging
 import pathlib
 import requests
@@ -42,10 +43,12 @@ def random_header():
 def iterate_over_rfcs():
     """Iterate over all possible RFC numbers on the IEEE webpage and then
     write them individually to files with a separate folder."""
+    session = FuturesSession(max_workers=10)
 
-    for num in range(0000, 100):
+    for num in range(0000, 8500):
         url = f"https://www.rfc-editor.org/rfc/rfc{num}.txt"
-        resp = requests.get(url, headers=random_header())
+        future = session.get(url, headers=random_header())
+        resp = future.result()
         if resp.status_code == 200:
             text = resp.text
             create_files(num, text)
