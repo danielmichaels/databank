@@ -40,13 +40,17 @@ def random_header():
     return {'User-Agent': choice(desktop_agents), 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'}
 
 def iterate_over_rfcs():
-    for num in range(4000,4002):
+    """Iterate over all possible RFC numbers on the IEEE webpage and then
+    write them individually to files with a separate folder."""
+
+    for num in range(0000, 100):
         url = f"https://www.rfc-editor.org/rfc/rfc{num}.txt"
         resp = requests.get(url, headers=random_header())
         if resp.status_code == 200:
-            print(f"RFC {num:04d} exists")
             text = resp.text
             create_files(num, text)
+            print(f"RFC {num:04d} downloaded!")
+
         else:
             print(f"RFC {num:04d} DOES NOT EXIST")
 
@@ -57,9 +61,8 @@ def create_files(num, text):
 
     :argument num: takes the RFC number as part of the filename
     :argument text: writes the response text from the webpage into the file.
-
     """
-    filename = f'RFC-{num}.txt'
+    filename = f'RFC-{num:04d}.txt'
     with open(filename, 'w') as fout:
         fout.write(text)
 
