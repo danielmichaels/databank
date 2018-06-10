@@ -54,26 +54,36 @@ def iterate_over_rfcs():
         resp = future.result()
         if resp.status_code == 200:
             text = resp.text
-            create_files(num, text)
-            print(f"RFC {num:04d} downloaded!")
+            check_exists(num, text)
+            # create_files(num, text)
 
         else:
             print(f"RFC {num:04d} DOES NOT EXIST")
 
 
 
-def create_files(num, text):
+def create_files(num, text, filename):
     """Function that creates text files from the RFC website.
 
     :argument num: takes the RFC number as part of the filename
     :argument text: writes the response text from the webpage into the file.
+    :argument filename: takes filename from :func: check_exists
     """
-    filename = f'RFC-{num:04d}.txt'
     with open(filename, 'w') as fout:
         fout.write(text)
+        print(f"RFC {num:04d} downloaded!")
 
-def check_exists():
-    pass
+
+def check_exists(num, text):
+    """Checks whether the file is already in the folder, only downloading a
+    copy if it does not exist."""
+
+    filename = f'RFC-{num:04d}.txt'
+    lst = [file for file in os.listdir()]
+    if filename not in lst:
+        create_files(num, text)
+
+
 
 
 def check_folder_exists():
