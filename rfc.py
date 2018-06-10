@@ -18,7 +18,10 @@ def main():
         folder = os.path.join(pathlib.Path.home(), 'code/test/RFC')
         os.chdir(folder)
         logging.info(f'changed dir to: {folder}')
+        start = time()
         iterate_over_rfcs()
+        end = time()
+        logging.info(f'This took: {end - start} to run!')
 
     except OSError:
         raise
