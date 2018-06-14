@@ -17,7 +17,7 @@ def main():
         total_rfc = get_rfc_total()
         logging.info(f'Current total of published RFC\'s: {total_rfc}')
         check_folder_exists()
-        folder = os.path.join(pathlib.Path.home(), 'code/test/RFC')
+        folder = os.path.join(pathlib.Path.home(), 'Code/RFC list')
         os.chdir(folder)
         logging.info(f'changed dir to: {folder}')
         start = time()
@@ -89,7 +89,7 @@ def check_exists(num, text):
     filename = f'RFC-{num:04d}.txt'
     lst = [file for file in os.listdir()]
     if filename not in lst:
-        create_files(num, text)
+        create_files(num, text, filename)
 
 
 def get_rfc_total():
@@ -105,7 +105,7 @@ def get_rfc_total():
 
 def check_folder_exists():
     """Create the folder that stores all the RFC files if it does not exist."""
-    folder = os.path.join(pathlib.Path.home(), 'code/test/RFC')
+    folder = os.path.join(pathlib.Path.home(), 'Code/RFC list')
     try:
         if not os.path.exists(folder):
             logging.info('Folder doesn\'t exist...')
