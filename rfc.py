@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
+from random import choice
 from time import time
-
 from requests_futures.sessions import FuturesSession
+from bs4 import BeautifulSoup
+
 import logging
+import os
 import pathlib
 import requests
-from bs4 import BeautifulSoup
-import os
-from random import choice
 
 logging.basicConfig(level=logging.INFO)
 
@@ -54,8 +54,10 @@ def random_header():
 
 
 def iterate_over_rfcs(total_rfc):
-    """Iterate over all possible RFC numbers on the IEEE webpage and then
-    write them individually to files with a separate folder."""
+    """Iterate over the RFC list, checking to see if any RFC files already
+    exist in the folder and if not download a copy into the specified folder.
+
+    :arg takes in the total number of RFC's as the max_length in range()."""
 
     for num in range(1, total_rfc):
         url = f"https://www.rfc-editor.org/rfc/rfc{num}.txt"
@@ -88,6 +90,12 @@ def create_files(num, text, filename):
 
 
 def get_rfc_total():
+    """Reach out to rfc-editor.org and scrape the table to get the total
+    number of RFC's available for download. This is used as the max value in
+    :func: iterate_over_rfcs
+
+    :returns total number of RFC's according to RFC tabular data."""
+
     url = 'https://www.rfc-editor.org/rfc-index.html'
     resp = requests.get(url)
     text = resp.text
