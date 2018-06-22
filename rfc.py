@@ -56,18 +56,23 @@ def random_header():
 def iterate_over_rfcs(total_rfc):
     """Iterate over all possible RFC numbers on the IEEE webpage and then
     write them individually to files with a separate folder."""
-    session = FuturesSession(max_workers=10)
 
     for num in range(1, total_rfc):
         url = f"https://www.rfc-editor.org/rfc/rfc{num}.txt"
-        future = session.get(url, headers=random_header())
-        resp = future.result()
-        if resp.status_code == 200:
-            text = resp.text
-            check_exists(num, text)
-
+        filename = f'RFC-{num:04d}.txt'
+        files = [file for file in os.listdir(os.getcwd())]
+        if filename not in files:
+            session = FuturesSession(max_workers=10)
+            future = session.get(url, headers=random_header())
+            resp = future.result()
+            if resp.status_code == 200:
+                text = resp.text
+                create_files(num, text, filename)
         else:
-            print(f"RFC {num:04d} DOES NOT EXIST")
+            print(f"RFC {num:04d} Exists.. Skipping..")
+
+    else:
+        print(f"RFC {num:04d} DOES NOT EXIST")
 
 
 def create_files(num, text, filename):
@@ -82,16 +87,6 @@ def create_files(num, text, filename):
         print(f"RFC {num:04d} downloaded!")
 
 
-def check_exists(num, text):
-    """Checks whether the file is already in the folder, only downloading a
-    copy if it does not exist."""
-
-    filename = f'RFC-{num:04d}.txt'
-    lst = [file for file in os.listdir()]
-    if filename not in lst:
-        create_files(num, text, filename)
-
-
 def get_rfc_total():
     url = 'https://www.rfc-editor.org/rfc-index.html'
     resp = requests.get(url)
@@ -99,7 +94,7 @@ def get_rfc_total():
     soup = BeautifulSoup(text, 'html.parser')
     tables = soup.find_all('table')
     rfc_table = tables[2].find_all('tr')
-    print(len(tables))
+    logging.info(f'Number of RFC\'s available for download: {len(rfc_table)}')
     return len(rfc_table)
 
 
