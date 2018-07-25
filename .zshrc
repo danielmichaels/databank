@@ -61,6 +61,8 @@ ZSH_THEME="dieter"
 plugins=(
   git
   archlinux
+  tmux
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -99,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 #######################################################
 #
 alias zshrc="vim ~/.zshrc"
-alias mandalore="ssh mandalore@mandalore.whiskers.red"
+alias vimrc="vim ~/.vimrc"
 alias ipify="curl -i api.ipify.org"
 #
 #######################################################
@@ -127,5 +129,3 @@ VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
 source /usr/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3"
-# Must be last...
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
