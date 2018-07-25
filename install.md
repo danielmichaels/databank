@@ -150,9 +150,9 @@ a general list of packages considered must have:
 - cinnamon
 - ntfs-3g
 - neovim
-- vim
+- gvim -- opt for gvim over vim if conflict
 - qutebrowser
-- sublime-text
+- sublime-text -- 07/2018 currently issues on cinnamon arch
 - pycharm-professional
 - transmission
 - turtl
@@ -170,6 +170,7 @@ a general list of packages considered must have:
 - gnome-terminal
 - unrar, p7zip, 
 - zathura-pdf-mupdf
+- MEGAsync
 
 To get most of the user installed packages in a neat file the following command is useful.
 ``` bash
@@ -178,8 +179,15 @@ comm -23 <(pacman -Qqett) <(pacman -Qqg base -g base-devel | sort | uniq) >> arc
 
 ## 14. VS Code 2018
 
-TODO: 
+On Arch Cinnamon (Thinkpad T460) I have a bug in VSCode where the vim bindings are causing movement to lag. 
+This includes random `undo` and `dd` commands where if I undo a `dd` it might undo the last three things in the buffer.
+As I mainly use VSCode as a text editor, I am shifting away from it to gVim.
 
-- extensions
-- vim setup
-- intellisense and class completion setup
+Although I do use it for Go.
+
+## 15. Caps --> Ctrl
+
+If the system does not provide a GUI method for manual rebinding such as Cinnamon DE then another method is
+`setxkbmap -option ctrl:swapcaps`. 
+
+If required to reset the keyboard bindings to default this works: `setxkbmap -option`
