@@ -26,10 +26,13 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'edkolev/tmuxline.vim'  
+Plugin 'edkolev/promptline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'marcopaganini/termschool-vim-theme'
 Plugin 'davidhalter/jedi-vim'
@@ -37,6 +40,8 @@ Plugin 'KeitaNakamura/neodark.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'fatih/vim-go'
 " all plugins must be above this line or they will fail
 call vundle#end() "required
 
@@ -63,19 +68,16 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 "autocomplete
 let g:ycm_autoclose_preview_window_after_completion=1
 "
-""custom keys
-let mapleader=" "
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 03. Theme/Colors                                                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
-"set background=dark
 "colorscheme neodark
-"colorscheme solarized
-colorscheme termschool
-let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+"colorscheme termschool
+"let g:solarized_termcolors=256
 
 " Prettify JSON files
 autocmd BufRead,BufNewFile *.json set filetype=json
@@ -155,17 +157,58 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 au BufNewFile,BufRead *.js,*.html,*.css
     \ setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
-let mapleader = "\<Space>"
-inoremap jk <ESC>
 nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
-" ^ maps <F9> to the run script
+" ^ maps <F9> to the run script in Python only
 nmap ;w :w<CR>
 " ^ maps ;w as save instead of :w
 let g:NERDTreeWinSize=20
-"set spell spellang=en_au
+set spell spelllang=en_au
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 06. Custom Commands                                                        "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"
 " Prettify JSON files making them easier to read
 command PrettyJSON %!python -m json.tool
+"
+let mapleader=" "
+let mapleader = "\<Space>"
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+inoremap jk <ESC>
+inoremap " ""<left>
+inoremap ' ''<left>
+""inoremap ( ()<left> " got annoying in Go so disabled it.
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 07. Go-Vim Custom
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set autowrite " autowrites file on func call.
+set showcmd " shows the leader key bottom; auto timeout 1000ms 
+" run :GoBuild or :GoTestCompile based on go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0,1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+"
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+au FileType go nmap <leader>r  :<C-u>GoRun<cr>
+autocmd FileType go nmap <leader>t <Plug>(go-test) 
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+" Prettify stuff below, can be removed if performance suffers
+let g:go_list_type = "quickfix" " so it doesn't use 'location list'
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+
