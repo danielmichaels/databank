@@ -8,6 +8,7 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="dieter"
+#ZSH_THEME="avit" # termtosvg minimal theme
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -63,7 +64,10 @@ plugins=(
   archlinux
   tmux
   zsh-syntax-highlighting
+  k
 )
+# git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
+# ^ for k (the new l, yo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,6 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+export PATH=~/go/bin:$PATH
 #######################################################
 #                  General Alias                      #
 #######################################################
@@ -129,3 +134,5 @@ VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
 source /usr/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3"
+
+cheat() { curl -s "cheat.sh/$1"; }
