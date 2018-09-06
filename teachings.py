@@ -176,5 +176,18 @@ for key, value in dog.items():
     print(key, ':', value)
 # try calling just key or value in dog.items(), what happens? why?
 
+# last thing... import time, lets see that in action
+print()
+print('comment out time.sleep(1) if this gets annoying')
+print('or hit CTRL-C')
+for x in range(5):
+    print('one second elapsed')
+    time.sleep(1)
+    # sleep is a function within the module (script) time and it takes
+    # a parameter, which in this case is an integer which represents
+    # a 1 second.
+
+
+
 # I think thats enough for now.
 
