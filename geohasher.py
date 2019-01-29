@@ -4,13 +4,16 @@ import datetime
 import hashlib
 
 import requests
+from geopy import distance
 
 TIME = str(datetime.datetime.now()).encode()
 
+
 def main():
     get_ip()
-    coords = geo_url_data()
-    geohash(coords['latitude'], coords['longitude'], TIME)
+    start = geo_url_data()
+    end = geohash(start['latitude'], start['longitude'], TIME)
+    distance_to_target(start, end)
 
 
 def geohash(latitude, longitude, datedow):
@@ -21,15 +24,18 @@ def geohash(latitude, longitude, datedow):
 
     '''
     # https://xkcd.com/426/
+    end_coords = {}
     h = hashlib.md5(datedow).hexdigest()
     p, q = [('%f' % float.fromhex('0.' + x)) for x in (h[:16], h[16:32])]
-    print('%d%s %d%s' % (latitude, p[1:], longitude, q[1:]))
+    # print('%d%s %d%s' % (latitude, p[1:], longitude, q[1:]))
+    end_coords['latitude'] = latitude + float(p[1:])
+    end_coords['longitude'] = longitude + float(q[1:])
+    return end_coords
 
 
 def get_ip():
     ip_url = 'https://api.ipify.org'
     ip = requests.get(ip_url)
-    # print(ip.text)
     return ip.text
 
 
@@ -37,16 +43,19 @@ def geo_url_data():
     coords = {}
     geo_request_url = 'https://get.geojs.io/v1/ip/geo/' + get_ip() + '.json'
     geo_data = requests.get(geo_request_url).json()
-    # print(geo_data)
     coords['latitude'] = float(geo_data['latitude'])
     coords['longitude'] = float(geo_data['longitude'])
-    print(coords)
     return coords
 
 
-def distance_to_target():
+def distance_to_target(start, end):
     """Get the distance from ip location to geohash location"""
-    pass
+    start = start['latitude'], start['longitude']
+    end = end['latitude'], end['longitude']
+    print(start, end)
+    distance_away = distance.distance(start, end).km
+    print(distance_away)
+
 
 
 if __name__ == '__main__':
