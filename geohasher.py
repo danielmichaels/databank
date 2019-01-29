@@ -4,6 +4,7 @@ import datetime
 import hashlib
 
 import requests
+import webbrowser
 from geopy import distance
 
 TIME = str(datetime.datetime.now()).encode()
@@ -52,10 +53,17 @@ def distance_to_target(start, end):
     """Get the distance from ip location to geohash location"""
     start = start['latitude'], start['longitude']
     end = end['latitude'], end['longitude']
-    print(start, end)
+    print(f"start: {start}, end: {end}")
     distance_away = distance.distance(start, end).km
-    print(distance_away)
+    print(f"Distance from start point is {distance_away:.2f} kilometers away.")
+    launch_page(end)
 
+
+def launch_page(endpoint):
+    """Launch googlemaps with lat long of endpoint."""
+    base_url = "https://www.google.com/maps/search/?api=1&query={},{}&zoom=12"
+    url = base_url.format(endpoint[0], endpoint[1])
+    webbrowser.open(url)
 
 
 if __name__ == '__main__':
