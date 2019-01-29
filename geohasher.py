@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """A xkcd Geohashing script built for fun and profit."""
+import datetime
 import hashlib
-# from antigravity import geohash
 
 import requests
 
+TIME = str(datetime.datetime.now()).encode()
 
 def main():
     get_ip()
-    geo_url_data()
+    coords = geo_url_data()
+    geohash(coords['latitude'], coords['longitude'], TIME)
 
 
 def geohash(latitude, longitude, datedow):
@@ -27,11 +29,23 @@ def geohash(latitude, longitude, datedow):
 def get_ip():
     ip_url = 'https://api.ipify.org'
     ip = requests.get(ip_url)
-    print(ip.text)
+    # print(ip.text)
     return ip.text
 
 
 def geo_url_data():
+    coords = {}
+    geo_request_url = 'https://get.geojs.io/v1/ip/geo/' + get_ip() + '.json'
+    geo_data = requests.get(geo_request_url).json()
+    # print(geo_data)
+    coords['latitude'] = float(geo_data['latitude'])
+    coords['longitude'] = float(geo_data['longitude'])
+    print(coords)
+    return coords
+
+
+def distance_to_target():
+    """Get the distance from ip location to geohash location"""
     pass
 
 
