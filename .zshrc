@@ -61,9 +61,10 @@ ZSH_THEME="dieter"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  archlinux
   tmux
+  last-working-dir
   zsh-syntax-highlighting
+  history
   k
 )
 # git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
@@ -100,15 +101,27 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-export PATH=~/go/bin:$PATH
+export PATH=$PATH:/go/bin
+export PATH=$PATH:/.cargo/bin
+export EDITOR=vim
+#
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#  exec tmux
+#fi
 #######################################################
 #                  General Alias                      #
 #######################################################
 #
 alias zshrc="vim ~/.zshrc"
+alias szshrc="source ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
-alias ipify="curl -i api.ipify.org"
+alias fzfp="fzf --preview='head -$LINES {}'"
+alias ta="tmux a"
+alias t="tmux"
+alias TS="trizen -Syu"
 #
+## ZSH FISH like autocompletions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 #######################################################
 #                  Git Alias                          #
 #######################################################
@@ -117,6 +130,7 @@ alias gs="git status"
 alias gc-m="git commit -m"
 alias gc="git commit"
 alias gp="git push"
+alias lg="lazygit"
 #
 #######################################################
 #                 VIM bindings                        #
@@ -136,3 +150,4 @@ export WORKON_HOME=$HOME/.virtualenvs
 alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3"
 
 cheat() { curl -s "cheat.sh/$1"; }
+source /usr/share/nvm/init-nvm.sh
