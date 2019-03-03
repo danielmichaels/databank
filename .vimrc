@@ -9,6 +9,8 @@
 "   04. Vim UI .................. User interface behavior                    "
 "   05. Text Formatting/Layout .. Text, tab, indentation related             "
 "   06. Custom Commands ......... Any custom command aliases                 "
+"   07. Hybrid Line numbering.... Line numbering bingings
+"   08. Vim-Go................... Vim-go specific bindings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -35,13 +37,14 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'edkolev/promptline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'marcopaganini/termschool-vim-theme'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'KeitaNakamura/neodark.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'fatih/vim-go'
+Plugin 'euclio/vim-markdown-composer'
 " all plugins must be above this line or they will fail
 call vundle#end() "required
 
@@ -71,13 +74,16 @@ let g:ycm_autoclose_preview_window_after_completion=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 03. Theme/Colors                                                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
-"colorscheme neodark
+set t_Co=256              " enable 256-color mode.
+"set t_Co=16              " enable 16-color mode.
 set background=dark
 colorscheme solarized
 "colorscheme termschool
-"let g:solarized_termcolors=256
+"colorscheme neodark
+"colorscheme zenburn
+let g:solarized_termcolors=256
+"let g:solarized_termcolors=16
 
 " Prettify JSON files
 autocmd BufRead,BufNewFile *.json set filetype=json
@@ -163,6 +169,9 @@ nmap ;w :w<CR>
 " ^ maps ;w as save instead of :w
 let g:NERDTreeWinSize=20
 set spell spelllang=en_au
+nnoremap <leader>f 1z=
+nnoremap <leader>s :set spell!
+:hi SpellBad cterm=underline ctermfg=red
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 06. Custom Commands                                                        "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,16 +183,26 @@ let mapleader=" "
 let mapleader = "\<Space>"
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 inoremap jk <ESC>
-inoremap " ""<left>
-inoremap ' ''<left>
-""inoremap ( ()<left> " got annoying in Go so disabled it.
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+""inoremap " ""<left>
+""inoremap ' ''<left>
+"inoremap ( ()<left>
+"inoremap [ []<left>
+"inoremap { {}<left>
+"inoremap {<CR> {<CR>}<ESC>O
+"inoremap {;<CR> {<CR>};<ESC>O
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 07. Go-Vim Custom
+" 07. Hybrid line numbeing
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+":set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 08. Go-Vim Custom
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autowrite " autowrites file on func call.
 set showcmd " shows the leader key bottom; auto timeout 1000ms 

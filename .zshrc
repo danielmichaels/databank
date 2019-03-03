@@ -119,6 +119,7 @@ alias fzfp="fzf --preview='head -$LINES {}'"
 alias ta="tmux a"
 alias t="tmux"
 alias TS="trizen -Syu"
+alias inet="ifconfig | grep -C 2 -i inet"
 #
 ## ZSH FISH like autocompletions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
