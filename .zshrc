@@ -103,6 +103,9 @@ source $ZSH/oh-my-zsh.sh
 #
 export PATH=$PATH:/go/bin
 export PATH=$PATH:/.cargo/bin
+export PATH=$PATH:~/.local/bin
+export GOPATH=$HOME/Code/go
+export PATH=$PATH:$(go env GOPATH)/bin
 export EDITOR=vim
 #
 #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -120,6 +123,15 @@ alias ta="tmux a"
 alias t="tmux"
 alias TS="trizen -Syu"
 alias inet="ifconfig | grep -C 2 -i inet"
+#
+######################################################
+#                Custom Functions                    #
+######################################################
+#
+# cd and ls automatically
+function cd {
+  builtin cd "$@" && ls -F; 
+}
 #
 ## ZSH FISH like autocompletions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
@@ -146,9 +158,10 @@ bindkey '^R' history-incremental-search-backward
 #######################################################
 
 VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
-source /usr/bin/virtualenvwrapper.sh
+#source /usr/bin/virtualenvwrapper.sh
+source /home/daniel/.local/bin/virtualenvwrapper.sh  #work around --user install
 export WORKON_HOME=$HOME/.virtualenvs
 alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3"
 
 cheat() { curl -s "cheat.sh/$1"; }
-source /usr/share/nvm/init-nvm.sh
+#source /usr/share/nvm/init-nvm.sh
