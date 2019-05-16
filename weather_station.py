@@ -8,6 +8,7 @@ import pytz
 import requests
 import sqlite3
 
+API_KEY = os.environ.get(OPENWEATHERAPI) 
 
 def main():
     weather = api_call()
@@ -21,8 +22,7 @@ def main():
 
 def api_call():
     """Calls the OpenWeather API. """
-    url = 'http://api.openweathermap.org/data/2.5/weather?q=Perth,au&units=metric&appid=48b362375868b94f43172bcb13390ffc'
-    # TODO remove hardcoded APIkey, put in enviroment. replace this key.
+    url = 'http://api.openweathermap.org/data/2.5/weather?q=Perth,au&units=metric&appid=' + API_KEY
     resp = requests.get(url)
     if resp.status_code != 200:
         print('error somewhere')
