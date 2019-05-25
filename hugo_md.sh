@@ -3,14 +3,14 @@
 # Takes one CLI  argument of FILENAME.
 
 DATA="
-+++\n
-title = \"\"\n
-categories = [\"\"]\n
-tags = [\"\"]\n
-slug = \"\"\n
-date = \"$(date +'%d %B %Y')\"\n
-draft = \"true\"\n
-+++\n
++++
+title = \"\"
+categories = [\"\"]
+tags = [\"\"]
+slug = \"\"
+date = \"$(date +'%d %B %Y')\"
+draft = \"true\"
++++
 "
 
 FILENAME=$1.md
@@ -20,5 +20,5 @@ if [ -e $1.md ]; then
   echo "File Aleady Exists"
 else
   touch $FILENAME
-  echo -e $DATA > $FILE
+  echo "$DATA" > $FILE
 fi
