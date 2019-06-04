@@ -1,6 +1,8 @@
 # Books
 
-Books I have read or want to read. Reviews for books that require it.
+Books I have read or want to read. 
+
+Not every book deserves a review, those that do are getting it here.
 
 ## Contents
 
