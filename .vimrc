@@ -14,39 +14,26 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 01. General                                                                "
+" 01. General/ Plugins                                                       "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
-" Set the runtime path to include Vudnle and initalise
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" put all plugins below
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'edkolev/tmuxline.vim'  
-Plugin 'edkolev/promptline.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'marcopaganini/termschool-vim-theme'
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'KeitaNakamura/neodark.vim'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'fatih/vim-go'
-Plugin 'euclio/vim-markdown-composer'
-" all plugins must be above this line or they will fail
-call vundle#end() "required
+
+call plug#begin()
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'fatih/vim-go', {'for': ['go', 'markdown'] } "Loads only when editing go files
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind'] } "Loads only when opening NERDTree
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'vimwiki/vimwiki'
+Plug 'tpope/vim-fugitive'
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 02. Events                                                                 "
@@ -77,17 +64,15 @@ let g:ycm_autoclose_preview_window_after_completion=1
 syntax enable             " enable syntax highlighting (previously syntax on).
 set t_Co=256              " enable 256-color mode.
 "set t_Co=16              " enable 16-color mode.
-set background=dark
-colorscheme solarized
-"colorscheme termschool
-"colorscheme neodark
-"colorscheme zenburn
-let g:solarized_termcolors=256
+"set background=dark
+"colorscheme solarized
+"let g:solarized_termcolors=256
 "let g:solarized_termcolors=16
+colo seoul256
 
 " Prettify JSON files
 autocmd BufRead,BufNewFile *.json set filetype=json
-autocmd Syntax json sou ~/.vim/syntax/json.vim
+"autocmd Syntax json sou ~/.vim/syntax/json.vim
 
 " Prettify Vagrantfile
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
@@ -95,10 +80,10 @@ autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 " Prettify Markdown files
 augroup markdown
   au!
-  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown | set wrap | set linebreak
 augroup END
 
-" Highlight characters that go over 80 columns (by drawing a border on the 81st)
+"Highlight characters that go over 80 columns (by drawing a border on the 81st)
 if exists('+colorcolumn')
   set colorcolumn=81
   highlight ColorColumn ctermbg=red
@@ -192,7 +177,7 @@ inoremap jk <ESC>
 "inoremap {;<CR> {<CR>};<ESC>O
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 07. Hybrid line numbeing
+" 07. Hybrid line numbering
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ":set number relativenumber
 
@@ -231,3 +216,5 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 
+" vimwiki syntax
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext':'.md'}]

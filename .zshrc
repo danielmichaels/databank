@@ -65,7 +65,6 @@ plugins=(
   last-working-dir
   zsh-syntax-highlighting
   history
-  k
 )
 # git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
 # ^ for k (the new l, yo)
@@ -123,6 +122,7 @@ alias ta="tmux a"
 alias t="tmux"
 alias TS="trizen -Syu"
 alias inet="ifconfig | grep -C 2 -i inet"
+#alias history="history -E"
 #
 ######################################################
 #                Custom Functions                    #
@@ -142,7 +142,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 alias gs="git status"
 alias gc-m="git commit -m"
 alias gc="git commit"
-alias gp="git push"
+alias gp="git push -v"
 alias lg="lazygit"
 #
 #######################################################
@@ -164,4 +164,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3"
 
 cheat() { curl -s "cheat.sh/$1"; }
+startvm() { VBoxManage startvm "$1" }
+stopvm() { VBoxManage controlvm "$1" poweroff }
 #source /usr/share/nvm/init-nvm.sh
