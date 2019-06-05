@@ -14,7 +14,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 #### Tools
 
 - [Vimwiki](vimwiki-help)
-- SSH
+- [SSH](SSH)
 - Git
 - Vim
 - [Ubiquiti](Ubiquiti)

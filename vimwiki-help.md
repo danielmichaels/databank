@@ -17,7 +17,7 @@ Normal mode:
  * `<Shift-Tab>` -- Find previous wiki link
  * `<gt>` -- Change to next tab
  * `<gT>` -- Change to previous tab
- * 
+ * `<C-Space>` -- Create todo check box. Press again to mark complete.
 
 For more keys, see `:h vimwiki-mappings`
 
