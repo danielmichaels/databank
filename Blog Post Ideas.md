@@ -8,3 +8,7 @@ Posted articles will be marked with an [X].
 - [ ] Vimwiki
 - [ ] DNS
 - [ ] Scapy (arp)
+- [ ] Web Hackers Handbook Notes:
+  - [ ] HTTP basics
+  - [ ] Defence basics
+  - [ ] Attack fundamentals
