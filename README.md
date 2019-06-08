@@ -1,8 +1,8 @@
-[#](#) dwiki
+# dwiki
 
 > A personal collection of stuff.
 
-![vim picture text]('/images/vim.png' "vim")
+![vim picture]('https://github.com/danielmichaels/dwiki/blob/master/images/vim.png' "vim")
 
 ### Why
 
