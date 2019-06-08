@@ -27,12 +27,15 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - ARP
 - [PfSense](PfSense)
 
+- [Bookmarks](Bookmarks)
+
 #### Other
 
 ## Misc
 
 - [Blog Post Ideas](Blog Post Ideas)
 - [Project Ideas](Project Ideas)
+- [Thoughts](Thoughts)
 
 ## Education
 
@@ -40,5 +43,6 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [Concepts](Concepts)
 
 ## Scratchpad 
+
 
 

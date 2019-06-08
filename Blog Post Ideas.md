@@ -6,7 +6,12 @@ Posted articles will be marked with an [X].
 
 - [ ] Controller Area Networks
 - [ ] Vimwiki
-- [ ] DNS
+- [ ] DNS:
+  - [ ] Terms & Defintions:
+    - [ ] recursive
+    - [ ] authoritative
+    - [ ] TLD
+    - [ ] domain & host's
 - [ ] Scapy (arp)
 - [ ] Web Hackers Handbook Notes:
   - [ ] HTTP basics

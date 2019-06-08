@@ -1,12 +1,15 @@
 # Books
 
-Books I have read or want to read. 
+## Books I have read
 
-Not every book deserves a review, those that do are getting it here.
+Books that have notes attached are hyper-linked.
 
 ## Contents
 
 - [2019](2019)
-- 2018
-- 2017
+- [2018](2018)
+- [2017](2017)
+
+### Books I want to read
+
 
