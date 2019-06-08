@@ -2,7 +2,7 @@
 
 > A personal collection of stuff.
 
-![vim picture]('https://github.com/danielmichaels/dwiki/blob/master/images/vim.png?raw=true' "vim")
+![vim picture](https://github.com/danielmichaels/dwiki/blob/master/images/vim.png?raw=true "vim")
 
 ### Why
 
