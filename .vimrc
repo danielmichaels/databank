@@ -11,6 +11,7 @@
 "   06. Custom Commands ......... Any custom command aliases                 "
 "   07. Hybrid Line numbering.... Line numbering bingings
 "   08. Vim-Go................... Vim-go specific bindings
+"   09. Vimwiki.................. Vimwiki custom bindings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,6 +27,8 @@ Plug 'fatih/vim-go', {'for': ['go', 'markdown'] } "Loads only when editing go fi
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind'] } "Loads only when opening NERDTree
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-fugitive'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
@@ -216,5 +219,30 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 09. Vimwiki Custom
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " vimwiki syntax
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext':'.md'}]
+
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+    autocmd!
+    " automatically update links on read diary
+    autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
+augroup end
+nnoremap <leader>dd :Diary<CR>
+nnoremap <leader>ch :CalendarH<CR>
+nnoremap <leader>c :Calendar<CR>
+nnoremap <leader>md :InstantMarkdownPreview<CR>
+
+" vim-instant-preview
+"Uncomment to override defaults:
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
+"let g:instant_markdown_open_to_the_world = 1 
+"let g:instant_markdown_allow_unsafe_content = 1
+"let g:instant_markdown_allow_external_content = 0
+"let g:instant_markdown_mathjax = 1
