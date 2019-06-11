@@ -10,7 +10,7 @@ The DNS is a query/response protocol in which messages are sent in both directio
 
 A graphic summary of how a DNS query takes place.
 
-![dns-lookup](https://github.com/danielmichaels/dwiki/blob/master/images/pdns-lookup-diagram.png "dns lookup diagram from cloudflare")
+![dns-lookup](https://github.com/danielmichaels/dwiki/blob/master/images/dns-lookup-diagram.png "dns lookup diagram from cloudflare")
 1. When the user types `example.com` into the browser and presses enter, the client machine sends a request for that IP address of the website to a DNS recursive resolver.
 2. The resolver, having not found the address in its cache, forwards the request to one of the DNS root name servers. Root name servers represent the "dot", or period - '.'.
 3. Once received, the root name server looks for the top-level domain address that matches the request - in this case; `com`. If found, it returns the `com` TLD IP address.
