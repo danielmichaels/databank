@@ -1,5 +1,11 @@
 # Vimwiki Helpers
 
+## Images
+
+Place images in the `vimwiki` folder by prefixing the image file with the following link:
+
+ `https://github.com/danielmichaels/dwiki/blob/master/images/` 
+
 ## Key bindings
 
 Normal mode:
