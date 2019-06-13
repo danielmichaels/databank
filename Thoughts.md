@@ -9,4 +9,5 @@ Asked a question you don't know the answer to:
 
 > Questions on how to make something better requires you to INVERT the question - focus on what could make it worse and avoid those things
 
+> Complexity is not a sign of intelligence; simplify.
 

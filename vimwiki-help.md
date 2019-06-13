@@ -11,6 +11,7 @@ Place images in the `vimwiki` folder by prefixing the image file with the follow
 Normal mode:
 
  * `<Leader>ww` -- Open default wiki index file.
+ * `<Leader>wi` -- Open diary index
  * `<Leader>wt` -- Open default wiki index file in a new tab.
  * `<Leader>ws` -- Select and open wiki index file.
  * `<Leader>wd` -- Delete wiki file you are in.
@@ -24,6 +25,11 @@ Normal mode:
  * `<gt>` -- Change to next tab
  * `<gT>` -- Change to previous tab
  * `<C-Space>` -- Create todo check box. Press again to mark complete.
+ * `<Leader>dd` -- :Diary
+ * `<Leader>ch` -- :CalendarH (Horizontal)
+ * `<Leader>c` -- :Calendar (Vertical)
+ * `<Leader>md` -- Starts markdown preview in default browser
+ * `<Leader>img` -- Inserts the `vimwiki` GitHub image URL address
 
 For more keys, see `:h vimwiki-mappings`
 
