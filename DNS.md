@@ -24,10 +24,58 @@ A graphic summary of how a DNS query takes place.
 9. The browser now makes a HTTP request to `example.com` via its IPv4 or IPv6 address.
 10. Now the browser and the website can freely communicate using HTTP.
 
+## Zone Files
+
+Zone files are how a name server stores information about the domain it has authority for. Every domain that the server has authority over, will have its own zone file.
+
+Zone files contain many different record types. 
+
+
+### Zone Transfers
+
+Any transaction between name servers used to replicate databases across servers. Zone transfers are conducted using TCP over port 53 in a client-server fashion. Clients requesting the zone transfer may be slave or secondary server attempting to replicate the zone file.
+
+Transfers start with a SOA lookup checking the serial number to determine if the transfer/replication needs to take place at all. 
+If the clients serial number is less than the servers serial number, it will proceed to request the actual transfer. It is a form of version control, and validation.
+
+The first response during a zone transfer is a SOA record. All other fields are in no particular order but it will always end with another SOA.
+
+Zone transfers are _entirely_ client initiated. A freshly raised name server will have no records and will begin its first zone transfer. Thereafter, it will continue to refresh its zone file in regular intervals as determined by the `refresh`, `retry`, and `expire` fields in the SOA resource record.
+
+Running the following command will produce a zone transfer response from the name server. The response record types are expanded in more detail below.
+
+`drill AXFR @nsztm1.digi.ninja zonetransfer.me`
+
 ## Resource Records
 
 ### Start of Authority (SOA):
   - Contains administrative info about a zone such as domain owner, contact details and serial number.
+  - Can be of use in a audit, or give detail about the domain.
+  - serial number is used to determine the currency of the zone's data, and if a zone transfer needs to be conducted at all.
+
+```shell
+drill SOA taste.com.au
+
+>>> ;; QUESTION SECTION:
+>>> ;; taste.com.au.        IN      SOA
+>>> 
+>>> ;; ANSWER SECTION:
+>>> taste.com.au.   176     IN      SOA     dns0.news.com.au. hostmaster.news.com.au. 2019060600 900 600 604800 300
+
+```
+
+Each tabbed section in detail:
+
+- `IN` and `SOA`; Internet and Start of Authority.
+- `dns0.news.com.au` is the primary name server.
+- The email contact for the domain; `hostmaster.news.com.au` is equal to `hostmaster@news.com.au` - first `.` should be replaced by an `@` symbol.
+- `2019060600` is the current serial number for the domain.
+- `900` - time in seconds secondary name servers should wait between making requests for changes. Also known as the `refresh` rate. More aptly this means; how long am I willing to accept my secondary server to have out-of-date information.
+- `600` refers the time it should wait before trying another `refresh` if the last one failed.
+- `604800` is the `expire` counter in seconds. It lets the secondary name server know how long to hold their information for before it is no longer considered authoritative. Generally, this is a large number, and should always be greater than `refresh` and `retry` counters.
+- `300` is the `minimum` time-to-live in seconds before the records in the zone are considered invalid. 
+
+
 ### A:
   - IPv4 address associated to domain name.
 ### AAAA:

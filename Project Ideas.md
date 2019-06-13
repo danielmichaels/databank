@@ -11,5 +11,7 @@ A list of project ideas.
 ## Programming
 
 - [ ] [LANspy](LANspy)
+- [ ] dnsrecon setup.py
+- [ ] golang dns tool
 
 ## Misc
