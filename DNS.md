@@ -13,14 +13,14 @@ A graphic summary of how a DNS query takes place.
 ![dns-lookup](https://github.com/danielmichaels/dwiki/blob/master/images/dns-lookup-diagram.png "dns lookup diagram from cloudflare")
 > fig.1 [attribution](https://www.cloudflare.com/learning/dns/what-is-dns/)
 
-1. When the user types `example.com` into the browser and presses enter, the client machine does a lookup in its `hosts` table for a match. If no match is found it sends a request for the IP address of the website to a DNS recursive resolver.
+1. When the user types `example.com` into the browser and presses enter, the client machine does a lookup in its `hosts` file for a match. If no match is found it sends a request for the IP address of the website to a DNS recursive resolver.
 2. The resolver, having not found the address in its cache, forwards the request to one of the DNS root name servers. Root name servers represent the "dot", or period - `'.'`.
-3. Once received, the root name server looks for the top-level domain address that matches the request - in this case; `com`. If found, it returns the `com` TLD IP address.
-4. The DNS resolver then sends out another request to the `com` name server.
-5. Next the `com` name server looks up the domain name server address matching `example`, and returns it to the resolver.
+3. Once received, the root name server looks for the top-level domain address (TLD) that matches the request - in this case; `com`. If found, it returns the `com` TLD IP address.
+4. The DNS resolver then sends out a request to the `com` name server.
+5. Next, the `com` name server looks up the domain name matching `example`, and returns it's address to the resolver.
 6. Now the resolver can query the `example` domain name server for an IP address.
-7. If `example.com` exists, the server will respond with its mapped address.
-8. Once received, the DNS recursive resolver sends the IP address for `example.com` to the browser.
+7. The server will respond with its mapped address.
+8. Once received, the DNS recursive resolver sends the IP address for `example.com` to the browser, and stores it in it's cache.
 9. The browser now makes a HTTP request to `example.com` via its IPv4 or IPv6 address.
 10. Now the browser and the website can freely communicate using HTTP.
 

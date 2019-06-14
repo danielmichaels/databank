@@ -30,4 +30,6 @@ I also want to make these things public so I can access them when away from my s
 
 If I ever need to pull this down to a new system, simply install `vimwiki` using `vim-plug` and then clone this into `~/vimwiki`. That is `vimwiki`'s default home location but can be changed if required.
 
+Custom keymappings are located in my `.vimrc`.
+
 :snake:
