@@ -8,7 +8,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 
 - [Python](Python)
 - Go
-- Bash
+- [Bash](Bash)
 
 #### Tools
 
@@ -18,6 +18,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - Git
 - Vim
 - [Ubiquiti](Ubiquiti)
+- [AWS](AWS)
 
 #### Network Concepts
 
@@ -34,6 +35,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 
 ## Security
 
+- [Study Notes](Study Notes)
 - [Infrastructure](Infrastructure)
 - [Recon](Recon)
 - [Post-Exploitation](Post-Exploitation)

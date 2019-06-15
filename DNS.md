@@ -103,6 +103,21 @@ This should be read as:
 > `bar.example.com.` is an alias for the CNAME `foo.example.com.`. A client request for `bar.example.com.` will be returned `foo.example.com.`
 
 The next query to the `example` domain will be asking for `foo.`. It will then be returned an `A` record with address `192.0.2.23`.
+This adds latency to the request as another round trip must be conducted.
+
+## Caching
+
+### Browsers
+
+To increase efficency by reducing the number of lookups, browsers such as Chrome, and Firefox cache DNS data. 
+
+### Predictive Search Queries
+
+example of dns lookups via googles predictive search
+
+### OS
+
+OS level cache
 
 ## Terms
 
@@ -130,10 +145,24 @@ Country Code TLD's such as `au` eg. `taste.com.au` will be resolved in the follo
 3. -> `com.au`
 4. -> `taste.com.au`
 
+This can be seen via `drill -T taste.com.au` which will trace (what `-T` does) through each root name server all the way to the A record of `taste.com.au`.
+
 
 ### Recursive request
 
+When the needs to get the address for a URL, it first checks its cache, then if not found will send a request to its recursive resolver asking for the address. In most cases the resolver being queried will be an ISP default (please don't do this; they monetize it), or something like Google's public DNS server; `8.8.8.8`. Sidenote: use `1.1.1.1` or some other provider - google are using you, too.
+
+The recursive resolver will then begin a series of iterative requests out to the root name servers.
+
+For the most part recursive queries begin with the client and end at the recursive resolver in a kind of A->B, B->A relationship. Some instances, such as private DNS in large organisations may have several recursive queries out the requested resource. This is due to the authoritative nature of such setups.
+
 ### Iterative request
 
+Generally, the queries from a recursive resolver are iterative. They leave the resolver and start at the top of the DNS tree via the root name servers. The root replies with the appropriate domains name server. The resolver then makes another query to that server. The iterations continue down the hierarchy until an address is resolved. 
+
 ### Non-Iterative request
+
+When a query is made and the resolver has the address mapping in its cache, it will refer the client immediately to it. No further queries are made and this is known as a non-iterative request.
+
+
 

@@ -13,7 +13,7 @@ Posted articles will be marked with an [X].
     - [ ] authoritative
     - [ ] TLD
     - [ ] domain & host's
-  - [ ] Drill tool (not enough on the net; all relate to `dig`
+  - [ ] Drill tool (not enough on the net; all relate to `dig`)
 - [ ] Scapy (arp)
 - [ ] Web Hackers Handbook Notes:
   - [ ] HTTP basics
