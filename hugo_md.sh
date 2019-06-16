@@ -16,6 +16,12 @@ draft = \"true\"
 FILENAME=$1.md
 FILE=$FILENAME
 
+if [ $# -eq 0 ]
+  then
+    echo "Missing filename argument"
+    exit
+fi
+
 if [ -e $1.md ]; then
   echo "File Aleady Exists"
 else
