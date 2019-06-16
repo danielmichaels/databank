@@ -13,7 +13,8 @@ draft = \"true\"
 +++
 "
 
-FILENAME=$1.md
+DATE=$(date +"%d%m%Y")
+FILENAME=$DATE'-'$1.md
 FILE=$FILENAME
 
 if [ $# -eq 0 ]
@@ -27,4 +28,5 @@ if [ -e $1.md ]; then
 else
   touch $FILENAME
   echo "$DATA" > $FILE
+  echo "Created $FILE"
 fi
