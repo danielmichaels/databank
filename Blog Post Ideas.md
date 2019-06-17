@@ -19,3 +19,5 @@ Posted articles will be marked with an [X].
   - [ ] HTTP basics
   - [ ] Defence basics
   - [ ] Attack fundamentals
+- [ ] URI to expand on DNS
+- [ ] Raid states & NAS setup
