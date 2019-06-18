@@ -165,4 +165,22 @@ Generally, the queries from a recursive resolver are iterative. They leave the r
 When a query is made and the resolver has the address mapping in its cache, it will refer the client immediately to it. No further queries are made and this is known as a non-iterative request.
 
 
+### Flags
 
+[more info](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-12)
+- `aa` Authoritative Answer
+- `tc` Truncated Response
+- `rd` Recursion Desired
+- `ra` Recursion Available
+- `ad` Authentic Data
+- `cd` Checking Disabled
+
+## Firefox and DNS
+
+Today I learnt that my firefox DNS is overriding my pfBlockerNG settings. How, I am not sure but its been driving me crazy. 
+
+In `about:config` I had set `network.trr:2` and this had created a DNS-over-HTTPS connection for all DNS queries coming from Firefox. I posit that my pfSense firewall is not filtering the DNS traffic through itself and therefore blocking ads because it cannot inspect the HTTPS traffic and see that it is DNS. 
+
+My thoughts on DoH were that its a shamble, and thats been solidified here. In an attempt to make my DNS queries private, they have exposed me to potentially malicious ads - monetising me all the way. Its my fault for turning on `network.trr` without fully understanding the repercussions.
+
+ADD the TRR codes and how to disable it.
