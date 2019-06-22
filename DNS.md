@@ -1,10 +1,39 @@
 # DNS
 
 Fundamental concepts of the Domain Name System.
+<!-- TOC -->
 
+- [DNS](#dns)
+  - [What](#what)
+  - [How](#how)
+  - [Zone Files](#zone-files)
+    - [Zone Transfers](#zone-transfers)
+  - [Resource Records](#resource-records)
+    - [Start of Authority (SOA):](#start-of-authority-soa)
+    - [A:](#a)
+    - [AAAA:](#aaaa)
+    - [Mail Exchanger (MX):](#mail-exchanger-mx)
+    - [Name Server (NS):](#name-server-ns)
+    - [Pointer (PTR):](#pointer-ptr)
+    - [Canonical Name (CNAME):](#canonical-name-cname)
+  - [Caching](#caching)
+    - [Browsers](#browsers)
+    - [Predictive Search Queries](#predictive-search-queries)
+    - [OS](#os)
+  - [Terms](#terms)
+    - [DNS resolver](#dns-resolver)
+    - [Authoritative Server](#authoritative-server)
+    - [Top-level Domain (TLD)](#top-level-domain-tld)
+    - [Recursive request](#recursive-request)
+    - [Iterative request](#iterative-request)
+    - [Non-Iterative request](#non-iterative-request)
+    - [Flags](#flags)
+  - [Firefox and DNS](#firefox-and-dns)
+
+<!-- /TOC -->
 ## What
 
-The DNS is a query/response protocol in which messages are sent in both directions using the same format. 
+The DNS is a query/response protocol in which messages are sent in both directions using the same format.
 
 ## How
 
@@ -28,14 +57,14 @@ A graphic summary of how a DNS query takes place.
 
 Zone files are how a name server stores information about the domain it has authority for. Every domain that the server has authority over, will have its own zone file.
 
-Zone files contain many different record types. 
+Zone files contain many different record types.
 
 
 ### Zone Transfers
 
 Any transaction between name servers used to replicate databases across servers. Zone transfers are conducted using TCP over port 53 in a client-server fashion. Clients requesting the zone transfer may be slave or secondary server attempting to replicate the zone file.
 
-Transfers start with a SOA lookup checking the serial number to determine if the transfer/replication needs to take place at all. 
+Transfers start with a SOA lookup checking the serial number to determine if the transfer/replication needs to take place at all.
 If the clients serial number is less than the servers serial number, it will proceed to request the actual transfer. It is a form of version control, and validation.
 
 The first response during a zone transfer is a SOA record. All other fields are in no particular order but it will always end with another SOA.
@@ -58,7 +87,7 @@ drill SOA taste.com.au
 
 >>> ;; QUESTION SECTION:
 >>> ;; taste.com.au.        IN      SOA
->>> 
+>>>
 >>> ;; ANSWER SECTION:
 >>> taste.com.au.   176     IN      SOA     dns0.news.com.au. hostmaster.news.com.au. 2019060600 900 600 604800 300
 
@@ -73,7 +102,7 @@ Each tabbed section in detail:
 - `900` - time in seconds secondary name servers should wait between making requests for changes. Also known as the `refresh` rate. More aptly this means; how long am I willing to accept my secondary server to have out-of-date information.
 - `600` refers the time it should wait before trying another `refresh` if the last one failed.
 - `604800` is the `expire` counter in seconds. It lets the secondary name server know how long to hold their information for before it is no longer considered authoritative. Generally, this is a large number, and should always be greater than `refresh` and `retry` counters.
-- `300` is the `minimum` time-to-live in seconds before the records in the zone are considered invalid. 
+- `300` is the `minimum` time-to-live in seconds before the records in the zone are considered invalid.
 
 
 ### A:
@@ -88,7 +117,7 @@ Each tabbed section in detail:
   - Pointer file for reverse DNS lookups
 ### Canonical Name (CNAME):
   - Some domains will have alias' such as `www.example.com` might be an alias of `example.com`. The CNAME record tells the resolver to start another query for that name.
-   
+
 DNS zone file that reads:
 
 ```shell
@@ -96,7 +125,7 @@ DNS zone file that reads:
 --------------------------------------------------
 bar.example.com.        CNAME  foo.example.com.
 foo.example.com.        A      192.0.2.23
-   
+
 ```
 This should be read as:
 
@@ -109,7 +138,7 @@ This adds latency to the request as another round trip must be conducted.
 
 ### Browsers
 
-To increase efficency by reducing the number of lookups, browsers such as Chrome, and Firefox cache DNS data. 
+To increase efficency by reducing the number of lookups, browsers such as Chrome, and Firefox cache DNS data.
 
 ### Predictive Search Queries
 
@@ -133,10 +162,10 @@ Owns the domain, or has all the records for that domain.
 
 ### Top-level Domain (TLD)
 
-Domains that are one level below the root are known as top level domains. 
+Domains that are one level below the root are known as top level domains.
 
 - Examples:
-  `com`, `jp`, `edu`  
+  `com`, `jp`, `edu`
 
 Country Code TLD's such as `au` eg. `taste.com.au` will be resolved in the following order:
 
@@ -158,7 +187,7 @@ For the most part recursive queries begin with the client and end at the recursi
 
 ### Iterative request
 
-Generally, the queries from a recursive resolver are iterative. They leave the resolver and start at the top of the DNS tree via the root name servers. The root replies with the appropriate domains name server. The resolver then makes another query to that server. The iterations continue down the hierarchy until an address is resolved. 
+Generally, the queries from a recursive resolver are iterative. They leave the resolver and start at the top of the DNS tree via the root name servers. The root replies with the appropriate domains name server. The resolver then makes another query to that server. The iterations continue down the hierarchy until an address is resolved.
 
 ### Non-Iterative request
 
@@ -177,9 +206,9 @@ When a query is made and the resolver has the address mapping in its cache, it w
 
 ## Firefox and DNS
 
-Today I learnt that my firefox DNS is overriding my pfBlockerNG settings. How, I am not sure but its been driving me crazy. 
+Today I learnt that my firefox DNS is overriding my pfBlockerNG settings. How, I am not sure but its been driving me crazy.
 
-In `about:config` I had set `network.trr:2` and this had created a DNS-over-HTTPS connection for all DNS queries coming from Firefox. I posit that my pfSense firewall is not filtering the DNS traffic through itself and therefore blocking ads because it cannot inspect the HTTPS traffic and see that it is DNS. 
+In `about:config` I had set `network.trr:2` and this had created a DNS-over-HTTPS connection for all DNS queries coming from Firefox. I posit that my pfSense firewall is not filtering the DNS traffic through itself and therefore blocking ads because it cannot inspect the HTTPS traffic and see that it is DNS.
 
 My thoughts on DoH were that its a shamble, and thats been solidified here. In an attempt to make my DNS queries private, they have exposed me to potentially malicious ads - monetising me all the way. Its my fault for turning on `network.trr` without fully understanding the repercussions.
 

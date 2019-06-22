@@ -13,8 +13,19 @@ Posted articles will be marked with an [X].
     - [X] authoritative
     - [X] TLD
     - [X] domain & host's
-  - [ ] Drill tool (not enough on the net; all relate to `dig`)
+  - [ ] Drill tool (not enough on the net; all relate to `dig`):
+    - [ ] Opcodes
+    - [ ] Resources
+    - [ ] RFC:
+      - [ ] 1996
+      - [ ] 2136:
+        - [ ] definitions:
+          - [ ] Slave
+          - [ ] Primary Server
+          - [ ] Master
   - [ ] DNS packet dissection
+  - [ ] Zone files:
+    - [ ] SOA in detail
 - [ ] Scapy (arp)
 - [ ] Web Hackers Handbook Notes:
   - [ ] HTTP basics
