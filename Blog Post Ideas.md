@@ -7,13 +7,14 @@ Posted articles will be marked with an [X].
 - [ ] Controller Area Networks
 - [ ] Vimwiki
 - [ ] cUrl
-- [ ] DNS:
-  - [ ] Terms & Defintions:
-    - [ ] recursive
-    - [ ] authoritative
-    - [ ] TLD
-    - [ ] domain & host's
+- [.] DNS:
+  - [X] Terms & Defintions:
+    - [X] recursive
+    - [X] authoritative
+    - [X] TLD
+    - [X] domain & host's
   - [ ] Drill tool (not enough on the net; all relate to `dig`)
+  - [ ] DNS packet dissection
 - [ ] Scapy (arp)
 - [ ] Web Hackers Handbook Notes:
   - [ ] HTTP basics
