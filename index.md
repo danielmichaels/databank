@@ -20,6 +20,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [Ubiquiti](Ubiquiti)
 - [AWS](AWS)
 - [STW](STW)
+- [Hugo](Hugo) Static Site Generator
 
 #### Network Concepts
 

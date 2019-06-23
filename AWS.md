@@ -6,6 +6,6 @@
 - [S3](S3)
 - Cloud Front
 - Storage Gateway
-- EC2
+- [EC2](EC2)
 - 
 

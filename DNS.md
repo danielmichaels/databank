@@ -1,65 +1,37 @@
-[#](#) DNS
+# DNS
+**Fundamental concepts of the Domain Name System.**
 
-Fundamental concepts of the Domain Name System.
-<!-- TOC -->
-
-- [DNS](#dns)
-  - [What](#what)
-  - [How](#how)
-  - [Zone Files](#zone-files)
-    - [Zone Transfers](#zone-transfers)
-  - [Resource Records](#resource-records)
-    - [Start of Authority (SOA):](#start-of-authority-soa)
-    - [A:](#a)
-    - [AAAA:](#aaaa)
-    - [Mail Exchanger (MX):](#mail-exchanger-mx)
-    - [Name Server (NS):](#name-server-ns)
-    - [Pointer (PTR):](#pointer-ptr)
-    - [Canonical Name (CNAME):](#canonical-name-cname)
-  - [Caching](#caching)
-    - [Browsers](#browsers)
-    - [Predictive Search Queries](#predictive-search-queries)
-    - [OS](#os)
-  - [Terms](#terms)
-    - [DNS resolver](#dns-resolver)
-    - [Authoritative Server](#authoritative-server)
-    - [Top-level Domain (TLD)](#top-level-domain-tld)
-    - [Recursive request](#recursive-request)
-    - [Iterative request](#iterative-request)
-    - [Non-Iterative request](#non-iterative-request)
-    - [Flags](#flags)
-  - [Firefox and DNS](#firefox-and-dns)
-
-<!-- /TOC -->
 <!-- vim-markdown-toc GFM -->
 
 * [What](#what)
 * [How](#how)
 * [Zone Files](#zone-files)
-  * [Zone Transfers](#zone-transfers)
+  - [Zone Transfers](#zone-transfers)
 * [Resource Records](#resource-records)
-  * [Start of Authority (SOA):](#start-of-authority-soa)
-  * [A:](#a)
-  * [AAAA:](#aaaa)
-  * [Mail Exchanger (MX):](#mail-exchanger-mx)
-  * [Name Server (NS):](#name-server-ns)
-  * [Pointer (PTR):](#pointer-ptr)
-  * [Canonical Name (CNAME):](#canonical-name-cname)
+  - [Start of Authority (SOA):](#start-of-authority-soa)
+  - [A:](#a)
+  - [AAAA:](#aaaa)
+  - [Mail Exchanger (MX):](#mail-exchanger-mx)
+  - [Name Server (NS):](#name-server-ns)
+  - [Pointer (PTR):](#pointer-ptr)
+  - [Canonical Name (CNAME):](#canonical-name-cname)
 * [Caching](#caching)
-  * [Browsers](#browsers)
-  * [Predictive Search Queries](#predictive-search-queries)
-  * [OS](#os)
+  - [Browsers](#browsers)
+  - [Predictive Search Queries](#predictive-search-queries)
+  - [OS](#os)
 * [Terms](#terms)
-  * [DNS resolver](#dns-resolver)
-  * [Authoritative Server](#authoritative-server)
-  * [Top-level Domain (TLD)](#top-level-domain-tld)
-  * [Recursive request](#recursive-request)
-  * [Iterative request](#iterative-request)
-  * [Non-Iterative request](#non-iterative-request)
-  * [Flags](#flags)
+  - [DNS resolver](#dns-resolver)
+  - [Authoritative Server](#authoritative-server)
+  - [Top-level Domain (TLD)](#top-level-domain-tld)
+  - [Recursive request](#recursive-request)
+  - [Iterative request](#iterative-request)
+  - [Non-Iterative request](#non-iterative-request)
+  - [Flags](#flags)
+  - [Opcodes](#opcodes)
 * [Firefox and DNS](#firefox-and-dns)
 
 <!-- vim-markdown-toc -->
+
 ## What
 
 The DNS is a query/response protocol in which messages are sent in both directions using the same format.
@@ -232,6 +204,19 @@ When a query is made and the resolver has the address mapping in its cache, it w
 - `ra` Recursion Available
 - `ad` Authentic Data
 - `cd` Checking Disabled
+
+### Opcodes
+
+
+| Opcode | Description | References     |
+|--------|-------------|----------------|
+| *0*    | Query       | RFC 1035       |
+| *1*    | Iquery      | RFC 1035, 3425 |
+| *3*    | null        | null           |
+| *4*    | Notify      | RFC 1996       |
+| *5*    | Update      | RFC 2136       |
+| *6-15* | *reserved*  | null           |
+
 
 ## Firefox and DNS
 
