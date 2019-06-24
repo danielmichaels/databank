@@ -14,3 +14,11 @@ This can be validated by first setting the Advanced settings Log Level to 3 or 4
 Hovering over the buttons will detail their usage.
 
 By default unbound's DNS Cache is set to a 15 minute TTL.
+
+## DNS LAN Name resolution
+
+To ensure the LAN DHCP sends out the local domain you must check:
+
+- [X] Register DHCP leases in the DNS Resolver
+- [X] Register DHCP static mappings in the DNS resolver (optional)
+- [X] Register connected OpenVPN clients in DNS Resolver (optional)
