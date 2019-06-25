@@ -15,12 +15,15 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [Vimwiki](vimwiki-help)
 - [Tmux](Tmux)
 - [SSH](SSH)
+- [cUrl](cUrl)
 - Git
 - Vim
 - [Ubiquiti](Ubiquiti)
 - [AWS](AWS)
 - [STW](STW)
 - [Hugo](Hugo) Static Site Generator
+- [Foremost](Foremost)
+
 
 #### Network Concepts
 
