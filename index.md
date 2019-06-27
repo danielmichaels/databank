@@ -13,13 +13,14 @@ Things I have learnt along the way that proved useful, or looked up more than on
 #### Tools
 
 - [Vimwiki](vimwiki-help)
+- [Vim](Vim)
 - [Tmux](Tmux)
 - [SSH](SSH)
 - [cUrl](cUrl)
-- Git
-- Vim
 - [Ubiquiti](Ubiquiti)
 - [AWS](AWS)
+- [Vagrant](Vagrant)
+- [Ansible](Ansible)
 - [STW](STW)
 - [Hugo](Hugo) Static Site Generator
 - [Foremost](Foremost)

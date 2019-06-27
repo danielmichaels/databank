@@ -4,6 +4,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [EBS](#ebs)
+* [Logins](#logins)
 
 <!-- vim-markdown-toc -->
 
@@ -19,3 +20,9 @@ API codes:
 | `standard` | EBS Magnetic             | Previous Gen. HDD                                                                                   | Workloads where data is access infrequently | 1 GiB - 1 TiB    | 40-200   |
 
 
+## Logins
+
+- Ubuntu:
+  - `ubuntu@<ip or dns>`
+- AMI:
+  - `ec2-user@<ip or dns>`
