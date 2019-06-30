@@ -6,7 +6,10 @@ Posted articles will be marked with an [X].
 
 - [ ] Controller Area Networks
 - [ ] Vimwiki
-- [ ] cUrl
+- [ ] cUrl:
+  - [ ] Sending Email
+  - [ ] HTML email file
+  - [ ] File containing data b64
 - [.] DNS:
   - [X] Terms & Defintions:
     - [X] recursive
@@ -33,3 +36,5 @@ Posted articles will be marked with an [X].
   - [ ] Attack fundamentals
 - [ ] URI to expand on DNS
 - [ ] Raid states & NAS setup
+- [ ] Time spent in recon, seldom wasted:
+  - [ ] security is seen as a waste..
