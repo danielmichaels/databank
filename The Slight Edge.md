@@ -54,7 +54,7 @@ __Are You Your Own Cause?__
 - The upper half take full responsibility for their actions. They view all forces that brought them to this point, to be under their control - parents, teachers, friends, family, and so on. These influencers are viewed through the lens of gratitude and appreciation, not blame. They view themselves as the cause of what comes next in their life, no matter whether those influences have been negative or positive.
 - Negative people dwell on the past and positive, successful people look to their future. Your past can bring you down, its what people on the failure curve look at - _I failed at this, so and so did this to me, I was X at school._  People on the success curve don't shun the past, they use it as a tool to shape their future for the better. Failure curvers use their past as weapon of self-flagellation and to hurt those around them.
 
-![alt text](https://github.com/danielmichaels/dwiki/blob/master/images/slightedge.png "slight edge wisdom")
+![alt text](https://github.com/danielmichaels/dwiki/blob/master/images/slightedge.jpg "slight edge wisdom")
 
 - Honestly look at your your level of happiness; do you take the time to see things in a postive light, rather than a negative? Are you savouring the moment, and expressing your appreciation of others? Are you engaged in activies you _want_ to do, rather than those you feel you _have_ to do?
 
