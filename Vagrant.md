@@ -44,3 +44,10 @@ Vagrant.configure(2) do |config|
 end
 ```
 
+## Start Box
+
+To start a box you can enter name or id. Using the id is easiest as it can be started from any directory. 
+
+To get the id of all boxes on the platform: `vagrant global-status`
+
+Start the box: `vagrant up <id>`
