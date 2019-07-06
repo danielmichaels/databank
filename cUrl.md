@@ -29,3 +29,11 @@ I can only accept RFC5322 compliant files
 Notes:
 - Can only upload files, not write to body and subject.
 - `--insecure` or `-k` are set when cUrl's certificate is out of date.
+
+## Get Request/Response headers
+
+Two simple ways:
+1. `curl -v {URL}`
+2. `curl --trace-ascii - {URL}` for stdout or replace `-` with a filename to save the output.
+
+
