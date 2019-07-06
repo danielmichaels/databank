@@ -8,7 +8,7 @@ title = \"\"
 categories = [\"\"]
 tags = [\"\"]
 slug = \"\"
-date = \"$(date +'%d %B %Y')\"
+date = \"$(date +'%Y-%m-%d')\"
 draft = \"true\"
 +++
 "
