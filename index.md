@@ -36,6 +36,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [Samba](Samba)
 - [RAID](RAID)
 - [VLAN](VLAN)
+- [HTTP](HTTP)
 
 - [Bookmarks](Bookmarks)
 
