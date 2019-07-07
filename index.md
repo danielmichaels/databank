@@ -24,6 +24,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [STW](STW)
 - [Hugo](Hugo) Static Site Generator
 - [Foremost](Foremost)
+- [Burp](Burp)
 
 
 #### Network Concepts
@@ -53,6 +54,9 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [Controls](Controls)
 - [Network Infrastructure](Network Infrastructure)
 - [Tools](Tools)
+- [Standards & Compliance](Standards & Compliance)
+
+- Bounties
 
 ## Misc
 

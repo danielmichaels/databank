@@ -11,7 +11,7 @@ Posted articles will be marked with an [X].
   - [ ] HTML email file
   - [ ] File containing data b64
 - [.] DNS:
-  - [X] Terms & Defintions:
+  - [X] Terms & Definitions:
     - [X] recursive
     - [X] authoritative
     - [X] TLD
