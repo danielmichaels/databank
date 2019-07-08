@@ -36,4 +36,8 @@ Two simple ways:
 1. `curl -v {URL}`
 2. `curl --trace-ascii - {URL}` for stdout or replace `-` with a filename to save the output.
 
+## Follow Redirects
 
+Using the `-L` for Location header will make Curl follow all redirects. Use with `-I` to see just the headers and concatenate both with `-v` to form `-ILv` to get verbose output without the body.
+
+By default Curl will follow 50 redirects before it will error. You can manually override this and set how many times it is allowed to redirect by adding `--max-redirs n` where `n` is the number required. Unlimited redirects can be set with `--max-redirs -1`.
