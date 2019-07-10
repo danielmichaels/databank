@@ -6,3 +6,4 @@ A collection of notes I have taken when learning new subjects
 
 - [Web](Web)
 - Shell
+- [Samurai wtf](Samurai-wtf)

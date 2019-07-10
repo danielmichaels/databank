@@ -6,6 +6,7 @@ A list of project ideas.
 
 - [ ] [Fix PfSense config](fix PfSense config)
 - [ ] [Get a new switch](Get a new switch)
+- [ ] DNS server for pingbacks
 
 
 ## Programming
@@ -13,5 +14,6 @@ A list of project ideas.
 - [ ] [LANspy](LANspy)
 - [ ] dnsrecon setup.py
 - [ ] golang dns tool
+- [ ] Finish http-tracer enhancements for next release
 
 ## Misc

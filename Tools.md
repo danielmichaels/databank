@@ -18,5 +18,5 @@ Useful tools and how to use them.
 
 ## Web
 
-- Burp
+- [Burp](Burp)
 - GoBuster

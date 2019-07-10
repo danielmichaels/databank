@@ -4,13 +4,13 @@
 
 Things I have learnt along the way that proved useful, or looked up more than once.
 
-#### Languages
+### Languages
 
 - [Python](Python)
 - Go
 - [Bash](Bash)
 
-#### Tools
+### Tools
 
 - [Vimwiki](vimwiki-help)
 - [Vim](Vim)
@@ -27,7 +27,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [Burp](Burp)
 
 
-#### Network Concepts
+### Network Concepts
 
 - [DNS](DNS)
 - [mDNS](mDNS)
@@ -41,7 +41,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 
 - [Bookmarks](Bookmarks)
 
-#### Other
+### Other
 
 - Antenna Theory
 
