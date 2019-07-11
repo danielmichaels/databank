@@ -4,23 +4,23 @@
 
 Of all the controls authentication is conceptually the easiest; a user is correctly authenticated, and given access or they are not, and do not get access.
 Much like the keys to your home, if someone has a copy they don't need to smash the side window anymore - they can just let themselves in.
-For the web application an attacker, if correctly authentication, will be given access rights up to that users level of trust. 
+For web applications, an attacker, if correctly authenticated will be given access rights up to that users level of trust. 
 
-Authentication is simple in concept but difficult in implementation. There lies many subtleties ranging from misconfigurations to ill conceived business logic that has allowed many sites to be compromised.
+Authentication is simple in concept but difficult in implementation. Inside many applications lie subtleties ranging from misconfigurations to ill conceived business logic and it has allowed many sites to be compromised.
 
 ## Authentication Technologies
 
-The following are some of the authentication technologies developer utilise to defend their applications:
+The following are some of the authentication technologies developers utilise to defend their applications:
 
-- HTML forms-based 
-- MFA
+- HTML forms-based
+- Multi-factor authentication (MFA)
 - Client SSL cert's or smart cards
-- HTTP basic and digests
+- HTTP basic and digests authentication schemes
 - Windows-integrated authentication using NTLM or Kerberos
 - Authentication services (OAuth, etc)
 
-At the time of writing the most common is HTML form which the user accesses to input their username and password. This is still very prevalent in today's modern web apps. Even banks that use MFA, or on-screen keyboards and so on, still utilise HTML forms during parts of the login process.
-HTTP-based (basic, digest, and windows-based) are used infrequently over the Internet, but may be used commonly within a local Intranet.
+At the time of writing the most common are HTML forms which the user accesses to input their username and password. This is still very prevalent in today's modern web apps. Even banks that use MFA, or on-screen keyboards and so on, still utilise HTML forms during parts of the login process.
+HTTP-based schema's such as basic, digest, and windows-integrated methods are used infrequently over the Internet, but may be used commonly within a local Intranet.
 
 This post goes over enumeration and exploitation of common authentication schemes and looks at methods to uncover vulnerabilities.
 
@@ -32,13 +32,13 @@ __Bad Passwords__
 
 Users cannot be trusted to implement sound password (or pass phrase) controls. Often the users will adopt the easiest password they can remember, and if given the option will only do the minimum necessary in order to gain access to the application. 
 
-During testing, if the application has a sign up or register page it is worth assessing their current password standards. This will aid in any password list construction. Checking sites like HaveIbeenPwned is also advisable to search out if users have had their passwords breached in the past - password reuse is very common.
+During testing, if the application has a sign up or register page it is worth assessing their current password standards. This will aid in any password list construction. Checking sites like [HaveIbeenPwned] is also advisable to search out if users have had their passwords breached in the past - password reuse is very common.
 
 __Hack Steps__
 
-1. Review password rules, if any,
-2. Self register several accounts with different weak passwords to validate their policy,
-3. If only one account is allowed - for instance, on bug bounties - then attempt to reset the password several times, each with a new weak password.
+1. Review password rules, if any
+2. Self register several accounts with different weak passwords to validate their policy
+3. If only one account is allowed - for instance, on bug bounties - then attempt to reset the password several times, each with a new weak password
 
 
 __Brute-Forcible Logins__
@@ -276,3 +276,4 @@ To make matters worse, users themselves can't be trusted. They will often use we
 For the attacker, all it takes is a meticulous and thorough search - look everywhere. Every corner of the application that has a form of authentication should be examined closely and referenced against all the information already gleaned. Scrutiny is your friend, and time spent in reconnaissance is seldom wasted.
 
 [OWASP top 10]: https://www.owasp.org/index.php/Top_10-2017_A10-Insufficient_Logging%26Monitoring
+[HaveIbeenPwned]: https://haveibeenpwned.com
