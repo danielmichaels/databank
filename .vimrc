@@ -32,6 +32,8 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-fugitive'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'airblade/vim-gitgutter'
+Plug 'mzlogin/vim-markdown-toc'
 "Plug 'altercation/vim-colors-solarized'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
@@ -237,12 +239,17 @@ nnoremap <leader>dd :Diary<CR>
 nnoremap <leader>ch :CalendarH<CR>
 nnoremap <leader>c :Calendar<CR>
 nnoremap <leader>md :InstantMarkdownPreview<CR>
+nnoremap <leader>mdx :InstantMarkdownStop<CR>
+" Insert the image URL for dwiki/images
+nnoremap <leader>img <INSERT>https://github.com/danielmichaels/dwiki/blob/master/images/<CR>
 
 " vim-instant-preview
 "Uncomment to override defaults:
-let g:instant_markdown_slow = 1
+"let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
 "let g:instant_markdown_open_to_the_world = 1 
 "let g:instant_markdown_allow_unsafe_content = 1
 "let g:instant_markdown_allow_external_content = 0
 "let g:instant_markdown_mathjax = 1
+let g:vmt_cycle_list_item_markers = 1
+

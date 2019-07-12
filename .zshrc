@@ -122,6 +122,7 @@ alias ta="tmux a"
 alias t="tmux"
 alias TS="trizen -Syu"
 alias inet="ifconfig | grep -C 2 -i inet"
+alias smb="cd /run/user/1000/gvfs && ls"
 #alias history="history -E"
 #
 ######################################################
