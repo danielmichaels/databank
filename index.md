@@ -6,25 +6,15 @@ Things I have learnt along the way that proved useful, or looked up more than on
 
 ### Languages
 
-- [Python](Python)
-- Go
-- [Bash](Bash)
+- [Languages](Languages)
 
 ### Tools
 
-- [Vimwiki](vimwiki-help)
-- [Vim](Vim)
-- [Tmux](Tmux)
-- [SSH](SSH)
-- [cUrl](cUrl)
-- [Ubiquiti](Ubiquiti)
-- [AWS](AWS)
-- [Vagrant](Vagrant)
-- [Ansible](Ansible)
-- [STW](STW)
+- [Terminal](Terminal)
+- [GUI](GUI)
+- [Hardware & Micro-controllers](Hardware & Micro-controllers)
+- [Network Admin](Network Admin)
 - [Hugo](Hugo) Static Site Generator
-- [Foremost](Foremost)
-- [Burp](Burp)
 
 
 ### Network Concepts
@@ -38,12 +28,9 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [RAID](RAID)
 - [VLAN](VLAN)
 - [HTTP](HTTP)
+- [AWS](AWS)
 
 - [Bookmarks](Bookmarks)
-
-### Other
-
-- Antenna Theory
 
 ## Security
 

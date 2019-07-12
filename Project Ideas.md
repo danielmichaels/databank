@@ -17,3 +17,5 @@ A list of project ideas.
 - [ ] Finish http-tracer enhancements for next release
 
 ## Misc
+
+- [ ] [DIY Bench Power Supply](DIY Bench Power Supply)
