@@ -47,7 +47,7 @@ Things I have learnt along the way that proved useful, or looked up more than on
 
 ## Misc
 
-- [Blog Post Ideas](Blog Post Ideas)
+- [Blog Post Ideas](Blog Post Ideas.md)
 - [Project Ideas](Project Ideas)
 - [Thoughts](Thoughts)
 
