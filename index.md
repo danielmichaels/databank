@@ -12,8 +12,8 @@ Things I have learnt along the way that proved useful, or looked up more than on
 
 - [Terminal](Terminal)
 - [GUI](GUI)
-- [Hardware & Micro-controllers](Hardware & Micro-controllers)
-- [Network Admin](Network Admin)
+- [Hardware & Micro-controllers](Hardware_and_Microcontrollers)
+- [Network Admin](Network-Admin)
 - [Hugo](Hugo) Static Site Generator
 
 
@@ -34,28 +34,25 @@ Things I have learnt along the way that proved useful, or looked up more than on
 
 ## Security
 
-- [Study Notes](Study Notes)
-- [Infrastructure](Infrastructure)
+- [Study Notes](Study-Notes)
 - [Recon](Recon)
-- [Post-Exploitation](Post-Exploitation)
-- [Controls](Controls)
-- [Network Infrastructure](Network Infrastructure)
+- [Network Infrastructure](Network-Infrastructure)
 - [Tools](Tools)
-- [Standards & Compliance](Standards & Compliance)
+- [Standards & Compliance](Standards-and-compliance)
 
 - Bounties
 
 ## Misc
 
-- [Blog Post Ideas](Blog Post Ideas.md)
-- [Project Ideas](Project Ideas)
+- [Blog Post Ideas](Blog-Ideas.md)
+- [Project Ideas](Project-Ideas)
 - [Thoughts](Thoughts)
 
 ## Education
 
 - [Books](Books)
 - [Concepts](Concepts)
-- [Security Questions](Security Questions)
+- [Security Questions](security-questions)
 
 ## Scratchpad 
 

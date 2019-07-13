@@ -4,8 +4,8 @@ A list of project ideas.
 
 ## Network
 
-- [ ] [Fix PfSense config](fix PfSense config)
-- [ ] [Get a new switch](Get a new switch)
+- [ ] [Fix PfSense config](fix-pfsense-config)
+- [ ] [Get a new switch](new-switch)
 - [ ] DNS server for pingbacks
 
 
@@ -18,4 +18,4 @@ A list of project ideas.
 
 ## Misc
 
-- [ ] [DIY Bench Power Supply](DIY Bench Power Supply)
+- [ ] [DIY Bench Power Supply](diy-bench-psu)

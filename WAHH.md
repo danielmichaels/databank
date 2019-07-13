@@ -2,9 +2,9 @@
 
 Important chapter summaries.
 
-- [HTTP Security Basics](HTTP Security Basics)
-- [Core Defences](core defences)
-- [Mapping the Application](Mapping the Application)
-- [Bypass Client-Side Controls](Bypass Client-Side Controls)
-- [Attacking Authentication](Attacking Authentication)
+- [HTTP Security Basics](http-security-basics)
+- [Core Defences](core-defences)
+- [Mapping the Application](mapping-the-application)
+- [Bypass Client-Side Controls](bypass-client-side-controls)
+- [Attacking Authentication](attacking-authentication)
 - [Attacking Session Management](Attacking Session Management)

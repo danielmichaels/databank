@@ -11,5 +11,4 @@ Stateful filtering tracks the origin of incoming requests in a state table, allo
 - [Setup](Setup)
 - [DNS](pfSense-DNS)
 - [pfBlockerNG](pfBlockerNG)
-- [Suricata](Suricata)
-- [Rule sets](Rule sets)
+ [Suricata](Suricata)
