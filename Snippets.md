@@ -34,3 +34,11 @@ else
   <do command>
 fi
 ```
+
+### Uptime
+
+`cat /proc/uptime`
+`>> 2342.34 2100.2`
+The first number is uptime in seconds and the second is the how much each core has spent in an idle state.
+
+To get only the uptime, use `awk '{print $1} /proc/uptime`
