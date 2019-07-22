@@ -1,71 +1,33 @@
-from flask import Flask
+from flask import Flask, request
 from flask_restplus import Api, Resource, fields
+from datetime import datetime
+
 
 app = Flask(__name__)
-api = Api(app, version='1.0', title='TestTODO API', description="A tutorial on flask-restplus")
+api = Api(app)
 
-ns = api.namespace('todos', description='TODO operations')
+todos = {}
 
-todo = api.model('Todo', {
-    'id': fields.Integer(readOnly=True, description='Unique Id'),
-    'task': fields.String(required=True, description='Task details')
+model = api.model('Model', {
+    'name': fields.String,
+    'address': fields.String,
+    'date_updated': fields.DateTime(dt_format='rfc_822')
 })
 
-class Task(object):
+class TodoDao(object):
+    def __init__(self, name, address, dtg):
+        self.name = name
+        self.address = address
+        self.dtg = dtg
 
-    def __init__(self):
-        self.counter = 0
-        self.todos = []
-
-    def get(self, id):
-        for todo in self.todos:
-            if todo['id'] == id:
-                return todo
-        api.abort(404, f"Todo {id} doesn't exist")
-
-    def create(self, data):
-        todo = data
-        todo['id'] = self.counter = self.counter + 1
-        self.todos.append(todo)
-        return todo
-
-    def update(self, id, data):
-        todo = self.get(id)
-        todo.update(data)
-        return todo
-
-    def delete(self,id):
-        todo = self.get(id)
-        self.todos.remove(todo)
-
-
-TODO = Task()
-TODO.create({"task":"Learn flask-restplus"})
-TODO.create({"task":"??????"})
-TODO.create({"task":"Profit!"})
-
-
-@ns.route('/')
-class TodoList(Resource):
-    """Show all todo's, and POST new tasks"""
-    @ns.doc('list_todos')
-    @ns.marshal_list_with(todo)
-    def get(self):
-        """List all tasks."""
-        return TODO.todos
-
-    @ns.doc("delete_todo")
-    @ns.response(204,'Todo Deleted')
-    def delete(self, id):
-        """Delete task given an id"""
-        TODO.delete(id)
-        return '', 204
-
-    @ns.expect(todo)
-    @ns.marshal_with(todo)
-    def put(self,id):
-        """Update a task given its id"""
-        return TODO.update(id, api.payload)
+@api.route('/todo')
+class Todo(Resource):
+    @api.marshal_with(model, envelope='resource')
+    def get(self, **kwargs):
+        return {
+            TodoDao(name='bob', address='123 fake st',
+            dtg=datetime.now)
+        }
 
 if __name__ == "__main__":
     app.run(debug=True)
