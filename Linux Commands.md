@@ -28,3 +28,4 @@ __Files__
 If there are many jobs in the background you can identify the one you want to resume by calling `jobs`. This will output a reference `%job_id` e.g. `[1]` and `fg %1` will bring it back into the foreground.
 
 `CTRL-Z` suspends a process to the background and `fg` resumes it. `bg` will push a process to the background but keep it running.
+

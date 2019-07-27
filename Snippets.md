@@ -42,3 +42,10 @@ fi
 The first number is uptime in seconds and the second is the how much each core has spent in an idle state.
 
 To get only the uptime, use `awk '{print $1} /proc/uptime`
+
+### Set proxy
+
+`export http_proxy=127.0.0.1:8080`
+`export https_proxy=127.0.0.1:8080`
+
+Remove proxy via `unset` commands
