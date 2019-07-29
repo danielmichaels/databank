@@ -8,4 +8,5 @@
 - [Vagrant](Vagrant)
 - [Ansible](Ansible)
 - [Foremost](Foremost)
+- [Git](Git)
 

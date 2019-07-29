@@ -23,7 +23,7 @@ Basic syntax
       - name: Install Vim
         apt: name=vim state=present 
         become: sudo
-      - name: Install Git
+      - name: Install [Git](Git)
         apt: name=git state=latest
         become: sudo
 ```

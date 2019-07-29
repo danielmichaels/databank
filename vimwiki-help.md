@@ -39,6 +39,7 @@ For more keys, see `:h vimwiki-mappings`
  * `:VimWikiAll2HTML` -- Convert all your wiki links to HTML
  * `:help vimwiki-commands` -- list all commands
  * `:help vimwiki` -- General vimwiki help docs
+ * `:VWS /pattern/` -- Global search of vimwiki
 
 ## Changing Wiki Syntax
 
