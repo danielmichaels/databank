@@ -26,7 +26,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', {'for': ['go', 'markdown'] } "Loads only when editing go files
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind'] } "Loads only when opening NERDTree
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'mattn/calendar-vim'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-fugitive'
@@ -227,7 +227,7 @@ let g:go_highlight_operators = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " vimwiki syntax
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext':'.md'}]
+let g:vimwiki_list = [{'path': '$HOME/Code/github/databank/playbook/pages/', 'syntax': 'markdown', 'ext':'.md'}]
 
 command! Diary VimwikiDiaryIndex
 augroup vimwikigroup
@@ -252,4 +252,10 @@ let g:instant_markdown_autostart = 0
 "let g:instant_markdown_allow_external_content = 0
 "let g:instant_markdown_mathjax = 1
 let g:vmt_cycle_list_item_markers = 1
-
+let g:vimwiki_markdown_link_ext = 1
+let g:vimwiki_dir_link = 'index'
+"let g:vimwiki_auto_toc = 1
+"
+" Aggregate all vim swap files to one place. Vimwiki constant swp issues.
+" Folder '.vim/swapfiles' must be created first!!
+set directory^=$HOME/.vim/swapfiles//

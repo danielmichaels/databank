@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/daniel/.oh-my-zsh
+  export ZSH=/home/$USER/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -64,6 +64,7 @@ plugins=(
   tmux
   last-working-dir
   zsh-syntax-highlighting
+  poetry
   history
 )
 # git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
@@ -123,6 +124,7 @@ alias t="tmux"
 alias TS="trizen -Syu"
 alias inet="ifconfig | grep -C 2 -i inet"
 alias smb="cd /run/user/1000/gvfs && ls"
+alias wiki="vim $HOME/Code/github/databank/playbook/pages/index.md"
 #alias history="history -E"
 #
 ######################################################
@@ -168,3 +170,5 @@ cheat() { curl -s "cheat.sh/$1"; }
 startvm() { VBoxManage startvm "$1" }
 stopvm() { VBoxManage controlvm "$1" poweroff }
 #source /usr/share/nvm/init-nvm.sh
+# Python Poetry disable if not installed.
+source $HOME/.poetry/env
