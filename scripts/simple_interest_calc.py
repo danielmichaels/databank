@@ -59,11 +59,11 @@ def main():
 
 def printer(p, r, t):
     print()
-    print(f'Starting Balance: {p}')
-    print(f'Interest Rate: {r * 100}%')
-    print(f'Length of contract in months: {t}')
+    print(f"Starting Balance: {p}")
+    print(f"Interest Rate: {r * 100}%")
+    print(f"Length of contract in months: {t}")
     print()
-    print('Pymt#\tAmount Paid\t\tBalance')
+    print("Pymt#\tAmount Paid\t\tBalance")
 
 
 def get_info():
@@ -80,14 +80,13 @@ def get_info():
     """
 
     print()
-    print('#' * 40)
-    print('Simple Interest Calculator')
-    print('#' * 40)
+    print("#" * 40)
+    print("Simple Interest Calculator")
+    print("#" * 40)
     print()
-    p = float(input('What is the Principal? >> '))
-    r = float(input(
-        'What is your Interest Rate? (in percent i.e \'6.5\' for 6.5% >> '))
-    t = int(input('Total length of contract? >> '))
+    p = float(input("What is the Principal? >> "))
+    r = float(input("What is your Interest Rate? (in percent i.e '6.5' for 6.5% >> "))
+    t = int(input("Total length of contract? >> "))
 
     r = r / 100  # returns something like this: r = R/100 = 5.5%/100 = 0.055)
 
@@ -125,9 +124,9 @@ def schedule(calc, length):
     """
     payment = float(calc) / length
     for i in range(length):
-        print(f'\t{i}\t\t{payment / 100:.2f}\t\t{calc / 100:.2f}')
+        print(f"\t{i}\t\t{payment / 100:.2f}\t\t{calc / 100:.2f}")
         calc = float(calc) - payment
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
