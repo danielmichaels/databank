@@ -17,6 +17,9 @@ A list of project ideas.
 - [X] Finish http-tracer enhancements for next release
 - [ ] "Hacker" script idea:
   - [ ] unlimited loading bars with trite 'hacker' stuff for fun.
+- [ ] Provision script:
+  - [ ] for dotfiles 
+  - [ ] essential new build items
 
 ## Misc
 
