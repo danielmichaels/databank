@@ -98,9 +98,7 @@ venv.bak/
 .venv
 venv/
 ENV/
->>>>>>> Setup-Tools/master
-=======
->>>>>>> utils/master
+/master
 
 # Spyder project settings
 .spyderproject
@@ -148,7 +146,7 @@ Temporary Items
 
 # Linux specific #
 
-=======
+
 # Folder view configuration files
 .DS_Store
 Desktop.ini
@@ -171,7 +169,6 @@ Thumbs.db
 venv
 node_modules
 .sass-cache
->>>>>>> scratch-pad/master
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
@@ -199,6 +196,8 @@ node_modules
 .idea/dictionaries
 .idea/
 scratchpad.md
+/diary
+/.gtm/
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -247,4 +246,3 @@ classDBtest.db
 employee.db
 weather_test1.db
 .vscode
->>>>>>> scratch-pad/master
