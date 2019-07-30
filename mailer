@@ -1,0 +1,25 @@
+#!/bin/bash
+echo "Curl auto-emailer"
+echo "SUPPORTS GMAIL ONLY"
+
+RCPT=$1 # 'username@example.com'
+FILE=$2 # takes a filename, relative or abs path
+FROM=server@gmail.com # 'me@me.com'
+EMAIL=server@gmail.com:p@ssword # 'username@gmail.com:password'
+
+if [ -z "$1" ]
+#if [ -n "$1" ]
+  then
+    echo "Missing argument 1; recipient address\
+      eg username@gmail.com"
+    exit
+elif [ -z "$2" ]
+then
+  echo "Missing argument; File to be uploaded"
+  exit
+else
+  curl --url 'smtp://smtp.gmail.com:587' --ssl-reqd \
+    --mail-from $FROM --mail-rcpt $RCPT \
+    --user $EMAIL --upload-file $FILE  --insecure
+fi
+
