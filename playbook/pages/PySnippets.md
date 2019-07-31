@@ -37,3 +37,14 @@ dis(a)
 >>>             12 RETURN_VALUE
 ```
 
+## Get System Info
+
+`psutil` package
+
+```python
+import psutil
+
+battery = psutil.sensors_battery()
+print(battery)
+print(battery.percent)
+```

@@ -24,3 +24,21 @@ In the `workFolder` create a `.gitconfig` file with the following:
 [user]
   email = itsme@email.com
 ```
+
+## Merge 
+
+__Two projects together but keep histories__
+
+To merge `ZZZ` into `YYY`:
+
+```sh
+cd path/to/YYY
+git remote add YYY path/to/YYY
+git fetch YYY --tags
+get merge --allow-unrelated-histories YYY/master # or specific branch
+git remote remove YYY
+```
+
+[link](https://stackoverflow.com/questions/1425892/how-do-you-merge-two-git-repositories)
+
+Merging may cause conflicts.
