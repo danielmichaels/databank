@@ -13,4 +13,6 @@
 
 If it doesn't need access to the class or the instance...but is thematically related to the class (typical example: helper functions and conversion functions used by other class methods or used by alternate constructors), then use staticmethod
 
+## [OOP](OOP)
 
+### Composition over Inheritance

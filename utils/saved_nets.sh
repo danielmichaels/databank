@@ -10,7 +10,10 @@ for network in /etc/NetworkManager/system-connections/*; do
 done
 
 #list all networks in a line
+echo "All nets in one line"
+echo
 echo ${networks[*]}
+echo
 
 #list networks one by one
 for (( i=0; i<${#networks[@]}; i++ )) {

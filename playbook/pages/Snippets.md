@@ -49,3 +49,18 @@ To get only the uptime, use `awk '{print $1} /proc/uptime`
 `export https_proxy=127.0.0.1:8080`
 
 Remove proxy via `unset` commands
+
+### While Loops
+
+__Count down timer__
+
+```sh
+#!/bin/sh
+
+secs=3600                         # Set interval (duration) in seconds.
+endTime=$(( $(date +%s) + secs )) # Calculate end time.
+
+while [ $(date +%s) -lt $endTime ]; do  # Loop until interval has elapsed.
+    # ...
+done
+```

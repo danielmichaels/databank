@@ -4,3 +4,7 @@
 - Go
 - [Bash](Bash)
 - [JavaScript](JavaScript)
+
+# Paradigms
+
+- [OOP](OOP)
