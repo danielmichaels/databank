@@ -86,7 +86,7 @@ def get_info():
     print()
     p = float(input("What is the Principal? >> "))
     r = float(input("What is your Interest Rate? (in percent i.e '6.5' for 6.5% >> "))
-    t = int(input("Total length of contract? >> "))
+    t = int(input("Total length of contract in months? >> "))
 
     r = r / 100  # returns something like this: r = R/100 = 5.5%/100 = 0.055)
 
