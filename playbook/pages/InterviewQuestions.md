@@ -46,4 +46,21 @@ f(3,[3,2,1])
 f(3)
 ```
 
+## Unique in multiple lists
 
+```python
+a = [1,2,3,4]
+b = [1,2,5,6]
+
+print(list(set().union(a,b)))
+```
+
+## Palidromes
+
+```python
+def palindrome(word):
+  word = word.lower()
+  if word[::1] == word:
+    return True
+  return False
+```
