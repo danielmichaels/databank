@@ -48,3 +48,27 @@ battery = psutil.sensors_battery()
 print(battery)
 print(battery.percent)
 ```
+
+## __repr__
+
+
+- Good for exploratory programming, doctests, documentation, and debugging
+- Best practice, should return string syntax which another programmer could use to instantiate that class - `eval(repr(x)) == x`
+- If not viable, use the default object `<ClassToBeRepr ...>` with some extra information tacked on.
+- allows `repr(cls)` to be used
+
+```python
+
+class Coordinate:
+    # at a minimum all classes should have a single docstring over a pass
+    '''Coordinate on Earth'''
+        
+    def __repr__(self):
+        return f'Coordinate({self.lat}, {self.long})'   
+
+>> cle.__repr__() # returns 'Coordinate(x,x)'
+>> repr(cle) # returns 'Coordinate(x,x)'
+# which could be used to create another instance of the class
+```
+
+

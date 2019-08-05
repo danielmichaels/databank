@@ -15,4 +15,5 @@ If it doesn't need access to the class or the instance...but is thematically rel
 
 ## [OOP](OOP)
 
+- all attributes should be assigned in the `__init__`. Use `None` if values will be assigned later.
 ### Composition over Inheritance
