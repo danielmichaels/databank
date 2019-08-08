@@ -71,4 +71,18 @@ class Coordinate:
 # which could be used to create another instance of the class
 ```
 
+## Dict Comprehensions
 
+Syntax `{ k:v for (k,v) in iterable}` or `{k:v for (k,v) in dict.items()}`
+
+Examples:
+
+1. get base 2 numbers from given list of numbers:
+  1. `{number: 2**number for number in [1,2,3,4,5,6,7,8]}`
+2. get `ord`(unicode representation) of each char in string or list:
+  1. `{letter: ord(letter) for letter in 'string'}`
+3. convert Fahrenheit to Celsius:
+  1. `{k:(float(5)/8)*9(v-32) for (k,v) in dict({'t1':0, 't2':30}}).items()`
+4. conditionals:
+  1. `{k:('even' if v%2==0 else 'odd') for (k,v) in dict({'a':1,'b':2,'c':3,'d':4}).items()}`
+  2. `{number: ('even' if number%2==0 else 'odd') for number in [1,2,3,4,5]}`
