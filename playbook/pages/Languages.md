@@ -8,3 +8,4 @@
 # Paradigms
 
 - [OOP](OOP)
+- [Recursion](Recursion)
