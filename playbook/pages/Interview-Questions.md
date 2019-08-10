@@ -41,3 +41,19 @@ In no particular order.
 > explain how you dealt with a technical disagreement on the job
 
 > give an example of a project you have worked on and how you could improve it.
+
+> why do you want to work here?
+
+> why should we hire you over everyone else?
+
+> why are you leaving your current job?
+
+> Where do you see yourself in 5 years
+
+> 3 strengths and 3 weaknesses; go
+
+> what do you do outside of work?
+
+__the pitch__
+
+> I am a _____ at ____ and I work as a ____ for _____ 
