@@ -58,6 +58,34 @@ In no particular order.
 
 > major mistake you've made and what you did to correct it
 
+> finish something late and perfect, or on time and imperfect?
+
+> tell me something that isn't on your resume but is important for us to know about you?
+
+> whats the most important skill you've learnt in current role? what do you need to improve on?
+
+> biggest challenge in your current role?
+
+> feedback you've recieved that was difficult at the time but ultimately proved valuable?
+
+> dinner with three famour people no longer living; who and why?
+
+## Questions for the interviewers
+
+> Languages used mostly
+
+> Development systems in use? IDE, environments, network
+
+> What does a typical team look like? numbers, roles
+
+> does the company run workshops or trainings? pay for training?
+
+> what would my day look like?
+
+> what do you enjoy most about working here?
+
+> I don't have domain knowledge in X, how important is it for me to succeed? Do you offer training for it?
+
 __the pitch__
 
 > I am a _____ at ____ and I work as a ____ for _____ 
