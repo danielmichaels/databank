@@ -54,6 +54,10 @@ In no particular order.
 
 > what do you do outside of work?
 
+> toughest decision you've had to make in the last 6 months
+
+> major mistake you've made and what you did to correct it
+
 __the pitch__
 
 > I am a _____ at ____ and I work as a ____ for _____ 

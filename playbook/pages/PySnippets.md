@@ -86,3 +86,20 @@ Examples:
 4. conditionals:
   1. `{k:('even' if v%2==0 else 'odd') for (k,v) in dict({'a':1,'b':2,'c':3,'d':4}).items()}`
   2. `{number: ('even' if number%2==0 else 'odd') for number in [1,2,3,4,5]}`
+
+### URL decode
+
+For quickly decoding url or individual encodings.
+
+```
+from urllib.parse import unquote
+
+# URL example
+url = 'example.com?title=%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B2%D0%B0%D1%8F+%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0'
+unquote(url)
+>> 'example.com?title=правовая+защита'
+
+# Single char example
+unquote('%3b')
+>> ;
+```
