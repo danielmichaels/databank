@@ -2,7 +2,22 @@
 
 ## Vanilla JS
 
-## <Insert Framework>
+__slice()__
+
+takes in two args; start and stop. It will delete any items in an array that matches those locations.
+
+```js
+let arr = [1,2,3,4]
+
+arr.splice(0,1)
+
+console.log(arr)
+>> 2,3,4
+```
+
+## Frameworks
+
+- [Angular](Angular)
 
 ## Google Apps JS
 
