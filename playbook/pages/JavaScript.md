@@ -2,6 +2,24 @@
 
 ## Vanilla JS
 
+__for loop__
+
+`for (init; condition; final) { }`
+
+`for (var i = 0; i < 3; i++) { }`
+
+__conditionals__
+
+```javascript
+if (x.length === 0) {
+  // do something
+  } else if (x.length > 5) {
+  // do something 
+  } else {
+  // if all else fails, do this
+  }
+```
+
 __slice()__
 
 takes in two args; start and stop. It will delete any items in an array that matches those locations.
