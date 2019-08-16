@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-export PATH=$PATH:/go/bin
+#export PATH=$PATH:/go/bin
 export PATH=$PATH:/.cargo/bin
 export PATH=$PATH:~/.local/bin
 export GOPATH=$HOME/Code/go
@@ -119,12 +119,13 @@ alias zshrc="vim ~/.zshrc"
 alias szshrc="source ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias fzfp="fzf --preview='head -$LINES {}'"
-alias ta="tmux a"
-alias t="tmux"
 alias TS="trizen -Syu"
 alias inet="ifconfig | grep -C 2 -i inet"
-alias smb="cd /run/user/1000/gvfs && ls"
 alias wiki="vim $HOME/Code/github/databank/playbook/pages/index.md"
+alias e="exa"
+alias el="exa --oneline"
+alias ee="exa --header --long"
+alias ea="exa --header --long --git --all"
 #alias history="history -E"
 #
 ######################################################
