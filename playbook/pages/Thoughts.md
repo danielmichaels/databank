@@ -17,6 +17,7 @@ __Jerry Seinfield on 'quality time':__
 
 > “It should be noted that no ethically-trained software engineer would ever consent to write a DestroyBaghdad procedure. Basic professional ethics would instead require him to write a DestroyCity procedure, to which Baghdad could be given as a parameter.” — Nathaniel Borenstein, 1992
 
+> "Today's pleasures beckon stronger than tomorrows pain"
 __On Learning goals__:
 
 > In <Month>, I want to learn about <Vulnerability Class>. I will measure my success by having read <N> articles about <Vulnerability Class>, having played around with <Vulnerability Class> in a CTF, shared <N> articles about <Vulnerability Class> with others, and having reported a <Vulnerability Class> ONCE in a VDP or BBP 
