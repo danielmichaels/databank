@@ -1,5 +1,15 @@
 # Python Snippets
 
+## pip upgrade all packages
+
+```python
+import pkg_resources
+from subprocess import call
+
+packages = [dist.project_name for dist in pkg_resources.working_set]
+call("pip install --upgrade " + ' '.join(packages), shell=True)
+```
+
 ## `dict()` v `{}`
 
 - `{}` is a literal for a dictionary object

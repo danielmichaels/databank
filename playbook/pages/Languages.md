@@ -1,11 +1,15 @@
-# Languages
+## Languages
 
 - [Python](Python)
 - Go
 - [Bash](Bash)
 - [JavaScript](JavaScript)
 
-# Paradigms
+## Paradigms
 
 - [OOP](OOP)
 - [Recursion](Recursion)
+
+## Engineering
+
+- [Hysteresis](Hysteresis)
