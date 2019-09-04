@@ -24,4 +24,7 @@ Setting up a custom mobile carrier.
 
 Now the TC3G will accept the these settings for the M2MOne network, whereas it will otherwise fail thinking the Telstra supplied sim card is for their network's APN.
 
+### SSH
+
+Busybox only supports Dropbear which does not accept `.pem` files. Instead they must be converted into its own format using `dropbearconvert`.
 

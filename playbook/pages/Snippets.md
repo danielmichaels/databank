@@ -64,3 +64,18 @@ while [ $(date +%s) -lt $endTime ]; do  # Loop until interval has elapsed.
     # ...
 done
 ```
+
+### echo -e
+
+Enables the interpretation of backslash escapes. `zsh` does this by default.
+
+Example.
+
+```sh
+echo '\nhi'
+>> \nhi
+
+echo -e '\nhi'
+>>
+>> hi
+```
