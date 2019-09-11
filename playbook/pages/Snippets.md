@@ -20,7 +20,7 @@ fi
 To check if arguments have been supplied when running argument from cli.
 
 ```sh
-if [ -z "$1" ]
+if [ -z "$1" ] # -z "check if len in zero"
   then
     echo "Missing recipient argument \
       eg username@gmail.com"
@@ -34,6 +34,12 @@ else
   <do command>
 fi
 ```
+
+__Operator List__:
+
+- `-e` File exists
+- `-d` File exists and is a directory
+- `-s` File exists and its size is > than zero
 
 ### Uptime
 
