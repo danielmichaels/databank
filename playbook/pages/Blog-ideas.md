@@ -6,10 +6,10 @@ Posted articles will be marked with an [X].
 
 - [ ] Controller Area Networks
 - [ ] Vimwiki
-- [ ] cUrl:
-  - [ ] Sending Email
-  - [ ] HTML email file
-  - [ ] File containing data b64
+- [X] cUrl:
+  - [X] Sending Email
+  - [X] HTML email file
+  - [X] File containing data b64
 - [.] DNS:
   - [X] Terms & Definitions:
     - [X] recursive
@@ -30,11 +30,13 @@ Posted articles will be marked with an [X].
   - [ ] Zone files:
     - [ ] SOA in detail
 - [ ] Scapy (arp)
-- [ ] Web Hackers Handbook Notes:
-  - [ ] HTTP basics
+- [.] Web Hackers Handbook Notes:
+  - [X] HTTP basics
   - [ ] Defence basics
   - [ ] Attack fundamentals
 - [ ] URI to expand on DNS
 - [ ] Raid states & NAS setup
 - [ ] Time spent in recon, seldom wasted:
   - [ ] security is seen as a waste..
+- [X] AWS BusyBox ssh -i fix
+- [ ] Linux load averages
