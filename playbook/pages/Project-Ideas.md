@@ -12,7 +12,6 @@ A list of project ideas.
 ## Programming
 
 - [ ] [LANspy](LANspy)
-- [ ] dnsrecon setup.py
 - [ ] golang dns tool
 - [X] Finish http-tracer enhancements for next release
 - [ ] "Hacker" script idea:
@@ -20,9 +19,10 @@ A list of project ideas.
 - [ ] Provision script:
   - [ ] for dotfiles 
   - [ ] essential new build items
+- [ ] Python `setup.py` - automate new project with folder template.
 
 ## Misc
 
 - [ ] [DIY Bench Power Supply](diy-bench-psu)
-- [ ] Migrate/ consolidate misc repo's
+- [X] Migrate/ consolidate misc repo's
 - [ ] backup laptop
