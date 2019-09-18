@@ -42,3 +42,9 @@ git remote remove YYY
 [link](https://stackoverflow.com/questions/1425892/how-do-you-merge-two-git-repositories)
 
 Merging may cause conflicts.
+
+## Gitea raw links
+
+Gitea, a minimial git server built on top of `go` has slightly different raw image links to `github`.
+
+- `https://<address>/<user>/<proj_name>/raw/branch/<master>/<image_locations>/<image_name.ext>`

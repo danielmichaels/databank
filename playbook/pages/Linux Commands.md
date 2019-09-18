@@ -29,3 +29,9 @@ If there are many jobs in the background you can identify the one you want to re
 
 `CTRL-Z` suspends a process to the background and `fg` resumes it. `bg` will push a process to the background but keep it running.
 
+## Grep
+
+`ps aux | grep <expr>` will always return `true` because it finds its own running process. Get around this by removing grep from the `ps` process list.
+
+`ps aux | grep -v 'grep' | grep <expr>`.
+
