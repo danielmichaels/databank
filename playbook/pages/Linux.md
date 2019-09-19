@@ -10,8 +10,7 @@ Until printers just work, it'll never be _the year of the linux desktop_. These 
 
 ## Soft and Hard links
 
-![image](https://gitcdn.link/repo/danielmichaels/databank/master/playbook/images/inode-links.jpg 'inode in soft and hardlinks')
-![image](https://raw.githubusercontent.com/danielmichaels/databank/master/playbook/images/inode-links.jpg 'raw link')
+![inode image](https://raw.githubusercontent.com/danielmichaels/databank/master/playbook/images/inode-links.jpg)
 
 __When to use Soft Links__
 
