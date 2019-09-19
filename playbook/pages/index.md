@@ -58,7 +58,3 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [Security Questions](security-questions)
 - [Interview Questions](Interview-Questions)
 
-## Scratchpad 
-
-
-

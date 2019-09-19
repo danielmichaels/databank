@@ -21,3 +21,9 @@ __Jerry Seinfield on 'quality time':__
 __On Learning goals__:
 
 > In <Month>, I want to learn about <Vulnerability Class>. I will measure my success by having read <N> articles about <Vulnerability Class>, having played around with <Vulnerability Class> in a CTF, shared <N> articles about <Vulnerability Class> with others, and having reported a <Vulnerability Class> ONCE in a VDP or BBP 
+
+
+[Listen Notes](https://broadcast.listennotes.com/the-boring-technology-behind-listen-notes-56697c2e347b)
+> Most of time, the biggest obstacle of building & shipping things is over thinking. What if this, what if that. Boy, you are not important at all. Everyone is busy in their own life. No one cares about you and the things you build, until you prove that you are worth other people’s attention. Even you screw up the initial product launch, few people will notice. Think big, start small, act fast. It’s absolutely okay to use the boring technology and start something simple (even ugly), as long as you actually solve problems.
+
+
