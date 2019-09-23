@@ -48,3 +48,15 @@ Merging may cause conflicts.
 Gitea, a minimial git server built on top of `go` has slightly different raw image links to `github`.
 
 - `https://<address>/<user>/<proj_name>/raw/branch/<master>/<image_locations>/<image_name.ext>`
+
+## Credential save
+
+On HTTP connections by default user credentials must be entered each time unless cached. 
+
+- Set global cache to default (15 minutes):
+
+`git config --global credential.helper cache`
+
+- To set the local git repo to cache credentials for 1 day:
+
+`git config --local credential.helper 'cache --timeout 86400'`
