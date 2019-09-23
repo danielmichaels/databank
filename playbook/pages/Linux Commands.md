@@ -33,5 +33,5 @@ If there are many jobs in the background you can identify the one you want to re
 
 `ps aux | grep <expr>` will always return `true` because it finds its own running process. Get around this by removing grep from the `ps` process list.
 
-`ps aux | grep -v 'grep' | grep <expr>`.
+`ps aux | grep -v 'grep' | grep <expr>` or `ps aux | grep '[e]xpr'`
 
