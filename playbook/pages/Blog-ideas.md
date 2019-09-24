@@ -40,3 +40,5 @@ Posted articles will be marked with an [X].
   - [ ] security is seen as a waste..
 - [X] AWS BusyBox ssh -i fix
 - [ ] Linux load averages
+- [ ] My setup
+- [ ] __init__ load sequence

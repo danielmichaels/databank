@@ -1,5 +1,12 @@
 ## Languages
 
+<!-- vim-markdown-toc GFM -->
+
+* [Paradigms](#paradigms)
+* [Engineering](#engineering)
+
+<!-- vim-markdown-toc -->
+
 - [Python](Python)
 - Go
 - [Bash](Bash)

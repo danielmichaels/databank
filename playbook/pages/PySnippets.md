@@ -1,5 +1,19 @@
 # Python Snippets
 
+
+
+<!-- vim-markdown-toc GFM -->
+
+* [pip upgrade all packages](#pip-upgrade-all-packages)
+* [`dict()` v `{}`](#dict-v-)
+  - [Example](#example)
+* [Get System Info](#get-system-info)
+* [__repr__](#repr)
+* [Dict Comprehensions](#dict-comprehensions)
+* [URL decode](#url-decode)
+* [Deleted Pip?](#deleted-pip)
+
+<!-- vim-markdown-toc -->
 ## pip upgrade all packages
 
 ```python
@@ -97,7 +111,7 @@ Examples:
   1. `{k:('even' if v%2==0 else 'odd') for (k,v) in dict({'a':1,'b':2,'c':3,'d':4}).items()}`
   2. `{number: ('even' if number%2==0 else 'odd') for number in [1,2,3,4,5]}`
 
-### URL decode
+## URL decode
 
 For quickly decoding url or individual encodings.
 
@@ -113,3 +127,14 @@ unquote(url)
 unquote('%3b')
 >> ;
 ```
+
+## Deleted Pip?
+
+Arch Linux pip issues happen. If `pip` gets badly broken try this:
+
+```sh
+trizen -Rns python-pip
+curl https://bootstrap.pypa.io/get-pip.py | sudo python
+``
+
+

@@ -2,17 +2,15 @@
 
 Storage for notes, snippets and more
 
+<!-- vim-markdown-toc GFM -->
+
+* [Snippets](#snippets)
+* [Paradigms](#paradigms)
+* [InterviewQuestions](#interviewquestions)
+* [Django](#django)
+
+<!-- vim-markdown-toc -->
 ## [Snippets](PySnippets)
 ## [Paradigms](Paradigms)
 ## [InterviewQuestions](InterviewQuestions)
-
-### Deleted Pip?
-
-Arch Linux pip issues happen. If `pip` gets badly broken try this:
-
-```sh
-trizen -Rns python-pip
-curl https://bootstrap.pypa.io/get-pip.py | sudo python
-``
-
-
+## [Django](Django)
