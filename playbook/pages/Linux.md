@@ -5,6 +5,7 @@
 * [Linux General](#linux-general)
   - [Observability tools](#observability-tools)
   - [Soft and Hard links](#soft-and-hard-links)
+  - [Count file in dir/](#count-file-in-dir)
 * [Debian Specific](#debian-specific)
   - [Printers on Arch](#printers-on-arch)
   - [SSH Auth Logs](#ssh-auth-logs)
@@ -36,6 +37,12 @@ __When to use Hard Links__
 - Moving files, hard links won't break but soft links will
 - Need to save storage space (soft links are ~4KB each)
 
+### Count file in dir/
+
+two methods:
+
+- `ls -la | wc -l`
+- `find /DIRNAME -type f | wc -l`
 
 ## Debian Specific
 

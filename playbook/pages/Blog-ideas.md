@@ -29,6 +29,11 @@ Posted articles will be marked with an [X].
   - [ ] DNS packet dissection
   - [ ] Zone files:
     - [ ] SOA in detail
+  - [ ] Why I don't like DoH but what it can be good for:
+    - [ ] Kills ad blocking at DNS level
+    - [ ] Cannot filter (therefore deny malicious)
+    - [ ] Centralised control
+    - [ ] Could be good for security outside your network
 - [ ] Scapy (arp)
 - [.] Web Hackers Handbook Notes:
   - [X] HTTP basics
@@ -42,3 +47,4 @@ Posted articles will be marked with an [X].
 - [ ] Linux load averages
 - [ ] My setup
 - [ ] __init__ load sequence
+- [ ] netstat tutorial
