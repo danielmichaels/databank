@@ -6,6 +6,7 @@
   - [Observability tools](#observability-tools)
   - [Soft and Hard links](#soft-and-hard-links)
   - [Count file in dir/](#count-file-in-dir)
+  - [Grep Multiple Files](#grep-multiple-files)
 * [Debian Specific](#debian-specific)
   - [Printers on Arch](#printers-on-arch)
   - [SSH Auth Logs](#ssh-auth-logs)
@@ -43,6 +44,31 @@ two methods:
 
 - `ls -la | wc -l`
 - `find /DIRNAME -type f | wc -l`
+
+### Grep Multiple Files
+
+__OR__
+
+1. `grep -E 'pattern1|pattern2' filename`:
+  - Uses regexp grep and will return all matches of pattern1 and pattern2 for example. 
+
+```sh
+$ grep -E 'Tech|Sales' employee.txt
+100  Thomas  Manager    Sales       $5,000
+200  Jason   Developer  Technology  $5,500
+300  Raj     Sysadmin   Technology  $7,000
+500  Randy   Manager    Sales       $6,000
+```
+
+__AND__
+
+1. `grep -E 'pattern1.*pattern2' filename`:
+  - Will return only items if both conditions match 
+
+```sh
+$ grep -E 'Dev.*Tech' employee.txt
+200  Jason   Developer  Technology  $5,500
+```
 
 ## Debian Specific
 
