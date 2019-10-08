@@ -3,7 +3,6 @@
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/$USER/.oh-my-zsh
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -62,10 +61,11 @@ ZSH_THEME="dieter"
 plugins=(
   git
   tmux
-  last-working-dir
   zsh-syntax-highlighting
-  poetry
   history
+  z
+  thefuck
+  dotenv
 )
 # git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
 # ^ for k (the new l, yo)
@@ -102,15 +102,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #export PATH=$PATH:/go/bin
-export PATH=$PATH:/.cargo/bin
+#######################################################
+#                  Exports                            #
+#######################################################
+#
+export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/.local/bin
 export GOPATH=$HOME/Code/go
 export PATH=$PATH:$(go env GOPATH)/bin
 export EDITOR=vim
 #
-#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#  exec tmux
-#fi
 #######################################################
 #                  General Alias                      #
 #######################################################
@@ -126,12 +127,35 @@ alias e="exa"
 alias el="exa --oneline"
 alias ee="exa --header --long"
 alias ea="exa --header --long --git --all"
+alias ssh="ssh -v"
 #alias history="history -E"
+#
+#######################################################
+#                  Git Alias                          #
+#######################################################
+#
+alias gs="git status"
+alias gf="git fetch"
+alias gl="git log --graph --oneline --decorate --all"
+alias gc="git commit"
+alias gac="git add . && git commit" # drop into EDITOR to confirm 'git add .'
+alias gp="git push -v"
 #
 ######################################################
 #                Custom Functions                    #
 ######################################################
 #
+cheat() { curl -s "cheat.sh/$1"; }
+startvm() { VBoxManage startvm "$1" }
+stopvm() { VBoxManage controlvm "$1" poweroff }
+#
+FTS() {
+  echo -e "[*] Checking Flatpak for Updates [*]"
+  flatpak update
+  echo -e "[*] Running Pacman -Syu [*]"
+  trizen -Syu
+  echo -e "[!] Update Complete! [!]"
+}
 # cd and ls automatically
 function cd {
   builtin cd "$@" && ls -F; 
@@ -139,37 +163,24 @@ function cd {
 #
 ## ZSH FISH like autocompletions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-#######################################################
-#                  Git Alias                          #
-#######################################################
-#
-alias gs="git status"
-alias gc-m="git commit -m"
-alias gc="git commit"
-alias gp="git push -v"
-alias lg="lazygit"
 #
 #######################################################
 #                 VIM bindings                        #
 #######################################################
+#
 set -o vi
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
-
+#
 #######################################################
 #                 VIRTUALENV                          #
 #######################################################
-
+#
 VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
 #source /usr/bin/virtualenvwrapper.sh
 source /home/daniel/.local/bin/virtualenvwrapper.sh  #work around --user install
 export WORKON_HOME=$HOME/.virtualenvs
 alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3"
-
-cheat() { curl -s "cheat.sh/$1"; }
-startvm() { VBoxManage startvm "$1" }
-stopvm() { VBoxManage controlvm "$1" poweroff }
 #source /usr/share/nvm/init-nvm.sh
-# Python Poetry disable if not installed.
-source $HOME/.poetry/env
+#
