@@ -33,8 +33,6 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [HTTP](HTTP)
 - [AWS](AWS)
 
-- [Bookmarks](Bookmarks)
-
 ## Security
 
 - [Study Notes](Study-Notes)
@@ -42,8 +40,6 @@ Things I have learnt along the way that proved useful, or looked up more than on
 - [Network Infrastructure](Network-Infrastructure)
 - [Tools](Tools)
 - [Standards & Compliance](Standards-and-compliance)
-
-- Bounties
 
 ## Misc
 
@@ -54,7 +50,8 @@ Things I have learnt along the way that proved useful, or looked up more than on
 ## Education
 
 - [Books](Books)
-- [Concepts](Concepts)
 - [Security Questions](security-questions)
 - [Interview Questions](Interview-Questions)
+- [Bookmarks](Bookmarks)
+
 
