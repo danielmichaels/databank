@@ -1,5 +1,15 @@
 # Git
 
+<!-- vim-markdown-toc GFM -->
+
+* [Set username/password](#set-usernamepassword)
+* [Merge](#merge)
+* [Gitea raw links](#gitea-raw-links)
+* [Credential save](#credential-save)
+* [Sync fork](#sync-fork)
+
+<!-- vim-markdown-toc -->
+
 ## Set username/password
 
 I run two accounts, one for work and one personal.
@@ -60,3 +70,29 @@ On HTTP connections by default user credentials must be entered each time unless
 - To set the local git repo to cache credentials for 1 day:
 
 `git config --local credential.helper 'cache --timeout 86400'`
+
+## Sync fork
+
+How to sync a forked repository with the remote master.
+
+```sh
+# Add the remote, call it "upstream":
+
+git remote add upstream https://github.com/whoever/whatever.git
+
+# Fetch all the branches of that remote into remote-tracking branches,
+# such as upstream/master:
+
+git fetch upstream
+
+# Make sure that you're on your master branch:
+
+git checkout master
+
+# Rewrite your master branch so that any commits of yours that
+# aren't already in upstream/master are replayed on top of that
+# other branch:
+
+git rebase upstream/master
+```
+
