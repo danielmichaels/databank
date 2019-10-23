@@ -5,7 +5,7 @@ import urllib.error
 # decorator 
 
 def sleep(timeout, retry=3):
-    def _decorator(fn):
+    def _decorator(function):
         def wrapper(*args, **kwargs):
             retries = 0 
             while retries < retry:
@@ -23,6 +23,7 @@ def sleep(timeout, retry=3):
 
 # uptime function with retry decorator
 
+@sleep(1)
 def uptime(url):
     try:
         connection = urllib.request.urlopen(url)
