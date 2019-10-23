@@ -241,7 +241,9 @@ nnoremap <leader>c :Calendar<CR>
 nnoremap <leader>md :InstantMarkdownPreview<CR>
 nnoremap <leader>mdx :InstantMarkdownStop<CR>
 " Insert the image URL for dwiki/images
-nnoremap <leader>img <INSERT>https://github.com/danielmichaels/dwiki/blob/master/images/<CR>
+"nnoremap <leader>img <INSERT>https://github.com/danielmichaels/databank/playbook/blob/master/images/<CR>
+nnoremap <leader>img <INSERT>https://raw.githubusercontent.com/danielmichaels/databank/master/playbook/images/<CR>
+
 
 " vim-instant-preview
 "Uncomment to override defaults:

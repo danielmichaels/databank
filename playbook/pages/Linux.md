@@ -4,6 +4,7 @@
 
 * [Linux General](#linux-general)
   - [Observability tools](#observability-tools)
+  - [Special Parameters](#special-parameters)
   - [Soft and Hard links](#soft-and-hard-links)
   - [Count file in dir/](#count-file-in-dir)
   - [Grep Multiple Files](#grep-multiple-files)
@@ -22,6 +23,12 @@ Collections of `linux` related stuff
 ### Observability tools
 
 ![observability tools](https://raw.githubusercontent.com/danielmichaels/databank/master/playbook/images/linux-obserability-tools.png 'linux observabiliity tools')
+
+### Special Parameters
+
+Expand positional parameters - `$*`, `$@`
+
+`mkdir test && cd $_`
 
 ### Soft and Hard links
 
