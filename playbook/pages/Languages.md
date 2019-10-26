@@ -2,15 +2,19 @@
 
 <!-- vim-markdown-toc GFM -->
 
-* [Paradigms](#paradigms)
-* [Engineering](#engineering)
++ [Python](#python)
++ [Go](#go)
++ [Bash](#bash)
++ [JavaScript](#javascript)
+  * [Paradigms](#paradigms)
+  * [Engineering](#engineering)
 
 <!-- vim-markdown-toc -->
 
-- [Python](Python)
-- Go
-- [Bash](Bash)
-- [JavaScript](JavaScript)
+# [Python](Python)
+# Go
+# [Bash](Bash)
+# [JavaScript](JavaScript)
 
 ## Paradigms
 
