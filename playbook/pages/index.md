@@ -1,5 +1,17 @@
 # My Knowledge Base
 
+<!-- vim-markdown-toc GFM -->
+
+* [Technologies](#technologies)
+  - [Languages](#languages)
+  - [Tools](#tools)
+  - [Operating Systems](#operating-systems)
+  - [Network Concepts](#network-concepts)
+* [Security](#security)
+* [Misc](#misc)
+* [Education](#education)
+
+<!-- vim-markdown-toc -->
 ## Technologies
 
 Things I have learnt along the way that proved useful, or looked up more than once.
