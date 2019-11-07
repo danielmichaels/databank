@@ -2,6 +2,7 @@
 Helper functions for doing datetime things with ip addresses.
 """
 
+
 def external_ip():
     """Returns users external IP address."""
     retries = HTTPAdapter(max_retries=3)
@@ -13,6 +14,7 @@ def external_ip():
         return resp.text
     except requests.ConnectionError as e:
         print(e)
+
 
 def client_timezone():
     """

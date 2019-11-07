@@ -10,20 +10,22 @@ Rules:
 
 """
 
+
 def main():
     plain_range()
     enum_range()
 
+
 def plain_range():
     for i in range(101):
         if i % 3 == 0 and i % 5 == 0:
-            print(f'{i}: FizzBuzz')
+            print(f"{i}: FizzBuzz")
         elif i % 3 == 0:
-            print(f'{i}: Fizz')
+            print(f"{i}: Fizz")
         elif i % 5 == 0:
-            print(f'{i}: Buzz')
+            print(f"{i}: Buzz")
         else:
-            print(f'{i}: ')
+            print(f"{i}: ")
 
 
 def enum_range():
@@ -37,5 +39,6 @@ def enum_range():
         else:
             continue
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -36,23 +36,23 @@ class Employee:
 
         Allows the method to be called as an attribute.
         """
-        return '{}.{}@email.com'.format(self.first, self.last)
+        return "{}.{}@email.com".format(self.first, self.last)
 
     @property
     def fullname(self):
-        return self.first + ' ' + self.last
+        return self.first + " " + self.last
 
     @fullname.setter
     def fullname(self, name):
         """Example of the power of setter property."""
-        first, last = name.split(' ')
+        first, last = name.split(" ")
         self.first = first
         self.last = last
 
     @fullname.deleter
     def fullname(self):
         """Example of deleter property."""
-        print(f'{self.fullname} deleted!!')
+        print(f"{self.fullname} deleted!!")
         self.first = None
         self.last = None
 
@@ -62,28 +62,26 @@ class Employee:
 
     def __repr__(self):
         # used as a 'developer' tool.
-        return 'Employee: {} {}, ${}p.a. , {}'.format(
-            self.first, self.last, self.pay, self.email)
+        return "Employee: {} {}, ${}p.a. , {}".format(
+            self.first, self.last, self.pay, self.email
+        )
 
     def __str__(self):
         # used as a 'client' tool. Overrides __repr__.
-        return 'this is the __str__ representation'
+        return "this is the __str__ representation"
 
 
 class Developer(Employee):
     """Developer class."""
 
-    _langs = [
-        'Python', 'Java', 'COBOL', 'Elixir'
-    ]
+    _langs = ["Python", "Java", "COBOL", "Elixir"]
 
-    def __init__(self, first, last, pay, hours_worked, language='Python'):
+    def __init__(self, first, last, pay, hours_worked, language="Python"):
         super().__init__(first, last, pay, hours_worked)
         # super allows MRO to change dynamically with parent. Delegates method
         # calls to parent/ sibling type. By not naming parent explicitly code
         # is more maintainable.
         self.language = language
-
 
     @classmethod
     def langs(cls):
@@ -118,31 +116,31 @@ class Executive(Employee):
         self.pay = int(self.pay * self.bonus)
 
 
-test1 = Employee('Roger', 'Ramjet', 50000, 35)
-dev1 = Developer('Alan', 'Turing', 33000, 65, 'Python')
-exec1 = Executive('David', 'Thorn', 100000, 70)
+test1 = Employee("Roger", "Ramjet", 50000, 35)
+dev1 = Developer("Alan", "Turing", 33000, 65, "Python")
+exec1 = Executive("David", "Thorn", 100000, 70)
 
-print(Developer.langs()) # example of calling class attribute.
+print(Developer.langs())  # example of calling class attribute.
 
-print(f'\ntest: {test1.pay}\ndev: {dev1.pay}\nexec: {exec1.pay}')
-print('applying raises and bonuses.')
+print(f"\ntest: {test1.pay}\ndev: {dev1.pay}\nexec: {exec1.pay}")
+print("applying raises and bonuses.")
 test1.apply_raise()
 dev1.apply_raise()
 exec1.apply_bonus()
-print(f'test: {test1.pay}\ndev: {dev1.pay}\nexec: {exec1.pay}')
+print(f"test: {test1.pay}\ndev: {dev1.pay}\nexec: {exec1.pay}")
 print()
 print(exec1)  # shows the __str__, if set will take precendence over __repr__
 print(exec1.__repr__())  # how to override __str__ to get __repr__
 print()
 print(dev1.first)
-dev1.first = 'Mickey'
+dev1.first = "Mickey"
 print(dev1.email)  # set as property
 # print(dev1.fullname())  # method call '()' prior being made a property
 print(dev1.fullname)
-print('changing the fullname...\n')
-dev1.fullname = 'John Cooper'
+print("changing the fullname...\n")
+dev1.fullname = "John Cooper"
 print(dev1.fullname)
 print(dev1.email)
 print()
-print('deleter in action...')
+print("deleter in action...")
 del dev1.fullname  # first and last are now None...

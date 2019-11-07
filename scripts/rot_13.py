@@ -4,7 +4,7 @@
 functions = cleartext, ciphertext, display_message
 """
 
-key = 'abcdefghijklmnopqrstuvwxyz'
+key = "abcdefghijklmnopqrstuvwxyz"
 
 
 def main():
@@ -20,7 +20,7 @@ def cleartext():
 
     :return: Plaintext message for encryption.
     """
-    message = input('Enter the message: ')
+    message = input("Enter the message: ")
 
     return message
 
@@ -33,14 +33,14 @@ def encrypt(cleartext):
     :return: encrypted message in lowercase.
     """
 
-    result = ''
+    result = ""
 
     for letter in cleartext.lower():
         try:
             i = (key.index(letter) + 13) % 26
             result += key[i]
         except ValueError:
-            result += ' '
+            result += " "
 
     return result.lower()
 
@@ -52,23 +52,23 @@ def decrypt(cipher):
     :param cipher: Takes cipher text
     :return: decrypted plaintext message.
     """
-    result = ''
+    result = ""
 
     for letter in cipher.lower():
         try:
             i = (key.index(letter) - 13) % 26
             result += key[i]
         except ValueError:
-            result += ' '
+            result += " "
 
     return result
 
 
 def printer(cipher, plain, cleartext):
-    print(f'Message: {cleartext}')
-    print(f'Cipher: {cipher}')
-    print(f'Plaintext: {plain}')
+    print(f"Message: {cleartext}")
+    print(f"Cipher: {cipher}")
+    print(f"Plaintext: {plain}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

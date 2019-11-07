@@ -2,12 +2,13 @@ import time
 import urllib.request
 import urllib.error
 
-# decorator 
+# decorator
+
 
 def sleep(timeout, retry=3):
     def _decorator(function):
         def wrapper(*args, **kwargs):
-            retries = 0 
+            retries = 0
             while retries < retry:
                 try:
                     value = function(*args, **kwargs)
@@ -19,9 +20,12 @@ def sleep(timeout, retry=3):
                     retries += 1
 
         return wrapper
+
     return _decorator
 
+
 # uptime function with retry decorator
+
 
 @sleep(1)
 def uptime(url):
@@ -39,7 +43,8 @@ def uptime(url):
         # site is up
         print(f"{url} is up")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # url = 'http://www.google.com/'
-    url = 'http://www.google.com/fail'
+    url = "http://www.google.com/fail"
     uptime(url)

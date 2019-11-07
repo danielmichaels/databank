@@ -22,17 +22,18 @@ def main():
 
 def argument_parser():
     parser = argparse.ArgumentParser(
-    "Take a folder of CSV's and concatenate into on large CSV"
+        "Take a folder of CSV's and concatenate into on large CSV"
     )
     parser.add_argument("-o", "--output", help="Output filename", required=True)
     parser.add_argument(
-    "-f",
-    "--filename",
-    help="First letters of files to be concatenated for use in startswith string method.",
-    required=True,
+        "-f",
+        "--filename",
+        help="First letters of files to be concatenated for use in startswith string method.",
+        required=True,
     )
     args = parser.parse_args()
     return args
+
 
 def get_files(args):
     all_files = [f for f in os.listdir(".") if f.startswith(f"{args.filename}")]
@@ -90,5 +91,6 @@ def printer(filename, df):
     Time Elapsed: {time.time() - START:.2f} seconds"""
     )
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

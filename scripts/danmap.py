@@ -25,7 +25,7 @@ def connect_scan(host, port):
 
 
 def cli():
-    host = 'scanme.nmap.org'
+    host = "scanme.nmap.org"
     host_ip = socket.gethostbyname(host)
     closed_ports = []
     open_ports = []
@@ -50,18 +50,18 @@ def cli():
 
 
 def printer(host, host_ip, closed_ports, open_ports, total_time):
-    print(f'Starting DaNmap 1.0 at {datetime.datetime.now()}')
-    print(f'DaNmap report for {host} ({host_ip})')
-    print(f'Not shown: {len(closed_ports)} Ports Closed')
+    print(f"Starting DaNmap 1.0 at {datetime.datetime.now()}")
+    print(f"DaNmap report for {host} ({host_ip})")
+    print(f"Not shown: {len(closed_ports)} Ports Closed")
     print()
 
-    print('PORT\tSTATE\tSERVICE')
+    print("PORT\tSTATE\tSERVICE")
     for port in open_ports:
-        print(f'{port}')
+        print(f"{port}")
 
     print()
     print(f"Scan completed in {total_time} seconds")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

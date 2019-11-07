@@ -8,11 +8,15 @@ api = Api(app)
 
 todos = {}
 
-model = api.model('Model', {
-    'name': fields.String,
-    'address': fields.String,
-    'date_updated': fields.DateTime(dt_format='rfc_822')
-})
+model = api.model(
+    "Model",
+    {
+        "name": fields.String,
+        "address": fields.String,
+        "date_updated": fields.DateTime(dt_format="rfc_822"),
+    },
+)
+
 
 class TodoDao(object):
     def __init__(self, name, address, dtg):
@@ -20,14 +24,13 @@ class TodoDao(object):
         self.address = address
         self.dtg = dtg
 
-@api.route('/todo')
+
+@api.route("/todo")
 class Todo(Resource):
-    @api.marshal_with(model, envelope='resource')
+    @api.marshal_with(model, envelope="resource")
     def get(self, **kwargs):
-        return {
-            TodoDao(name='bob', address='123 fake st',
-            dtg=datetime.now)
-        }
+        return {TodoDao(name="bob", address="123 fake st", dtg=datetime.now)}
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -3,12 +3,12 @@
 """Decorator example script."""
 
 # these are closures
-print('Closure recap')
+print("Closure recap")
 
 
 def outer_function():
     """Hardcoded the msg"""
-    msg = 'hi'
+    msg = "hi"
 
     def inner_function():
         print(msg)
@@ -35,12 +35,12 @@ def outer_function2(msg):
     return inner_function  # returns it ready to be executed, but not executed.
 
 
-hi_func = outer_function2('hi!')
-bye_func = outer_function2('bye!')
+hi_func = outer_function2("hi!")
+bye_func = outer_function2("bye!")
 
 hi_func()
 bye_func()
-print('End Closure recap\n')
+print("End Closure recap\n")
 
 # end closures.
 
@@ -56,7 +56,7 @@ functions source code.
 
 def decorator_function(orginial_function):
     def wrapper_function():
-        print('I ran before {}'.format(orginial_function.__name__))
+        print("I ran before {}".format(orginial_function.__name__))
         return orginial_function()
 
     return wrapper_function
@@ -64,15 +64,15 @@ def decorator_function(orginial_function):
 
 @decorator_function  # == display = decorator_function(display)
 def display():
-    print('display function ran!')
+    print("display function ran!")
 
 
-print('normal closure below')
+print("normal closure below")
 decorator_function(display())  # normal closure.
-print('\nthe literal decorator is being called..')
+print("\nthe literal decorator is being called..")
 without_brackets = decorator_function(display)  # this is a decorator, w/out @.
 without_brackets()
-print('\n.. now for the decorator!')
+print("\n.. now for the decorator!")
 display()  # calling the @decorator_function, decorator.
 
 """Now for decorators that take arguments:
@@ -82,7 +82,7 @@ Using *args and **kwargs can be the solution to this"""
 def postional_args(fn):
     def wrapper(*args, **kwargs):  # wrapper takes the *args, **kwargs
         print()
-        print('Now with added args!')
+        print("Now with added args!")
         return fn(*args, **kwargs)  # and returns them in the fn function.
 
     return wrapper
@@ -90,10 +90,10 @@ def postional_args(fn):
 
 @postional_args
 def fullname(first, last):
-    print('My full name is {} {}'.format(first, last))
+    print("My full name is {} {}".format(first, last))
 
 
-fullname('Tony', 'Stark')
+fullname("Tony", "Stark")
 
 
 class DecoratorClass(object):
@@ -105,23 +105,23 @@ class DecoratorClass(object):
     def __call__(self, *args, **kwargs):
         """__call__ behaves like the 'wrapper_function'"""
         print()
-        print('Now with added class!!')
-        print(f'Decorated Function: {self.function_to_decorate.__name__}')
+        print("Now with added class!!")
+        print(f"Decorated Function: {self.function_to_decorate.__name__}")
         return self.function_to_decorate(*args, **kwargs)
 
 
 @DecoratorClass
 def test_class():
-    print('Class decorator is working!')
+    print("Class decorator is working!")
 
 
 @DecoratorClass
 def much_args(letter, word, num):
-    print(f'{letter} - {word} - {int(num)}')
+    print(f"{letter} - {word} - {int(num)}")
 
 
 test_class()
-much_args('L', 'Dog', '15')
+much_args("L", "Dog", "15")
 
 """Specific use cases; real world examples
 
@@ -135,14 +135,14 @@ from functools import wraps
 
 def logger(function_to_log):
     import logging
-    logging.basicConfig(filename='{}.log'.format(function_to_log.__name__),
-                        level=logging.INFO)
+
+    logging.basicConfig(
+        filename="{}.log".format(function_to_log.__name__), level=logging.INFO
+    )
 
     @wraps(function_to_log)
     def wrapper(*args, **kwargs):
-        logging.info(
-            'Ran with args: {} and  kwargs: {}'.format(args, kwargs)
-        )
+        logging.info("Ran with args: {} and  kwargs: {}".format(args, kwargs))
         return function_to_log(*args, **kwargs)
 
     return wrapper
@@ -156,7 +156,7 @@ def timer(func_to_time):
         t1 = time.time()
         result = func_to_time(*args, **kwargs)
         t2 = time.time() - t1
-        print('ran {} in {} secs'.format(func_to_time.__name__, t2))
+        print("ran {} in {} secs".format(func_to_time.__name__, t2))
         return result
 
     return wrapper
@@ -168,10 +168,10 @@ def timer(func_to_time):
 @timer
 def display_stuff(name, age, weight):
     print()
-    print(f'{name} is {age} years old and weighs {weight} kilograms')
+    print(f"{name} is {age} years old and weighs {weight} kilograms")
 
 
-display_stuff('Donatello', '50', '123')
+display_stuff("Donatello", "50", "123")
 
 # display1 = logger(timer(display)) # this is how chained decorators look.
 # display1()
