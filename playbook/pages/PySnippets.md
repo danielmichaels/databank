@@ -189,3 +189,12 @@ if getattr(ip, 'pt_app', None):
                                  & ViInsertMode()))(switch_to_navigation_mode)
 
 ```
+
+## Guard Clause Type Safety
+
+How to check if variable is expected type.
+
+```python
+if type(var) not in (int, float):
+  raise TypeError(f'{var} must be a number')
+```
