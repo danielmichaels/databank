@@ -48,3 +48,7 @@ Posted articles will be marked with an [X].
 - [ ] My setup
 - [ ] __init__ load sequence
 - [ ] netstat tutorial
+- [ ] REST/API:
+  - [ ] What is a web API
+  - [ ] RESTFUL scope
+  - [ ] Methods
