@@ -6,6 +6,7 @@
   * [Purging All Unused or Dangling Images, Containers, Volumes, and Networks](#purging-all-unused-or-dangling-images-containers-volumes-and-networks)
   * [Removing Docker Images](#removing-docker-images)
   * [Permission Errors running docker commands](#permission-errors-running-docker-commands)
+  * [Interactive mode](#interactive-mode)
 
 <!-- vim-markdown-toc -->
 
@@ -32,3 +33,8 @@ sudo usermod -aG docker $USER
 sudo chmod 666 /var/run/docker.sock
 ```
 
+## Interactive mode
+
+`docker run -it -p 80:80 nginx`
+
+This will show the webserver's logs to the screen.
