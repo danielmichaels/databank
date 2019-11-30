@@ -52,3 +52,4 @@ Posted articles will be marked with an [X].
   - [ ] What is a web API
   - [ ] RESTFUL scope
   - [ ] Methods
+- [ ] Docker

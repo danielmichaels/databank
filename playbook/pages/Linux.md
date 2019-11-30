@@ -6,6 +6,7 @@
   - [Observability tools](#observability-tools)
   - [Special Parameters](#special-parameters)
   - [Soft and Hard links](#soft-and-hard-links)
+  - [Save a READ-ONLY file in vim](#save-a-read-only-file-in-vim)
   - [Count file in dir/](#count-file-in-dir)
   - [Grep Multiple Files](#grep-multiple-files)
 * [Debian Specific](#debian-specific)
@@ -44,6 +45,14 @@ __When to use Hard Links__
 - If you want to make sure your data is safe.
 - Moving files, hard links won't break but soft links will
 - Need to save storage space (soft links are ~4KB each)
+
+### Save a READ-ONLY file in vim
+
+Opened a `root` file, made changes and now can't save it?
+
+`:w !sudo tee %`
+
+It'll save it through the power of `tee`, though you will still need to exit the file using `:q!`
 
 ### Count file in dir/
 
