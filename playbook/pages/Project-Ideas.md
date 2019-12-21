@@ -19,10 +19,17 @@ A list of project ideas.
 - [ ] Provision script:
   - [ ] for dotfiles 
   - [ ] essential new build items
+  - [ ] prob use ansible
 - [ ] Python `setup.py` - automate new project with folder template.
+- [ ] Tech on Trek:
+  - [ ] gps tracker
+  - [ ] countdown timer
+  - [ ] route taken
+  - [ ] elevation map
+  - [ ] training plan
 
 ## Misc
 
 - [ ] [DIY Bench Power Supply](diy-bench-psu)
 - [X] Migrate/ consolidate misc repo's
-- [ ] backup laptop
+- [X] backup laptop
