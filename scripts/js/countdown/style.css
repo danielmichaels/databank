@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #222;
+    font: normal small-caps normal 16px/1.4 Arial;
+    font-family: 'Cairo', sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container a {
+    color: #ffffff;
+    text-decoration: none;
+}
+#reason {
+    color: #fff;
+    font-size: 4rem;
+}
+
+#timer {
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+}
+@media all and (max-width: 600px) {
+#timer, #reason{
+    font-size: 1.5rem;
+}
+}
