@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<h2>A Super simple async fetch example</h2>
+    <p>Check the console</p>
+<body>
+<script></script>
+    <script>
+        const url1 = 'https://jsonplaceholder.typicode.com/todos/1'
+        const url2 = 'https://httpbin.org/json'
+
+        async function getResp() {
+            let resp = await fetch(url1)
+            console.log(resp)
+            let data = await resp.json()
+            console.log(data)
+        }
+
+        getResp()
+    </script>
+</body>
+
+</html>
