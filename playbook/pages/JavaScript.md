@@ -56,3 +56,7 @@ function onOpen() {
   s.setActiveSelection(s.getRange("A" + r));
   }
 ```
+
+##  Fullyear current year for footer
+
+`<script>document.write(new Date().getFullYear())<script>`

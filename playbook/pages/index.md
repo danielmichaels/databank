@@ -1,4 +1,4 @@
-# My Knowledge Base
+[#](#.md) My Knowledge Base
 
 <!-- vim-markdown-toc GFM -->
 
