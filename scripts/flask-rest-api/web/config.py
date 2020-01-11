@@ -6,11 +6,14 @@ class BaseConfig:
     DEBUG = False
     TESTING = False
     SESSION_KEY = os.environ.get("SECRET_KEY") or '1243243424'
+    DEBUG_TB_ENABLED = False
 
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
     TESTING = True
+    SECRET_KEY = 'changeme!'
+    DEBUG_TB_ENABLED = True
 
 
 class ProductionConfig(BaseConfig):
