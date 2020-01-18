@@ -6,6 +6,9 @@
   - [development.py](#developmentpy)
   - [production.py](#productionpy)
   - [__init__.py](#init__py)
+* [Wagtail Embed Video](#wagtail-embed-video)
+  - [blocks.py](#blockspy)
+  - [video_card_block.html](#video_card_blockhtml)
 
 <!-- vim-markdown-toc -->
 
@@ -54,3 +57,44 @@ This works because directories with a `__init__.py` file are python packages and
 
 The most important thing to remember when running multiple settings files is that they should inherit from a common base. If we add `django-debug-toolbar` to our `INSTALLED_APPS`, we should be able to do that without redefining all the `INSTALLED_APPS`.
 
+## Wagtail Embed Video
+
+This is hard and poorly explained by Wagtail.
+
+If you want to embed a responsive Bootstrap embed along the lines of 
+
+```html
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+</div>
+```
+
+then using the default embed video inside the RichTextBlock is definitely not the way to go. It renders its own custom iframe which is difficult to wrangle and in my opinion, useless.
+
+**How do we make it?**
+
+### blocks.py
+```python
+class VideoBlock(blocks.StructBlock):
+    """Only used for Video Card modals."""
+    video = EmbedBlock() # <-- the part we need
+
+    class Meta:
+        template = "streams/video_card_block.html"
+        icon = "media"
+        label = "Embed Video"
+```
+### video_card_block.html
+```html
+{% load wagtailcore_tags wagtailembeds_tags %}
+
+{% block content %}
+    <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="{{ self.video.url }}?rel=0" allowfullscreen></iframe>
+</div>
+{% endblock %}
+```
+
+The magic here is being able to access the `{{ self.video.url }}` within the template which lets us push that string into the html attribute.
+
+Search the internet for hours and you'll eventually unlock this riddle!
