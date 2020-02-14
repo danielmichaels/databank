@@ -12,6 +12,7 @@
 * [Dict Comprehensions](#dict-comprehensions)
 * [URL decode](#url-decode)
 * [Deleted Pip?](#deleted-pip)
+* [Requests XHR](#requests-xhr)
 
 <!-- vim-markdown-toc -->
 ## pip upgrade all packages
@@ -198,3 +199,13 @@ How to check if variable is expected type.
 if type(var) not in (int, float):
   raise TypeError(f'{var} must be a number')
 ```
+
+## Requests XHR
+
+The easiest way to replay an XHR in python is to go into your browsers network tab,
+identify the request and right click selecting _copy as cURL_.
+
+Open Postman and click on _import_ in the top left. On the right is _paste raw text_, paste in
+the cURL command and hit import. Then in the main body, on the right hand side is
+a link to _Code_. Selecting this will generate a massive selection of code formatted
+output for that command. Select python and run it in your script!

@@ -1,5 +1,17 @@
 # JS
 
+<!-- vim-markdown-toc GFM -->
+
+  * [Vanilla JS](#vanilla-js)
+  * [Frameworks](#frameworks)
+  * [Google Apps JS](#google-apps-js)
+    - [Sheets](#sheets)
+      + [onOpen Today()](#onopen-today)
+  * [Fullyear current year for footer](#fullyear-current-year-for-footer)
++ [Axios](#axios)
+  * [Axios configuration](#axios-configuration)
+
+<!-- vim-markdown-toc -->
 ## Vanilla JS
 
 __for loop__
@@ -60,3 +72,14 @@ function onOpen() {
 ##  Fullyear current year for footer
 
 `<script>document.write(new Date().getFullYear())<script>`
+
+# Axios
+
+## Axios configuration
+
+To set a timeout (which you should as it defaults to 0 - indefinate) you can pass in
+configuration options in the verb.
+
+`axios.get(url, {timeout: 1000}).then(res => {console.log(res.data)}`
+
+The object following the url is the config and it will accept several attributes.
