@@ -34,6 +34,7 @@ Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'mattn/emmet-vim'
 "Plug 'altercation/vim-colors-solarized'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
@@ -241,9 +242,7 @@ nnoremap <leader>c :Calendar<CR>
 nnoremap <leader>md :InstantMarkdownPreview<CR>
 nnoremap <leader>mdx :InstantMarkdownStop<CR>
 " Insert the image URL for dwiki/images
-"nnoremap <leader>img <INSERT>https://github.com/danielmichaels/databank/playbook/blob/master/images/<CR>
-nnoremap <leader>img <INSERT>https://raw.githubusercontent.com/danielmichaels/databank/master/playbook/images/<CR>
-
+nnoremap <leader>img <INSERT>https://github.com/danielmichaels/dwiki/blob/master/images/<CR>
 
 " vim-instant-preview
 "Uncomment to override defaults:
@@ -253,10 +252,12 @@ let g:instant_markdown_autostart = 0
 "let g:instant_markdown_allow_unsafe_content = 1
 "let g:instant_markdown_allow_external_content = 0
 "let g:instant_markdown_mathjax = 1
+let g:instant_markdown_browser = "firefox --new-window"
 let g:vmt_cycle_list_item_markers = 1
 let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_dir_link = 'index'
 "let g:vimwiki_auto_toc = 1
+let g:instant_markdown_logfile = "/tmp/instant_markdown.log"
 "
 " Aggregate all vim swap files to one place. Vimwiki constant swp issues.
 " Folder '.vim/swapfiles' must be created first!!

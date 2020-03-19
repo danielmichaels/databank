@@ -66,6 +66,7 @@ plugins=(
   z
   thefuck
   dotenv
+  zsh-autosuggestions
 )
 # git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
 # ^ for k (the new l, yo)
@@ -128,6 +129,9 @@ alias el="exa --oneline"
 alias ee="exa --header --long"
 alias ea="exa --header --long --git --all"
 alias ssh="ssh -v"
+alias nextdnsup="sudo nextdns install -config b29cfa -report-client-info && sudo nextdns activate"
+alias nextdnsdown="sudo nextdns deactivate && sudo nextdns uninstall"
+alias doc='docker-compose'
 #alias history="history -E"
 #
 #######################################################
@@ -140,11 +144,14 @@ alias gl="git log --graph --oneline --decorate --all"
 alias gc="git commit"
 alias gac="git add . && git commit" # drop into EDITOR to confirm 'git add .'
 alias gp="git push -v"
+alias blog="cd /home/daniel/Code/github/danielms && atom ."
+alias gitignore="gi linux,python,visualstudiocode,node,react,vuejs,python,rust,jetbrains,go"
 #
 ######################################################
 #                Custom Functions                    #
 ######################################################
 #
+gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 cheat() { curl -s "cheat.sh/$1"; }
 startvm() { VBoxManage startvm "$1" }
 stopvm() { VBoxManage controlvm "$1" poweroff }
@@ -160,6 +167,14 @@ FTS() {
 function cd {
   builtin cd "$@" && ls -F; 
 }
+
+mkdircd() {
+  mkdir -p $1 && cd $_
+}
+
+iglow() {
+  glow "$@" -s dark | less -r
+}
 #
 ## ZSH FISH like autocompletions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
@@ -172,6 +187,7 @@ set -o vi
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
+bindkey '^ ' autosuggest-accept
 #
 #######################################################
 #                 VIRTUALENV                          #
@@ -181,6 +197,8 @@ VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
 #source /usr/bin/virtualenvwrapper.sh
 source /home/daniel/.local/bin/virtualenvwrapper.sh  #work around --user install
 export WORKON_HOME=$HOME/.virtualenvs
-alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3"
+alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3" # manually change for py2
 #source /usr/share/nvm/init-nvm.sh
 #
+
+eval $(thefuck --alias)
