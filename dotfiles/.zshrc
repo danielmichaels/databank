@@ -6,7 +6,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="dieter"
+ZSH_THEME="agnoster"
 #ZSH_THEME="avit" # termtosvg minimal theme
 
 # Set list of themes to load
@@ -65,8 +65,9 @@ plugins=(
   history
   z
   thefuck
-  dotenv
+#  dotenv
   zsh-autosuggestions
+  colored-man-pages
 )
 # git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
 # ^ for k (the new l, yo)
@@ -146,6 +147,7 @@ alias gac="git add . && git commit" # drop into EDITOR to confirm 'git add .'
 alias gp="git push -v"
 alias blog="cd /home/daniel/Code/github/danielms && atom ."
 alias gitignore="gi linux,python,visualstudiocode,node,react,vuejs,python,rust,jetbrains,go"
+alias checkout="git checkout"
 #
 ######################################################
 #                Custom Functions                    #
