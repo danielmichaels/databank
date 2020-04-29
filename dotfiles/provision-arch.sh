@@ -57,6 +57,14 @@ echo -e "zsh-syntax-hightlighting installed"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo -e "vim-plug installed"
 
+echo -e "creating $HOME/Code directory. This is needed for .zshrc alias'"
+if ! [ -d $HOME/Code ]; then
+  mkdir -p $HOME/Code
+  echo -e "$HOME/Code created!"
+else
+  echo -e "$HOME/Code already exists\n...skipping"
+fi
+
 # .tmux
 echo -e "setting up tmux"
 cd && git clone https://github.com/gpakosz/.tmux.git && ln -s -f .tmux/.tmux.conf
@@ -86,4 +94,5 @@ echo -e "virtualenvwrapper now being installed"
 pip install virtualenvwrapper
 echo -e "..done!"
 
+echo -e "[!] Provisioner Complete [!]\n\tEnjoy!"
 
