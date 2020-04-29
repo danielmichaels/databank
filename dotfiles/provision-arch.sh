@@ -94,5 +94,22 @@ echo -e "virtualenvwrapper now being installed"
 pip install virtualenvwrapper
 echo -e "..done!"
 
+# docker and docker-compose
+echo -e "[*] Docker and Docker-Compose will now be setup [*]"
+echo -e "Docker groups are being added.."
+sudo groupadd docker && sudo usermod -aG docker $USER
+#newgrp docker
+echo -e "..done\nYoy may need to log out for this to take effect!\nConfigure docker to start on boot.."
+sudo systemctl start docker
+sudo systemctl enable docker
+echo -e "..done!"
+echo -e "Downloading Docker-Compose..."
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+echo -e "..done!"
+echo -e "..applying permissions"
+sudo chmod +x /usr/local/bin/docker-compose
+echo -e "..done!"
+sudo chmod +x /usr/local/bin/docker-compose
+
 echo -e "[!] Provisioner Complete [!]\n\tEnjoy!"
 
