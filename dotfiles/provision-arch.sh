@@ -7,7 +7,7 @@ VIMRC_DL=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfil
 ZSHRC_DL=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfiles/.zshrc
 TMUX_DL=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfiles/.tmux.conf.local
 PKG_LIST=( ttf-liberation noto-fonts noto-fonts-emoji vim cmake go docker bat jq quake
-  pipx tmux discord notion-app git nmap wireshark pycharm-professional tcpdump rsync )
+  pipx tmux discord notion-app git nmap wireshark-qt pycharm-professional tcpdump rsync )
 FAIL_LIST=( )
 PIPX_PKGLIST=( tldr glances thefuck )
 
