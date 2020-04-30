@@ -79,6 +79,10 @@ curl ${VIMRC_DL} > ~/.vimrc
 curl ${ZSHRC_DL} > ~/.zshrc
 echo -e "...done"
 
+echo -e "creating NPM global prefix directory"
+mkdir -p "${HOME}/.npm-global" && npm config set prefix "${HOME}/.npm-global"
+echo -e "..done."
+
 # pipx
 echo -e "pipx installing ${PIPX_PKGS}"
 for i in "${PIPX_PKGLIST[@]}"
