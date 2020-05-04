@@ -58,6 +58,14 @@ echo -e "zsh-syntax-hightlighting installed"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo -e "vim-plug installed"
 
+echo -e "creating $HOME/Code directory. This is needed for .zshrc alias'"
+if ! [ -d $HOME/Code ]; then
+  mkdir -p $HOME/Code
+  echo -e "$HOME/Code created!"
+else
+  echo -e "$HOME/Code already exists\n...skipping"
+fi
+
 # .tmux
 echo -e "setting up tmux"
 cd && git clone https://github.com/gpakosz/.tmux.git && ln -s -f .tmux/.tmux.conf
@@ -72,6 +80,10 @@ curl ${VIMRC_DL} > $HOME/.vimrc
 curl ${ZSHRC_DL} > $HOME/.zshrc
 curl ${AGNOSTER} > $HOME/.oh-my-zsh/themes/agnoster.zsh-theme
 echo -e "...done"
+
+echo -e "creating NPM global prefix directory"
+mkdir -p "${HOME}/.npm-global" && npm config set prefix "${HOME}/.npm-global"
+echo -e "..done."
 
 # pipx
 echo -e "pipx installing ${PIPX_PKGS}"
@@ -88,4 +100,22 @@ echo -e "virtualenvwrapper now being installed"
 pip install virtualenvwrapper
 echo -e "..done!"
 
+# docker and docker-compose
+echo -e "[*] Docker and Docker-Compose will now be setup [*]"
+echo -e "Docker groups are being added.."
+sudo groupadd docker && sudo usermod -aG docker $USER
+#newgrp docker
+echo -e "..done\nYoy may need to log out for this to take effect!\nConfigure docker to start on boot.."
+sudo systemctl start docker
+sudo systemctl enable docker
+echo -e "..done!"
+echo -e "Downloading Docker-Compose..."
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+echo -e "..done!"
+echo -e "..applying permissions"
+sudo chmod +x /usr/local/bin/docker-compose
+echo -e "..done!"
+sudo chmod +x /usr/local/bin/docker-compose
+
+echo -e "[!] Provisioner Complete [!]\n\tEnjoy!"
 

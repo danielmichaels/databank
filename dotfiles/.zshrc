@@ -113,6 +113,12 @@ export PATH=$PATH:~/.local/bin
 export GOPATH=$HOME/Code/go
 export PATH=$PATH:$(go env GOPATH)/bin
 export EDITOR=vim
+#export NPM_CONFIG_PREFIX=$HOME/.npm-global
+NPM_PACKAGES="${HOME}/.npm-global"
+export PATH="$PATH:$NPM_PACKAGES/bin"
+# Preserve MANPATH if you already defined it somewhere in your config.
+# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 #
 #######################################################
 #                  General Alias                      #
@@ -145,7 +151,7 @@ alias gl="git log --graph --oneline --decorate --all"
 alias gc="git commit"
 alias gac="git add . && git commit" # drop into EDITOR to confirm 'git add .'
 alias gp="git push -v"
-alias blog="cd /home/daniel/Code/github/danielms && atom ."
+alias blog="cd $HOME/Code/github/danielms && code ."
 alias gitignore="gi linux,python,visualstudiocode,node,react,vuejs,python,rust,jetbrains,go"
 alias checkout="git checkout"
 #
@@ -178,9 +184,6 @@ iglow() {
   glow "$@" -s dark | less -r
 }
 #
-## ZSH FISH like autocompletions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-#
 #######################################################
 #                 VIM bindings                        #
 #######################################################
@@ -197,10 +200,9 @@ bindkey '^ ' autosuggest-accept
 #
 VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
 #source /usr/bin/virtualenvwrapper.sh
-source /home/daniel/.local/bin/virtualenvwrapper.sh  #work around --user install
+source /home/$USER/.local/bin/virtualenvwrapper.sh  #work around --user install
 export WORKON_HOME=$HOME/.virtualenvs
 alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3" # manually change for py2
 #source /usr/share/nvm/init-nvm.sh
 #
-
 eval $(thefuck --alias)
