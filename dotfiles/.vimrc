@@ -31,7 +31,7 @@ Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'mattn/calendar-vim'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-fugitive'
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mzlogin/vim-markdown-toc'
@@ -46,8 +46,8 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'stephpy/vim-yaml'
 Plug 'pearofducks/ansible-vim'
 "Plug 'altercation/vim-colors-solarized'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
