@@ -6,6 +6,7 @@ VERSION=1.0
 VIMRC_DL=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfiles/.vimrc
 ZSHRC_DL=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfiles/.zshrc
 TMUX_DL=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfiles/.tmux.conf.local
+AGNOSTER=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfiles/agnoster.zsh-theme
 PKG_LIST=( ttf-liberation noto-fonts noto-fonts-emoji vim cmake go docker bat jq quake
   pipx tmux discord notion-app git nmap wireshark-qt pycharm-professional tcpdump rsync )
 FAIL_LIST=( )
@@ -66,9 +67,10 @@ cd
 echo -e "custom tmux setup complete."
 
 # dotfiles
-echo -e "creating custom .vimrc and .zshrc files"
-curl ${VIMRC_DL} > ~/.vimrc
-curl ${ZSHRC_DL} > ~/.zshrc
+echo -e "creating custom .vimrc and .zshrc files, including custom agnoster theme.."
+curl ${VIMRC_DL} > $HOME/.vimrc
+curl ${ZSHRC_DL} > $HOME/.zshrc
+curl ${AGNOSTER} > $HOME/.oh-my-zsh/themes/agnoster.zsh-theme
 echo -e "...done"
 
 # pipx

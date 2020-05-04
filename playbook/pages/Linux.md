@@ -21,6 +21,8 @@ Collections of `linux` related stuff
 
 ## Linux General
 
+[resize lvm](resize-lvm.md)
+
 ### Observability tools
 
 ![observability tools](https://raw.githubusercontent.com/danielmichaels/databank/master/playbook/images/linux-obserability-tools.png 'linux observabiliity tools')
