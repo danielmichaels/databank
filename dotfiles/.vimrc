@@ -20,6 +20,7 @@
 set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 
 call plug#begin()
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -30,14 +31,23 @@ Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'mattn/calendar-vim'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-fugitive'
-"Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'mattn/emmet-vim'
+" Language and File types
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'chr4/nginx.vim'
+Plug 'chrisbra/csv.vim'
+Plug 'ekalinin/dockerfile.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'stephpy/vim-yaml'
+Plug 'pearofducks/ansible-vim'
 "Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -70,11 +80,17 @@ let g:ycm_autoclose_preview_window_after_completion=1
 syntax enable             " enable syntax highlighting (previously syntax on).
 set t_Co=256              " enable 256-color mode.
 "set t_Co=16              " enable 16-color mode.
-"set background=dark
-"colorscheme solarized
-"let g:solarized_termcolors=256
-"let g:solarized_termcolors=16
-colo seoul256
+"colo seoul256
+" Enable 24-bit true colors if your terminal supports it.
+if (has("termguicolors"))
+   " https://github.com/vim/vim/issues/993#issuecomment-255651605
+     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+  set termguicolors
+endif
+colorscheme onedark
+set background=dark
 
 " Prettify JSON files
 autocmd BufRead,BufNewFile *.json set filetype=json
