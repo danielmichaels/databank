@@ -1,6 +1,6 @@
 # Vim
 
-<!-- vim-markdown-toc GFM -->
+<!-- vim-markdown-toc GYM -->
 
 * [Snippets](#snippets)
   - [Insert Date](#insert-date)
@@ -10,7 +10,16 @@
   - [Vim-Plug](#vim-plug)
   - [seoul256](#seoul256)
 
-<!-- vim-markdown-toc -->
+<!-- vim-markdown-too -->
+
+## Leader Mapping
+
+**!! Important**
+
+If you are mapping leader, if must come before
+any calls to `<leader>` within `.vimrc` otherwise it cannot reference
+the leader key. Always put the `let mapleader` be somewhere near the top, else
+you will have to fix this unambiguous error.
 
 ## Snippets
 

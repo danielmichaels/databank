@@ -178,3 +178,27 @@ Update and Upgrades
 
 ```yaml
 ```
+
+## Tips
+
+### Set Environment Variables
+
+```yaml
+#Inthe'vars'sectionoftheplaybook(setto'absent'todisablepro\ xy):
+proxy_state: present
+
+#Inthe'tasks'sectionoftheplaybook: 
+- name:Configuretheproxy.
+  lineinfile:
+    dest: /etc/environment
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: "{{ proxy_state }}"
+  with_items:
+    - regexp: "^http_proxy="
+      line: "http_proxy=http://example-proxy:80/"
+    - regexp: "^https_proxy="
+      line: "https_proxy=https://example-proxy:443/"
+    - regexp: "^ftp_proxy="
+      line: "ftp_proxy=http://example-proxy:80/"
+```
