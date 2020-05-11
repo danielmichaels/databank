@@ -7,8 +7,10 @@ VIMRC_DL=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfil
 ZSHRC_DL=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfiles/.zshrc
 TMUX_DL=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfiles/.tmux.conf.local
 AGNOSTER=https://raw.githubusercontent.com/danielmichaels/databank/master/dotfiles/agnoster.zsh-theme
-PKG_LIST=( ttf-liberation noto-fonts noto-fonts-emoji vim cmake go docker bat jq quake
-  pipx tmux discord notion-app git nmap wireshark-qt pycharm-professional tcpdump rsync )
+PKG_LIST=( ttf-liberation noto-fonts noto-fonts-emoji vim cmake go docker bat jq quake vagrant dropbox
+  pipx tmux discord notion-app git nmap wireshark-qt pycharm-professional tcpdump rsync ansible
+  postman dive bmon google-chrome opera virtualbox virtualbox-ext-oracle
+)
 FAIL_LIST=( )
 PIPX_PKGLIST=( tldr glances thefuck )
 
