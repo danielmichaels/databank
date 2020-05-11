@@ -20,23 +20,23 @@
 set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 
 call plug#begin()
-Plug 'joshdick/onedark.vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', {'for': ['go', 'markdown'] } "Loads only when editing go files
-Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind'] } "Loads only when opening NERDTree
-Plug 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
+", {'on': ['NERDTreeToggle', 'NERDTreeFind'] } "Loads only when opening NERDTree
+" above was removed as it prevents NERDTree from loading when calling 'vim' 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'mattn/calendar-vim'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-fugitive'
 "Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'mattn/emmet-vim'
 " Language and File types
+Plug 'machakann/vim-highlightedyank'
+Plug 'junegunn/fzf.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'chr4/nginx.vim'
 Plug 'chrisbra/csv.vim'
@@ -45,15 +45,27 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'stephpy/vim-yaml'
 Plug 'pearofducks/ansible-vim'
+Plug 'lifepillar/pgsql.vim'
+Plug 'othree/html5.vim'
+" Colours and Themes
 "Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
+Plug 'joshdick/onedark.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+" Automatically show Vim's complete menu while typing.
+Plug 'vim-scripts/AutoComplPop'
+" A bunch of useful language related snippets (ultisnips is the engine).
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 02. Events                                                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=" "
+"let mapleader = "\<Space>"
 
 filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 " :set paste is now macro'd to F2; this prevents 
@@ -69,10 +81,19 @@ autocmd FileType ruby setlocal sw=2 ts=2 sts=2
 set ofu=syntaxcomplete#Complete
 set clipboard=unnamed
 "
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" Source Vim config file.
+map <Leader>sc :source $MYVIMRC<CR>
+" Edit Vim config file in a new tab.
+map <Leader>ev :tabnew $MYVIMRC<CR>
 "
-"autocomplete
+" autocomplete
 let g:ycm_autoclose_preview_window_after_completion=1
+" Press * to search for the term under the cursor or a visual selection and
+" " then press a key below to replace all instances of it in the current file.
+nnoremap <Leader>r :%s///g<Left><Left>
+nnoremap <Leader>rc :%s///gc<Left><Left><Left>
+let g:UltiSnipsExpandTrigger="<F3>"
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 03. Theme/Colors                                                           "
@@ -141,7 +162,7 @@ set expandtab             " use spaces instead of tabs
 set smartindent           " automatically insert one extra level of indentation
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
-
+set complete+=kspell      " autocomplete for misspelt words
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 "------------Start Python PEP 8 stuff----------------
@@ -170,15 +191,20 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 au BufNewFile,BufRead *.js,*.html,*.css
     \ setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
+" maps <F9> to the run script in Python only
 nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
-" ^ maps <F9> to the run script in Python only
+
+" maps ;w as save as well as :w
 nmap ;w :w<CR>
-" ^ maps ;w as save instead of :w
-let g:NERDTreeWinSize=20
+
+" Spelling
 set spell spelllang=en_au
-nnoremap <leader>f 1z=
-nnoremap <leader>s :set spell!
+" Automatically fix the last misspelled word and jump back to where you were.
+" "   Taken from this talk: https://www.youtube.com/watch?v=lwD8G1P52Sk
+nnoremap <leader>sp :normal! mz[s1z=`z<CR>
 :hi SpellBad cterm=underline ctermfg=red
+
+"nnoremap <leader>f 1z=
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 06. Custom Commands                                                        "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -186,22 +212,33 @@ nnoremap <leader>s :set spell!
 " Prettify JSON files making them easier to read
 command PrettyJSON %!python -m json.tool
 "
-let mapleader=" "
-let mapleader = "\<Space>"
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 inoremap jk <ESC>
-""inoremap " ""<left>
-""inoremap ' ''<left>
-"inoremap ( ()<left>
-"inoremap [ []<left>
-"inoremap { {}<left>
-"inoremap {<CR> {<CR>}<ESC>O
-"inoremap {;<CR> {<CR>};<ESC>O
+
+" NERDTree
+" Start NERDTree on calling 'vim'; must be enabled on startup to function.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Hot keys
+"nnoremap <silent> <expr> <Leader>n g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+nnoremap <Leader>n :NERDTreeToggle<Enter>
+
+let g:NERDTreeShowHidden=1
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeQuitOnOpen=0
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let g:NERDTreeWinSize=20
+
+" Toggle spell check
+nmap <F5> :setlocal spell!<CR>
+" Toggle relative line number and regular line number
+nmap <F6> :set invrelativenumber<CR> 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 07. Hybrid line numbering
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-":set number relativenumber
+:set number relativenumber
 
 :augroup numbertoggle
 :  autocmd!
