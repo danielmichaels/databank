@@ -55,8 +55,8 @@ Things I have learnt along the way that proved useful, or looked up more than on
 
 ## Misc
 
+- [Ideation](Ideation.md)
 - [Blog Post Ideas](Blog-ideas.md)
-- [Project Ideas](Project-Ideas)
 - [Thoughts](Thoughts)
 
 ## Education
