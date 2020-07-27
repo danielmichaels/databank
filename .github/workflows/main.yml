@@ -24,6 +24,6 @@ jobs:
         with:
           auth: ${{ secrets.GIST_TOKEN }}
           gist_url: https://gist.github.com/danielmichaels/4b8bad44478c52cf0ce28731b39b6046
-          gist_title: Ideation
+          gist_title: Ideation.md
           gist_description: A list of random idea; mostly useless
           github_file: playbook/pages/Ideation.md
