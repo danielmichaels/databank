@@ -49,4 +49,23 @@ New List:
 - Save the date emails with website and admin login to track RSVP for guests
 - FastAPI cookiecutter ML library
 - Maritime tracker software using the AIS
-
+- Go libraries for devops
+- Catalog golang devops reasoning
+- golang django equivalent (start project etc)
+- Docker GUI for local development using FastAPI and Vue or Golang and Vue - Virtual console a la openshift, mount volumes on click etc
+- Start writing my autobiography (for my kids not profit)
+- write about how to remove secrets from git
+- Kids birthday party RSVP with allergy alert web app
+- Create a email button that actually sends the owner a slack message (more timely) but users think they're sending an email
+- timesheet automator for government worker (excel still rules here and its shit) - must be excel compatible
+- Meeting management for multi TZ teams
+- Azure cost analyzer application (access account and works out cost savings)
+- Mechanic website boilerplate with built in scheduling
+- Used bookstore website boiler plate with built in ISBN tracking linked to purchases so users can see whats in store more readily
+- Github action for automatically pushing code to a GitLab remote (which could then kick off the real build/ container storage)
+- Scraping as a service for hard to get sites | just redo all my scrapers on one platform
+- Freelance offering small business cheap monthly recurring access to 5-page static site with unlimited edits and 24/7 support
+- Build a portfolio of Hugo static sites to backup the last point
+- Lazydocker implementation but as GUI
+- Gitlab Runner gui
+- Kid friendly animal pic service like r/NatureIsFuckingLit
