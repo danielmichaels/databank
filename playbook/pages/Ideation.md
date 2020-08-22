@@ -69,3 +69,20 @@ New List:
 - Lazydocker implementation but as GUI
 - Gitlab Runner gui
 - Kid friendly animal pic service like r/NatureIsFuckingLit
+- Gumtree and Twillio client for getting timely deals
+- Fire alarm that is linked to phones or messaging services so owners get instant updates
+- Fire alarms that also have camera's integrated for real-time view into the fire, location and intensity
+- Accountability system that you need to write in each day and it gets sent to your accountability partner for rating
+- Golang port forwarding binary that takes sane defaults
+- Websockets C&C server built in Go
+- Today-I-Learnt application for sharing knowledge | make it easier for yourself to review
+- Miyaki method for home gardens (inspire people to get back to nature)
+- Django-rest-framework guide or short book
+- Code time tracking aggregator (imports in all the other apps as well)
+- Version control but for word and ppt documents - make VC a thing for uni students in Arts and Business etc
+- Development box setup tool that automatically pulls in the latest updates for a set of sane tools that most dev's need
+- A functional way to make podman the new docker - a compose like interface that works is needed
+- Silly string shooter connected to your rear bumper that detects if a car is within 70cm and if so shoots a burst on their bumper
+- Thermal image scanner that detects body temp on entry to buildings 
+- Thin sole shoe for hikers thats cost effective
+- Situational awareness tool that uses a phones GPS
