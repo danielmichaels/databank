@@ -34,6 +34,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'mattn/emmet-vim'
+Plug 'majutsushi/tagbar'
 " Language and File types
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/fzf.vim'
@@ -59,6 +60,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'vim-scripts/AutoComplPop'
 " A bunch of useful language related snippets (ultisnips is the engine).
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -66,6 +68,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
 "let mapleader = "\<Space>"
+:set mouse=n
 
 filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 " :set paste is now macro'd to F2; this prevents 
@@ -219,6 +222,8 @@ inoremap jk <ESC>
 " Start NERDTree on calling 'vim'; must be enabled on startup to function.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" shut vim if only the NERDTree pane is open.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Hot keys
 "nnoremap <silent> <expr> <Leader>n g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
@@ -230,6 +235,7 @@ let g:NERDTreeQuitOnOpen=0
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:NERDTreeWinSize=20
 
+map <leader>t :TagbarToggle<CR>
 " Toggle spell check
 nmap <F5> :setlocal spell!<CR>
 " Toggle relative line number and regular line number

@@ -6,6 +6,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="spaceship"
 ZSH_THEME="agnoster"
 #ZSH_THEME="avit" # termtosvg minimal theme
 
@@ -49,7 +50,7 @@ ZSH_THEME="agnoster"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -67,6 +68,7 @@ plugins=(
   thefuck
 #  dotenv
   zsh-autosuggestions
+  poetry
   colored-man-pages
 )
 # git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
@@ -112,18 +114,19 @@ export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/.local/bin
 export GOPATH=$HOME/Code/go
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=~/.npm-global/bin:$PATH
 export EDITOR=vim
 #
 #######################################################
 #                  General Alias                      #
 #######################################################
 #
-alias zshrc="vim ~/.zshrc"
-alias szshrc="source ~/.zshrc"
+alias zs="vim ~/.zshrc"
+alias sz="source ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias fzfp="fzf --preview='head -$LINES {}'"
 alias TS="trizen -Syu"
-alias inet="ifconfig | grep -C 2 -i inet"
+alias inet="ip -br a"
 alias wiki="vim $HOME/Code/github/databank/playbook/pages/index.md"
 alias e="exa"
 alias el="exa --oneline"
@@ -133,6 +136,7 @@ alias ssh="ssh -v"
 alias nextdnsup="sudo nextdns install -config b29cfa -report-client-info && sudo nextdns activate"
 alias nextdnsdown="sudo nextdns deactivate && sudo nextdns uninstall"
 alias doc='docker-compose'
+alias notes='code $HOME/Documents/notes/'
 #alias history="history -E"
 #
 #######################################################
@@ -145,7 +149,7 @@ alias gl="git log --graph --oneline --decorate --all"
 alias gc="git commit"
 alias gac="git add . && git commit" # drop into EDITOR to confirm 'git add .'
 alias gp="git push -v"
-alias blog="cd /home/daniel/Code/github/danielms && atom ."
+alias blog="cd $HOME/Code/github/danielms && code ."
 alias gitignore="gi linux,python,visualstudiocode,node,react,vuejs,python,rust,jetbrains,go"
 alias checkout="git checkout"
 #
@@ -174,13 +178,6 @@ mkdircd() {
   mkdir -p $1 && cd $_
 }
 
-iglow() {
-  glow "$@" -s dark | less -r
-}
-#
-## ZSH FISH like autocompletions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-#
 #######################################################
 #                 VIM bindings                        #
 #######################################################
@@ -197,10 +194,12 @@ bindkey '^ ' autosuggest-accept
 #
 VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
 #source /usr/bin/virtualenvwrapper.sh
-source /home/daniel/.local/bin/virtualenvwrapper.sh  #work around --user install
+source $HOME/.local/bin/virtualenvwrapper.sh  #work around --user install
 export WORKON_HOME=$HOME/.virtualenvs
 alias mkvirtualenv="mkvirtualenv --python=/usr/bin/python3" # manually change for py2
 #source /usr/share/nvm/init-nvm.sh
 #
 
 eval $(thefuck --alias)
+eval "$(starship init zsh)"
+
