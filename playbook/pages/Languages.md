@@ -6,6 +6,7 @@
 + [Go](#go)
 + [Bash](#bash)
 + [JavaScript](#javascript)
++ [JSON tips](#json-tips)
   * [Paradigms](#paradigms)
   * [Engineering](#engineering)
   * [Databases](#databases)
@@ -16,6 +17,7 @@
 # Go
 # [Bash](Bash)
 # [JavaScript](JavaScript)
+# [JSON tips](JSON-tips.md)
 
 ## Paradigms
 
