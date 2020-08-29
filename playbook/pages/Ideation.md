@@ -73,4 +73,17 @@ New List:
 - Inventory and invoice software for niche industry such as Fasteners
 - Stocktake tool for pubs/clubs and re-orders in real-time
 - Online coaching platform for developers
-
+- Sales funnel and marketing course for influencer/content creators
+- A CRM for influencers
+- Appointment reminder service that emails and texts people to prevent lost time/revenue from no-shows
+- Coffee date reminder service
+- Beanhunter-like replacement for Australia
+- Vision board like creator that takes in a collection of words and creates boards/word maps
+- Density and plant calculator for Miyaki method gardens to produce the optimal arrangements and to ensure only natives are introduced
+- Video hosting platform for network marketers to produce and host their validation videos on
+- Auto-unsubscriber for all the apps and newsletters we subscribe to; gives cost analysis when unsub after a period on inactivity
+- Realtime power meter that scans providers sites and tells you when to switch and how to explain why
+- Fuelwatch-like scanner for local areas with a km tracking element to tell you when *you* should fill up to avoid getting ripped off
+- Charger that only turns on in off-peak or low cost times (for things like brush cutter batteries etc)
+- Tax estimator that gives advice on possible tax solutions and which accountant or advisor to see in your local
+- Sport finder; where are your areas N type sports teams - like a social network where they can advertise for players too
