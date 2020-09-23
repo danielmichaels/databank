@@ -80,9 +80,56 @@ New List:
 - Django-rest-framework guide or short book
 - Code time tracking aggregator (imports in all the other apps as well)
 - Version control but for word and ppt documents - make VC a thing for uni students in Arts and Business etc
-- Development box setup tool that automatically pulls in the latest updates for a set of sane tools that most dev's need
+- Development box setup tool that automatically pulls in the latest updates for a set of sane tools that most comparison's need
 - A functional way to make podman the new docker - a compose like interface that works is needed
 - Silly string shooter connected to your rear bumper that detects if a car is within 70cm and if so shoots a burst on their bumper
 - Thermal image scanner that detects body temp on entry to buildings 
 - Thin sole shoe for hikers thats cost effective
 - Situational awareness tool that uses a phones GPS
+- Make a bid for parts of the radio spectrum specifically for 5G bands
+- Flight Simulator geotagger for flying to particular points of reference
+- Balloon screen printing service for events, companies etc with delivery options included
+- Letter as a service; users provide the text and we mail it that day at inflated prices
+- Envelopes which double as the paper the which the letter is written on.
+- Apple (or other fruit) distribution, yields and order/ invoice software that growers can self host
+- Solar arrays for consumers roofs that are cost effective and plug into battery but not the grid to offset small appliances
+- Wind/ weather vein that produces power from wind, sun and friction
+- Solar battery using pumped storage philosophy but uses weights instead
+- Bullet casings make from hardened skins rather than brass (major redesign of the weapon though)
+- Cheaper email services for remote/ under serviced communities such as rural using the Ascuderu model
+- Provisioning as a service for small businesses when they enter the cloud - ansible etc
+- No-code cookiecutter solutions for common website tasks such as newsletters and email forms
+- Doctors pharmaceutical comparison tool thats not written in garbage c++ or java based on web with real time lookups
+- MITM tool designed for phones to target mobile API endpoints
+- Firebase searcher for open targets
+- Starlink subscription and service Provisioning for under serviced locales eg twillio or email like service
+- Emails to trigger API's so if a user wants more X they send an email with <string>-<their_id> and it will send it out and charge their card. For when you don't have great comms
+- Golang mobile dongle adapter for linux or rust
+- Waste management software for big corps that isn't garbage enterprise gear
+- Wins and Goals tracker for resumes and self-appraisals 
+- Goals writer app that fits well with the mind storming approach detailed by Brian Tracy
+- ATAK Ideas:
+  - point defence/surveillance plugged into drones e.g. patrolling cars replaced with drones that can detect movement using software and thermal
+  - Drones that update maps in real-time and produce content that ATAK automatically downloads
+  - Farmers and drones on ATAK to see crop yield, weed levels or animal pests in near or real-time
+  - ATAK for family tracking, comms when separated
+  - Fake location reporting for realistic wargamming/training that shows red and blue fake locations, train against the possibility of GPS going down etc
+  - ATAK and 'fake' JTAC fires training could also use AR to produce life like strikes and re-attacks etc
+  - ATAK defence systems integration for UHWNI
+  - Fire tracking linked to ATAK with cameras for in house/office so fire services can detect the fire origin in real-time and playback to see who inside and safe entries
+- Accountability tracking software that you assign a buddy and they are subscribed to your feed, provide feedback and rate you
+- Reminder service that leverages SMS and data messenger platforms
+- Deployment template for start-ups like a SaaS pegasus model but for deployment with options for Heroku, DO, AWS, AZ, GCP
+- Mesh car connectivity for tracking incidents and dangerous roads that could influence insurance prices in real-time e.g. this route is faster but 50% more incidents your premium will increase by 7% along this route, route b premium decrease 3% etc
+- Website dedicated to trusts for Australians - chooseatrust.com.au
+- Landscape before/after application so builds/landscapers can showcase what they've done with their invoices etc
+- Activity tracker for android that leverages googles "movement" data model i.e. you ran for 21 minutes today, sat for 9 hours, sleep 6.5 hours etc
+- Cloud-init scripting tools / YAML generator
+- BosMonster app for families that has calendar, finances, shopping lists, recipes, schedules etc
+- Automated coffee maker that actually works and produces steamed milk to replace barristers
+- APRS (automatic packet reporting system) radio integration info web app for building configs and displaying information if linked to ATAK
+- ATAK-PR APRS plugin
+- Real estate price scraper for sales prices that collates all of Australian market from all sources as well as advertised prices against eventual sold for inflated market bargaining v real cost
+- Unimproved land value scraper for all locations in Australia
+- Insurance, rates and running costs estimator to accompany costs of purchase in the real estate market. Include real time (generic) insurance for occupiers and investors
+- Short URL service for brand control 
