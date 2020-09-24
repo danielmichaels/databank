@@ -17,6 +17,8 @@ __Jerry Seinfield on 'quality time':__
 
 > “It should be noted that no ethically-trained software engineer would ever consent to write a DestroyBaghdad procedure. Basic professional ethics would instead require him to write a DestroyCity procedure, to which Baghdad could be given as a parameter.” — Nathaniel Borenstein, 1992
 
+> "...be in the top 25% of two or three fields and you'll be more successful than being in the top 1% of one.." - Scott Adams
+
 > "Today's pleasures beckon stronger than tomorrows pain"
 __On Learning goals__:
 
