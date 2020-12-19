@@ -6,11 +6,9 @@ block = "custom"
 command = "curl api.ipify.org"
 
 [[block]]
-block = "net"
-device = "enp6s0"
-format = "{speed_down} {graph_down}"
-interval = 5
-use_bits = false
+block = "networkmanager"
+on_click = "alacritty -e nmtui"
+interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+", "vnet\\d+"]
 
 [[block]]
 block = "docker"
