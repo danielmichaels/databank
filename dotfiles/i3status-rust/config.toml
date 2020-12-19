@@ -8,7 +8,10 @@ command = "curl api.ipify.org"
 [[block]]
 block = "networkmanager"
 on_click = "alacritty -e nmtui"
-interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+", "vnet\\d+"]
+interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+", "vnet\\d+", "virbr*"]
+interface_name_include = []
+ap_format = "{ssid}:{strength} {freq}Ghz"
+
 
 [[block]]
 block = "docker"

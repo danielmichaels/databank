@@ -133,3 +133,4 @@ New List:
 - Unimproved land value scraper for all locations in Australia
 - Insurance, rates and running costs estimator to accompany costs of purchase in the real estate market. Include real time (generic) insurance for occupiers and investors
 - Short URL service for brand control 
+- gold price tracker (silver as well)
