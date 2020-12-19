@@ -8,16 +8,18 @@ command = "curl api.ipify.org"
 [[block]]
 block = "networkmanager"
 on_click = "alacritty -e nmtui"
-interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+", "vnet\\d+"]
+interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+", "vnet\\d+", "virbr*"]
 interface_name_include = []
+ap_format = "{ssid}:{strength} {freq}Ghz"
 
-[[block]]
-block = "net"
-#device = "enp6s0"
-device = "wlp0s26f7u3u4"
-format = "{speed_down} {graph_down}"
-interval = 5
-use_bits = false
+
+#[[block]]
+#block = "net"
+##device = "enp6s0"
+#device = "wlp0s26f7u3u4"
+#format = "{speed_down} {graph_down}"
+#interval = 5
+#use_bits = false
 
 [[block]]
 block = "docker"
