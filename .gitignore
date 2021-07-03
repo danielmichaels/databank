@@ -247,3 +247,4 @@ employee.db
 weather_test1.db
 .vscode
 node_modules/
+.obsidian

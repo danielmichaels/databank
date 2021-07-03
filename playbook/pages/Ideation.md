@@ -134,3 +134,53 @@ New List:
 - Insurance, rates and running costs estimator to accompany costs of purchase in the real estate market. Include real time (generic) insurance for occupiers and investors
 - Short URL service for brand control 
 - gold price tracker (silver as well)
+-  TOR web scraper
+- Ebay/Amzn/Gumtree global webscraper (al a Gummy Search)
+- Arbitrage bot for Australia which checks overseas prices and diff's the cost of import versus buy local
+- Slack-to-Email bot
+- Goland fintech api (vague!)
+- Privacy based delivery services; dead letter drop on demand
+- Aerial firefighting SA tool or integration into ATAK suite
+- Christmas Kids: a gift registry for xmas which saving schemes and rates needed to achieve and deliver the goods for December
+- MLM CRM tool 
+- Tracking software for temp fencing and port-a-loo's so owners know exactly where their assets are
+- Newsletter for tracking military special operations 
+- VR/AR Ice Hockey skills trainer
+- AR shadow boxing software with haptic feedback and fault fixes
+- Super Forecasting news site (no names, authors etc just news)
+- Insider trading bot which triggers when known employees make trades on their stock
+- GPS/BT tracking clothing for children
+- Alembic wrapper that is as useful as Django's `south` was
+- Food SKU analysis tool - how much food is in production in our grazing land right now and what will the price be in real time
+- Fire load assessment drones
+- Phone imaging and destruction services for corporations 
+- Recompose in Australia
+- Float tank business in Canberra
+- E-commerce sites specifically for MLM business owners
+- Shopify for gun dealers
+- Stripe but for crypto
+- Modafinil benefits website
+- Tradesman hiring and job finder similar to UpWork but for tradies
+- Cloud dashboards for farming yields
+- Miyaki garden appreciation website
+- Go for Python developers course
+- Desk Pilot: a website about improving posture and health for desk bound workers
+- Water API - track how much drinking water we have left, and costs in real-time
+- Nuclear reactors in Australia website
+- H2Ochain - blockchain for water prices/availability 
+- Carbon Credits API
+- Dog Minder booking software/CRM
+- AIS Monitor for tracking boats and illegal activities
+- Curl for Developers course
+- Fuel tracking software for big fleets to reduce prices and get the best deals
+- Clothing deep fakes - upload your body shot and on any clothing website emulate what it might look like on you
+- BuiltWith alternative
+- MAC, ISBN, IMEI, Radio Part number register and lookup API for all products registered
+- Shodan alternative
+- NMAP/MASSCAN online deployment
+- On demand VPN which is ephemerally created and destroyed 
+- Space launch window planner
+- IG Scheduling app
+- FlightChain - block chain for all flights and flight manifests 
+- Discord -> Slack -> WhatsApp syndicator 
+- 
