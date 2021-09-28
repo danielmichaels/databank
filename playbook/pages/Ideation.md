@@ -7,6 +7,15 @@ Old List:
 
 - [Project Ideas](Project-Ideas)
 
+Idea filters from [Derrick Reimer](https://derrickreimer.com):
+
+- The market must already exist
+- MVP must be shippable within a few months
+- The product should not be mission-critical
+- Making a sale shouldn’t require more than a few decision makers
+- Native apps should not be a minimum requirement
+- The market should overlap with my existing audience
+
 New List:
 
 - shoe horn repairer

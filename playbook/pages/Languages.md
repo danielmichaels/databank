@@ -14,7 +14,7 @@
 <!-- vim-markdown-toc -->
 
 # [Python](Python)
-# Go
+# [Go](Golang.md)
 # [Bash](Bash)
 # [JavaScript](JavaScript)
 # [JSON tips](JSON-tips.md)
